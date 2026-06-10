@@ -20,25 +20,20 @@ export class USMap {
     const features = topojson.feature(topo, topo.objects.states).features;
     const path = d3.geoPath(); // states-albers-10m is pre-projected
 
+    // Paths are deliberately NOT focusable: focusable SVG paths get
+    // OS/browser focus rings on click (the "blue box") that CSS cannot
+    // always suppress (Safari, macOS Full Keyboard Access). Keyboard users
+    // select states via the all-51 chip buttons in the showcase section.
     this.paths = this.svg.append("g").selectAll("path")
       .data(features).join("path")
       .attr("d", path)
       .attr("class", "state")
-      .attr("tabindex", 0)
-      .attr("role", "button")
       .attr("aria-label", (d) => d.properties.name)
       .on("mousemove", (ev, d) => this.showTip(ev, d))
       .on("mouseleave", () => this.tooltip.style("opacity", 0))
       .on("click", (ev, d) => {
         const ab = STATE_ABBREV[d.properties.name];
         if (ab && onStateClick) onStateClick(ab);
-      })
-      .on("keydown", (ev, d) => {
-        if (ev.key === "Enter" || ev.key === " ") {
-          ev.preventDefault();
-          const ab = STATE_ABBREV[d.properties.name];
-          if (ab && onStateClick) onStateClick(ab);
-        }
       });
 
     this.svg.append("path")
