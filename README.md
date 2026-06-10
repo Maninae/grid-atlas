@@ -19,11 +19,16 @@ it all changed.
 - **A typical day on your grid**: hourly fuel mix averaged over all of 2025
   (EIA-930) — watch solar swell at noon and batteries take the evening
 - **All 13,400+ US power plants** mapped by size and fuel
-- **Hand-researched grid histories** for CA, TX, WA, WV, and GA
+- **Researched grid histories for all 50 states + D.C.** — the dams, deals,
+  and disasters that shaped each grid, every claim source-linked and
+  fact-checked
+- **ZIP-level utility rates** (NREL/OpenEI 2024) — see what *your* utility's
+  average price is vs. your state's
+- **Dark & light themes**, and every chart exports as a shareable PNG
 
 Everything is free, public US government data, baked into static JSON at
-build time. The site makes no API calls and collects nothing — your ZIP never
-leaves your browser.
+build time. The site calls no data APIs and collects nothing — your ZIP never
+leaves your browser. (Third-party CDNs serve only the JS libraries and fonts.)
 
 ## Run locally
 
@@ -46,6 +51,7 @@ Python scripts regenerate everything in `data/` from EPA/EIA sources.
 | Hourly grid data | [EIA-930 Hourly Grid Monitor](https://www.eia.gov/electricity/gridmonitor/) | 2025 |
 | Power plants | [EIA US Energy Atlas](https://atlas.eia.gov/datasets/eia::power-plants/about) | 2026 |
 | Prices | [EIA retail sales](https://www.eia.gov/electricity/data.php) | 2001–2025 |
+| Utility rates by ZIP | [NREL / OpenEI](https://data.openei.org/submissions/8563) (CC-BY 4.0) | 2024 |
 
 Not affiliated with the EPA or EIA. Data is presented as published; see the
 site's methodology section for honest footnotes (utility-scale only, ZIP

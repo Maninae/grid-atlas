@@ -20,6 +20,8 @@ js/
 ├── lookup.js       lazy ZIP→subregion resolution (zips.json)
 ├── region.js       composes the "your grid" panel from chart modules
 ├── infopopup.js    (i) popover content + behavior
+├── share.js        html2canvas PNG export buttons (watermark strip) on every
+│                   card/map — self-initializing, loaded directly by index.html
 ├── dayscrolly.js   "a day on your grid" sticky scrolly (chart + hour-band
 │                   highlight driven by IntersectionObserver steps)
 └── charts/         waffle.js (top-4 fuels + grouped "everything else")
