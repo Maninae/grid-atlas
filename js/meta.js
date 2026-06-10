@@ -1,39 +1,40 @@
 /* Fuel metadata, color palette, and friendly names. No logic, just facts. */
 
 export const FUELS = {
-  solar:      { label: "Solar",      color: "#EFAF3C", emoji: "☀️", clean: true,
+  solar:      { label: "Solar",      color: "#F2B23E", emoji: "☀️", clean: true,
                 blurb: "Panels that turn sunlight into electricity." },
-  wind:       { label: "Wind",       color: "#7CB8CF", emoji: "🌬️", clean: true,
+  wind:       { label: "Wind",       color: "#7FC6DF", emoji: "🌬️", clean: true,
                 blurb: "Tall turbines spun by moving air." },
-  hydro:      { label: "Hydro",      color: "#3E7CB1", emoji: "💧", clean: true,
+  hydro:      { label: "Hydro",      color: "#4E94CF", emoji: "💧", clean: true,
                 blurb: "Dams that catch the push of falling river water." },
-  nuclear:    { label: "Nuclear",    color: "#9678B6", emoji: "⚛️", clean: true,
+  nuclear:    { label: "Nuclear",    color: "#A98FD1", emoji: "⚛️", clean: true,
                 blurb: "Splitting atoms to boil water and spin turbines. No carbon." },
-  geothermal: { label: "Geothermal", color: "#C26E5A", emoji: "♨️", clean: true,
+  geothermal: { label: "Geothermal", color: "#D2795F", emoji: "♨️", clean: true,
                 blurb: "Heat from deep underground." },
-  biomass:    { label: "Biomass",    color: "#8B9A47", emoji: "🌱", clean: false,
+  biomass:    { label: "Biomass",    color: "#9CB055", emoji: "🌱", clean: false,
                 blurb: "Burning wood, crop leftovers, or landfill gas." },
   gas:        { label: "Natural gas", color: "#E5854B", emoji: "🔥", clean: false,
                 blurb: "Burning gas piped from underground. About half the CO2 of coal." },
-  coal:       { label: "Coal",       color: "#564E46", emoji: "⛏️", clean: false,
+  coal:       { label: "Coal",       color: "#8A8178", emoji: "⛏️", clean: false,
                 blurb: "The oldest way: burning mined coal. The most CO2 per unit of power." },
-  oil:        { label: "Oil",        color: "#8A6A52", emoji: "🛢️", clean: false,
+  oil:        { label: "Oil",        color: "#A07E63", emoji: "🛢️", clean: false,
                 blurb: "Burning petroleum. Rare for power in the US today." },
-  battery:    { label: "Batteries",  color: "#3DB6A0", emoji: "🔋", clean: true,
+  battery:    { label: "Batteries",  color: "#41C9A0", emoji: "🔋", clean: true,
                 blurb: "Giant batteries that store extra power (often midday solar) and release it in the evening." },
-  other:      { label: "Other",      color: "#B5AC9F", emoji: "⚡", clean: false,
+  other:      { label: "Other",      color: "#7E8C82", emoji: "⚡", clean: false,
                 blurb: "Everything else: waste heat, miscellaneous fuels." },
-  storage:    { label: "Storage",    color: "#3DB6A0", emoji: "🔋", clean: true,
+  storage:    { label: "Storage",    color: "#41C9A0", emoji: "🔋", clean: true,
                 blurb: "Batteries and pumped-water storage. They save power for later instead of making it." },
 };
 
 export const FUEL_ORDER = ["solar", "wind", "hydro", "nuclear", "geothermal",
   "biomass", "gas", "coal", "oil", "battery", "other", "storage"];
 
-/* CO2 intensity color ramp (g/kWh), Electricity-Maps-style semantics */
+/* CO2 intensity color ramp (g/kWh), Electricity-Maps-style semantics,
+   brightened for dark surfaces */
 export const CO2_STOPS = [
-  [0, "#3E9D63"], [150, "#7CB85C"], [300, "#E3C03F"],
-  [450, "#DD8A3E"], [600, "#B85C38"], [800, "#6E4438"], [1000, "#3D2B26"],
+  [0, "#3ECF8E"], [150, "#8FCB5A"], [300, "#E3C03F"],
+  [450, "#E08A3C"], [600, "#D2603A"], [800, "#B03E33"], [1000, "#8E2F2A"],
 ];
 
 /* eGRID subregion code -> plain-English place name */
@@ -85,7 +86,7 @@ export const STATE_ABBREV = {
 };
 
 export function co2Color(g) {
-  if (g == null) return "#E4DDD2";
+  if (g == null) return "#233029";
   for (let i = CO2_STOPS.length - 1; i >= 0; i--) {
     const [lo, color] = CO2_STOPS[i];
     if (g >= lo) {

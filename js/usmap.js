@@ -1,17 +1,16 @@
-/* The hero US choropleth. Switches metric on scroll steps, handles hover
-   tooltips and state clicks. One instance, owned by main.js. */
+/* US choropleth, one instance per metric (the 2x2 map grid). Handles hover
+   tooltips and state clicks; all instances share one tooltip element. */
 import { FUELS, STATE_ABBREV, co2Color, cleanShare, dominantFuel } from "./meta.js";
 
 const d3 = window.d3;
 const topojson = window.topojson;
 
 export class USMap {
-  constructor(el, topo, states, onStateClick) {
-    this.el = el;
+  constructor(el, topo, states, { metric, onStateClick }) {
     this.states = states;
-    this.onStateClick = onStateClick;
-    this.metric = "dominant";
-    this.tooltip = d3.select(document.body).append("div").attr("class", "map-tip");
+    this.metric = metric;
+    this.tooltip = d3.select(document.body).selectAll("div.map-tip").data([0])
+      .join("div").attr("class", "map-tip");
 
     const W = 975, H = 610;
     this.svg = d3.select(el).append("svg")
@@ -24,6 +23,7 @@ export class USMap {
       .data(features).join("path")
       .attr("d", path)
       .attr("class", "state")
+      .attr("fill", (d) => this.colorFor(this.valueFor(d.properties.name)))
       .attr("tabindex", 0)
       .attr("role", "button")
       .attr("aria-label", (d) => d.properties.name)
@@ -31,13 +31,13 @@ export class USMap {
       .on("mouseleave", () => this.tooltip.style("opacity", 0))
       .on("click", (ev, d) => {
         const ab = STATE_ABBREV[d.properties.name];
-        if (ab && this.onStateClick) this.onStateClick(ab);
+        if (ab && onStateClick) onStateClick(ab);
       })
       .on("keydown", (ev, d) => {
         if (ev.key === "Enter" || ev.key === " ") {
           ev.preventDefault();
           const ab = STATE_ABBREV[d.properties.name];
-          if (ab && this.onStateClick) this.onStateClick(ab);
+          if (ab && onStateClick) onStateClick(ab);
         }
       });
 
@@ -49,8 +49,7 @@ export class USMap {
     this.legendEl = document.createElement("div");
     this.legendEl.className = "map-legend";
     el.appendChild(this.legendEl);
-
-    this.setMetric("dominant");
+    this.renderLegend();
   }
 
   valueFor(name) {
@@ -67,21 +66,14 @@ export class USMap {
   }
 
   colorFor(v) {
-    if (v == null) return "#E4DDD2";
+    if (v == null) return "#233029";
     switch (this.metric) {
       case "dominant": return FUELS[v].color;
-      case "clean": return d3.interpolateRgb("#EFE9DD", "#2E7D52")(Math.min(v / 100, 1));
-      case "coal": return d3.interpolateRgb("#EFE9DD", "#564E46")(Math.min(v / 90, 1));
+      case "clean": return d3.interpolateRgb("#22302A", "#3ECF8E")(Math.min(v / 100, 1));
+      case "coal": return d3.interpolateRgb("#22302A", "#CFC5B7")(Math.min(v / 90, 1));
       case "co2": return co2Color(v);
-      default: return "#E4DDD2";
+      default: return "#233029";
     }
-  }
-
-  setMetric(metric) {
-    this.metric = metric;
-    this.paths.transition().duration(650)
-      .attr("fill", (d) => this.colorFor(this.valueFor(d.properties.name)));
-    this.renderLegend();
   }
 
   setSelected(ab) {
@@ -112,23 +104,21 @@ export class USMap {
     const L = this.legendEl;
     if (this.metric === "dominant") {
       const fuels = ["gas", "coal", "nuclear", "hydro", "wind", "solar"];
-      L.innerHTML = `<span class="map-legend-title">#1 power source</span>` +
-        fuels.map((f) =>
-          `<span class="legend-item"><span class="legend-swatch" style="background:${FUELS[f].color}"></span>${FUELS[f].label}</span>`
-        ).join("");
+      L.innerHTML = fuels.map((f) =>
+        `<span class="legend-item"><span class="legend-swatch" style="background:${FUELS[f].color}"></span>${FUELS[f].label}</span>`
+      ).join("");
     } else if (this.metric === "clean") {
-      L.innerHTML = ramp("share of clean power", ["#EFE9DD", "#8FBF9F", "#2E7D52"], "0%", "100%");
+      L.innerHTML = ramp(["#22302A", "#2E8A63", "#3ECF8E"], "0%", "100% clean");
     } else if (this.metric === "coal") {
-      L.innerHTML = ramp("share from coal", ["#EFE9DD", "#A39A8E", "#564E46"], "0%", "90%");
+      L.innerHTML = ramp(["#22302A", "#7E776C", "#CFC5B7"], "0%", "90% coal");
     } else if (this.metric === "co2") {
-      L.innerHTML = ramp("CO₂ per kWh", ["#3E9D63", "#E3C03F", "#B85C38", "#3D2B26"], "low", "high");
+      L.innerHTML = ramp(["#3ECF8E", "#E3C03F", "#D2603A", "#8E2F2A"], "low CO₂", "high");
     }
   }
 }
 
-function ramp(title, colors, lo, hi) {
-  return `<span class="map-legend-title">${title}</span>` +
-    `<span class="legend-lo">${lo}</span>` +
+function ramp(colors, lo, hi) {
+  return `<span class="legend-lo">${lo}</span>` +
     `<span class="legend-ramp" style="background:linear-gradient(90deg, ${colors.join(",")})"></span>` +
     `<span class="legend-hi">${hi}</span>`;
 }

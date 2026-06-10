@@ -18,13 +18,13 @@ export function renderDotStrip(el, { items, highlight, usValue }) {
 
   svg.append("line")
     .attr("x1", m.left).attr("x2", W - m.right).attr("y1", 46).attr("y2", 46)
-    .attr("stroke", "#D8CFC0");
+    .attr("stroke", "#3A4A40");
 
   if (usValue != null) {
     svg.append("line")
       .attr("x1", x(usValue)).attr("x2", x(usValue))
       .attr("y1", 28).attr("y2", 64)
-      .attr("stroke", "#857A6A").attr("stroke-dasharray", "3 3");
+      .attr("stroke", "#7E8C82").attr("stroke-dasharray", "3 3");
     svg.append("text").attr("class", "strip-note")
       .attr("x", x(usValue)).attr("y", 78).attr("text-anchor", "middle")
       .text("US average");
@@ -44,14 +44,14 @@ export function renderDotStrip(el, { items, highlight, usValue }) {
     svg.append("circle")
       .attr("cx", x(me.value)).attr("cy", 46).attr("r", 9)
       .attr("fill", co2Color(me.value))
-      .attr("stroke", "#26211B").attr("stroke-width", 2);
+      .attr("stroke", "#EAF1EC").attr("stroke-width", 2);
     svg.append("text").attr("class", "strip-you")
       .attr("x", x(me.value)).attr("y", 18).attr("text-anchor", "middle")
       .text("you");
     svg.append("line")
       .attr("x1", x(me.value)).attr("x2", x(me.value))
       .attr("y1", 22).attr("y2", 34)
-      .attr("stroke", "#26211B").attr("stroke-width", 1.5);
+      .attr("stroke", "#EAF1EC").attr("stroke-width", 1.5);
   }
 
   svg.append("text").attr("class", "strip-note")

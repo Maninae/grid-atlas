@@ -102,8 +102,8 @@ export function renderRegion(sel, data) {
   renderLines($("price-chart"), {
     xs: years, yUnit: "¢",
     lines: [
-      { label: "US", values: us.price.res, color: "#A89A85", dash: true },
-      { label: sel.state, values: stVals, color: "#C75B39", bold: true },
+      { label: "US", values: us.price.res, color: "#8E9C92", dash: true },
+      { label: sel.state, values: stVals, color: "#56A8DC", bold: true },
     ],
   });
   const latest = state.price.res.at(-1);

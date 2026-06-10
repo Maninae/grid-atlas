@@ -85,5 +85,5 @@ export function renderStackedArea(el, { xs, series, xLabel, xTickFormat, order }
 
 function pickText(hex) {
   const [r, g, b] = hex.match(/\w\w/g).map((h) => parseInt(h, 16));
-  return (r * 0.299 + g * 0.587 + b * 0.114) > 150 ? "#3D352B" : "#FBF7F0";
+  return (r * 0.299 + g * 0.587 + b * 0.114) > 150 ? "#15201A" : "#EAF1EC";
 }

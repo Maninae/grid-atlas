@@ -7,13 +7,24 @@
 <meta name="description" content="Type your ZIP code and see what makes your electricity — solar, wind, coal, gas — how clean it is, what it costs, and the power plants behind it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#101915">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/charts.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⚡</text></svg>">
 </head>
 <body>
+
+<!-- slim sticky bar: the ZIP action is always one glance away -->
+<div class="topbar" id="topbar">
+  <span class="topbar-brand">⚡ Grid Atlas</span>
+  <form id="zip-form-mini" class="zip-mini" autocomplete="off">
+    <input id="zip-input-mini" inputmode="numeric" maxlength="5" placeholder="ZIP code" aria-label="ZIP code">
+    <button type="submit">Go</button>
+    <span id="zip-mini-error" class="zip-mini-error" role="alert"></span>
+  </form>
+</div>
 
 <!-- ======================= HERO ======================= -->
 <header class="hero">
@@ -31,47 +42,48 @@
     <button type="submit">Show me</button>
   </form>
   <p id="zip-error" class="zip-error" role="alert"></p>
-  <p class="hero-hint">or scroll to see the whole country ↓</p>
 </header>
 
-<!-- ======================= SCROLLY ======================= -->
-<section class="scrolly" aria-label="The national picture">
-  <div class="graphic">
-    <div id="us-map" class="us-map"></div>
-  </div>
-  <div class="steps">
-    <div class="step" data-step="intro">
-      <h2>Every state has its own power story</h2>
-      <p>This map shows the <strong>#1 source of electricity</strong> in each
-      state in 2025. Texas leans on gas and wind. Washington runs on rivers.
-      West Virginia still runs on coal.</p>
-    </div>
-    <div class="step" data-step="clean">
-      <h2>About <span id="stat-clean" class="stat">—</span> of US electricity is now clean</h2>
-      <p>Darker green = more power from sources that release little or no CO₂:
-      solar, wind, water, nuclear, and geothermal
-      <button class="info-btn" data-info="clean" aria-label="What counts as clean?">i</button>.</p>
-    </div>
-    <div class="step" data-step="coal">
-      <h2>The big switch</h2>
-      <p>In 2001, coal made <span id="stat-coal-then" class="stat">—</span> of
-      America's electricity. Today it's down to
-      <span id="stat-coal-now" class="stat">—</span>. Cheap natural gas, then
-      wind and solar, took its place — one of the fastest changes in the
-      history of the grid.</p>
-    </div>
-    <div class="step" data-step="co2">
-      <h2>Every kilowatt-hour has a carbon cost</h2>
-      <p>Where coal hangs on, each unit of electricity releases a lot more
-      CO₂ <button class="info-btn" data-info="co2kwh" aria-label="About CO2 per kWh">i</button>.
-      The same lightbulb is about <strong>seven times dirtier</strong> in West
-      Virginia than in Washington state — and 45 times dirtier than in Vermont.</p>
-    </div>
-    <div class="step" data-step="you">
-      <h2>So — what about <em>your</em> outlet?</h2>
-      <p>Click your state, or jump back up and type your ZIP code.</p>
-      <button class="cta" id="cta-zip">Type my ZIP ↑</button>
-    </div>
+<!-- ======================= FOUR MAPS ======================= -->
+<section class="map-grid-section" aria-label="The national picture">
+  <h2>America's power, in four maps</h2>
+  <p class="deck-small">Hover any state for details. Click it to explore.</p>
+  <div class="map-grid">
+    <figure class="map-cell">
+      <figcaption>
+        <h3>Every state has its own story</h3>
+        <p>The <strong>#1 source of electricity</strong> in each state, 2025.
+        Texas leans on gas and wind. Washington runs on rivers.</p>
+      </figcaption>
+      <div id="map-dominant" class="us-map"></div>
+    </figure>
+    <figure class="map-cell">
+      <figcaption>
+        <h3>About <span id="stat-clean" class="stat">—</span> of US power is now clean</h3>
+        <p>Darker green = more from sources that release little or no CO₂:
+        solar, wind, water, nuclear, geothermal
+        <button class="info-btn" data-info="clean" aria-label="What counts as clean?">i</button>.</p>
+      </figcaption>
+      <div id="map-clean" class="us-map"></div>
+    </figure>
+    <figure class="map-cell">
+      <figcaption>
+        <h3>The big switch</h3>
+        <p>Coal made <span id="stat-coal-then" class="stat">—</span> of US
+        electricity in 2001 — just <span id="stat-coal-now" class="stat">—</span>
+        today. Gas, wind, and solar took its place.</p>
+      </figcaption>
+      <div id="map-coal" class="us-map"></div>
+    </figure>
+    <figure class="map-cell">
+      <figcaption>
+        <h3>Every kilowatt-hour has a carbon cost</h3>
+        <p>The same lightbulb is about <strong>7× dirtier</strong>
+        <button class="info-btn" data-info="co2kwh" aria-label="About CO2 per kWh">i</button>
+        in West Virginia than in Washington — and 45× dirtier than in Vermont.</p>
+      </figcaption>
+      <div id="map-co2" class="us-map"></div>
+    </figure>
   </div>
 </section>
 
@@ -106,6 +118,14 @@
       <p class="card-note" id="co2-strip-caption"></p>
     </section>
 
+    <section class="card card-price">
+      <h3>What it costs
+        <button class="info-btn" data-info="price" aria-label="What is in the price?">i</button>
+      </h3>
+      <div id="price-chart" class="chart"></div>
+      <p class="card-sentence" id="price-sentence"></p>
+    </section>
+
     <section class="card card-day" id="day-card">
       <h3>A day on your grid
         <button class="info-btn" data-info="typicalday" aria-label="How this chart was made">i</button>
@@ -121,14 +141,6 @@
       <p class="card-note" id="trend-title"></p>
       <div id="trend-chart" class="chart"></div>
       <p class="card-sentence" id="trend-sentence"></p>
-    </section>
-
-    <section class="card card-price">
-      <h3>What it costs
-        <button class="info-btn" data-info="price" aria-label="What is in the price?">i</button>
-      </h3>
-      <div id="price-chart" class="chart"></div>
-      <p class="card-sentence" id="price-sentence"></p>
     </section>
 
     <section class="card card-plants">
@@ -200,14 +212,5 @@
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script type="module" src="js/main.js"></script>
-<script>
-  // tiny non-module helper: CTA scrolls to hero zip input
-  document.addEventListener("click", (e) => {
-    if (e.target.id === "cta-zip") {
-      document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => document.getElementById("zip-input").focus(), 600);
-    }
-  });
-</script>
 </body>
 </html>

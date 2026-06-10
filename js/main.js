@@ -1,6 +1,5 @@
-/* Boot: load data, wire the hero map + scrolly + zip form + region panel. */
+/* Boot: load data, wire the map grid + zip forms + region panel. */
 import { USMap } from "./usmap.js";
-import { initScrolly } from "./scrolly.js";
 import { initZipForm } from "./lookup.js";
 import { initInfoPopups } from "./infopopup.js";
 import { renderRegion } from "./region.js";
@@ -35,21 +34,28 @@ async function boot() {
 
   let selection = null;
 
-  const map = new USMap($("us-map"), topo, states, (ab) => select({ state: ab }));
+  const onStateClick = (ab) => select({ state: ab });
+  const maps = [
+    ["map-dominant", "dominant"], ["map-clean", "clean"],
+    ["map-coal", "coal"], ["map-co2", "co2"],
+  ].map(([id, metric]) => new USMap($(id), topo, states, { metric, onStateClick }));
 
-  initScrolly(".step", (step) => {
-    const metric = { intro: "dominant", clean: "clean", coal: "coal", co2: "co2", you: "co2" }[step];
-    if (metric) map.setMetric(metric);
-  });
+  const onZip = (zip, res) =>
+    select({ zip, sub: res.sub, utility: res.utility, state: res.state });
+  initZipForm($("zip-form"), $("zip-input"), $("zip-error"), onZip);
+  initZipForm($("zip-form-mini"), $("zip-input-mini"), $("zip-mini-error"), onZip);
 
-  initZipForm($("zip-form"), $("zip-input"), $("zip-error"),
-    (zip, res) => select({ zip, sub: res.sub, utility: res.utility, state: res.state }));
+  // slide the topbar in once the hero (with the big ZIP form) scrolls away
+  new IntersectionObserver(
+    ([e]) => $("topbar").classList.toggle("visible", !e.isIntersecting),
+    { threshold: 0 }
+  ).observe(document.querySelector(".hero"));
 
   initInfoPopups();
 
   function select(sel, scroll = true) {
     selection = sel;
-    map.setSelected(sel.state);
+    maps.forEach((m) => m.setSelected(sel.state));
     renderRegion(sel, data);
     history.replaceState(null, "", sel.zip ? `#${sel.zip}` : `#${sel.state}`);
     if (scroll) {

@@ -11,11 +11,12 @@ it changed since 2001. Audience: everyday Americans; copy is plain-language
 index.html          all markup + copy (no templating)
 css/                base.css (tokens/layout) · components.css · charts.css
 js/
-├── main.js         boot, data loading, selection state, deep links (#94110/#CA)
+├── main.js         boot, data loading, selection state, deep links (#94110/#CA),
+│                   sticky-topbar reveal
 ├── meta.js         fuel colors/labels, subregion friendly names, CO2 ramp
 ├── format.js       plain-language sentence builders + number formats
-├── usmap.js        hero choropleth (scroll-driven metrics, click→select)
-├── scrolly.js      IntersectionObserver step driver
+├── usmap.js        US choropleth class — 4 instances in a 2x2 grid, one per
+│                   metric (dominant fuel / clean / coal / CO2), click→select
 ├── lookup.js       lazy ZIP→subregion resolution (zips.json)
 ├── region.js       composes the "your grid" panel from chart modules
 ├── infopopup.js    (i) popover content + behavior
@@ -24,6 +25,11 @@ js/
 data/               baked JSON (see build/CLAUDE.md for provenance)
 build/              Python pipeline that regenerates data/ (not deployed)
 ```
+
+Layout principle: minimize scrolling. The four national maps share one screen
+(2x2 grid); region-panel cards pack a 6-col grid (mix|co2|price, then
+day|trend, then full-width plants/story); a slim topbar with a ZIP input
+slides in whenever the hero form is off-screen.
 
 - No framework, no bundler. ES modules + D3 v7 / topojson-client from jsDelivr.
 - All data ships as static JSON in `data/` — the live site makes zero API calls.
