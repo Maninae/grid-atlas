@@ -139,6 +139,7 @@
 #mix-waffle .waffle-grid { flex: 0 1 360px; }
 #mix-waffle .waffle-legend {
   flex: 1 1 210px;
+  max-width: 300px; /* keep the % numbers close to their labels */
   flex-direction: column;
   align-items: stretch;
   gap: 11px;
@@ -280,7 +281,12 @@
   font-family: var(--font-ui);
   font-size: 14px;
 }
-.waffle-legend .legend-value { font-weight: 700; }
+.waffle-legend .legend-value {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
 
 /* ---------- plants ---------- */
 .plants-flex { display: flex; gap: 28px; align-items: flex-start; flex-wrap: wrap; }
