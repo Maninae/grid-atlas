@@ -30,9 +30,9 @@ export function renderPlantsMap(el, topo, plants, stateAb) {
 
   g.append("path").datum(feature)
     .attr("d", path)
-    .attr("fill", "#1D2922")
-    .attr("stroke", "#3A4A40")
-    .attr("stroke-width", 1.2 / k);
+    .attr("stroke-width", 1.2 / k)
+    .style("fill", "var(--plant-fill)")
+    .style("stroke", "var(--rule)");
 
   const inState = plants.filter((p) => p[1] === stateAb);
   const r = d3.scaleSqrt()
@@ -50,8 +50,8 @@ export function renderPlantsMap(el, topo, plants, stateAb) {
     .attr("r", (p) => Math.max(r(p[3]), 1.2 / k))
     .attr("fill", (p) => FUELS[p[2]].color)
     .attr("fill-opacity", 0.72)
-    .attr("stroke", "#101915")
     .attr("stroke-width", 0.5 / k)
+    .style("stroke", "var(--paper)")
     .on("mousemove", (ev, p) => {
       tip.style("opacity", 1)
         .style("left", `${ev.pageX + 14}px`)

@@ -3,21 +3,58 @@
    Syne (display) · Manrope (body/UI) · Spline Sans Mono (data readouts) */
 
 :root {
-  --paper: #101915;        /* page background: granite pine-black */
-  --paper-deep: #1B2620;   /* recessed surfaces */
-  --card: #18221C;         /* raised surfaces */
-  --pop: #20302A;          /* tooltips & popovers */
-  --ink: #EAF1EC;          /* primary text */
-  --ink-soft: #A2B3A8;     /* secondary text */
-  --rule: #2A372F;         /* hairlines */
-  --accent: #41C98E;       /* emerald */
-  --accent2: #56A8DC;      /* ocean */
-  --gold: #F2B23E;         /* solar gold, used sparingly */
+  --paper: #11161B;
+  --paper-deep: #171D23;
+  --card: #181F26;
+  --pop: #222B34;
+  --pop-ink: #EDF2F0;
+  --pop-ink-soft: #C6D2CC;
+  --pop-border: #36424C;
+  --pop-accent: #4FD49B;
+  --ink: #EBF0F4;
+  --ink-soft: #9DAAB5;
+  --rule: #2A343D;
+  --accent: #41C98E;
+  --accent2: #5BA8DC;
+  --on-accent: #0B1310;
+  --gold: #F2B23E;
   --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 14px 36px rgba(0, 0, 0, 0.35);
+  --map-nodata: #232C33;
+  --ramp-base: #232C33;
+  --clean-hi: #3ECF8E;
+  --coal-hi: #CFC5B7;
+  --plant-fill: #1E262D;
+  --price-us: #8C99A3;
+  --price-state: #5BA8DC;
+  --topbar-bg: rgba(13, 18, 23, 0.88);
+  --num-glow: 0 0 26px rgba(65, 201, 142, 0.18);
   --font-display: "Barlow Condensed", "Avenir Next Condensed", sans-serif;
   --font-body: "Manrope", -apple-system, sans-serif;
   --font-ui: "Manrope", -apple-system, sans-serif;
   --font-mono: "Spline Sans Mono", ui-monospace, monospace;
+}
+
+[data-theme="light"] {
+  --paper: #F1F3F2;
+  --paper-deep: #E6EAE8;
+  --card: #FFFFFF;
+  --ink: #1C2630;
+  --ink-soft: #58656F;
+  --rule: #D9DEDC;
+  --accent: #178F5F;
+  --accent2: #2E7CB5;
+  --on-accent: #FFFFFF;
+  --gold: #B97E1F;
+  --shadow: 0 1px 2px rgba(20, 30, 40, 0.06), 0 10px 28px rgba(20, 30, 40, 0.10);
+  --map-nodata: #DCE2DF;
+  --ramp-base: #E3E8E5;
+  --clean-hi: #1E9E6A;
+  --coal-hi: #51483F;
+  --plant-fill: #E8EDEA;
+  --price-us: #7C8891;
+  --price-state: #2E7CB5;
+  --topbar-bg: rgba(245, 247, 246, 0.9);
+  --num-glow: none;
 }
 
 * { box-sizing: border-box; }
@@ -26,17 +63,25 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background:
-    radial-gradient(1100px 600px at 85% -5%, rgba(65, 201, 142, 0.08), transparent 60%),
-    radial-gradient(950px 550px at -5% 30%, rgba(86, 168, 220, 0.07), transparent 55%),
+    radial-gradient(1100px 600px at 85% -5%, rgba(86, 168, 220, 0.07), transparent 60%),
+    radial-gradient(950px 550px at -5% 30%, rgba(65, 201, 142, 0.05), transparent 55%),
     var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-::selection { background: var(--accent); color: #0C1410; }
+[data-theme="light"] body {
+  background:
+    radial-gradient(1100px 600px at 85% -5%, rgba(46, 124, 181, 0.06), transparent 60%),
+    radial-gradient(950px 550px at -5% 30%, rgba(23, 143, 95, 0.04), transparent 55%),
+    var(--paper);
+}
+
+::selection { background: var(--accent); color: var(--on-accent); }
 
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
 
@@ -115,6 +160,7 @@ body.loaded .hero .zip-form { opacity: 1; transform: none; transition-delay: 0.4
   border-radius: 14px;
   padding: 16px 18px 12px;
   box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .map-cell figcaption h3 {

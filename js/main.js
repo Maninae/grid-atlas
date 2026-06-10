@@ -2,6 +2,7 @@
 import { USMap } from "./usmap.js";
 import { initZipForm } from "./lookup.js";
 import { initInfoPopups } from "./infopopup.js";
+import { initDayScrolly } from "./dayscrolly.js";
 import { renderRegion } from "./region.js";
 import { cleanShare } from "./meta.js";
 
@@ -52,6 +53,22 @@ async function boot() {
   ).observe(document.querySelector(".hero"));
 
   initInfoPopups();
+  initDayScrolly();
+
+  // Theme toggle: dark <-> light, persisted in localStorage. Maps re-rasterize
+  // their computed ramps via refresh(); CSS vars handle the rest.
+  const toggle = $("theme-toggle");
+  const applyTheme = (t) => {
+    document.documentElement.dataset.theme = t;
+    localStorage.setItem("ga-theme", t);
+    toggle.textContent = t === "dark" ? "☀️" : "🌙";
+    document.querySelector('meta[name="theme-color"]').content =
+      t === "dark" ? "#11161B" : "#F1F3F2";
+    maps.forEach((m) => m.refresh());
+  };
+  toggle.textContent = document.documentElement.dataset.theme === "dark" ? "☀️" : "🌙";
+  toggle.addEventListener("click", () =>
+    applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
 
   function select(sel, scroll = true) {
     selection = sel;

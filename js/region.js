@@ -7,13 +7,12 @@ import { renderStackedArea } from "./charts/area.js";
 import { renderDotStrip } from "./charts/dotstrip.js";
 import { renderLines } from "./charts/line.js";
 import { renderPlantsMap } from "./charts/plantsmap.js";
+import { renderDayChart } from "./dayscrolly.js";
 
 const $ = (id) => document.getElementById(id);
 
 const TREND_ORDER = ["coal", "oil", "gas", "other", "biomass", "geothermal",
   "nuclear", "hydro", "wind", "solar"];
-const DAY_ORDER = ["nuclear", "geothermal", "hydro", "wind", "solar",
-  "battery", "gas", "coal", "oil", "other"];
 
 export function renderRegion(sel, data) {
   const { states, subregions, typicalday, plants, topo, stories } = data;
@@ -64,30 +63,20 @@ export function renderRegion(sel, data) {
     ? "Each dot is one of America's 27 grid regions."
     : "Each dot is a state.";
 
-  // ---------- typical day ----------
+  // ---------- typical day (sticky scrolly showcase) ----------
   const opCode = sub ? typicalday.sub2op[sel.sub] : null;
-  const dayCard = $("day-card");
+  const dayWrap = $("day-scrolly");
   if (opCode && typicalday.operators[opCode]) {
-    dayCard.hidden = false;
-    const op = typicalday.operators[opCode];
-    $("day-operator").textContent = op.name;
-    const series = {};
-    op.fuels.forEach((f, fi) => {
-      const vals = op.hours.map((row) => row[fi]);
-      if (vals.some((v) => v > 0.4)) series[f] = vals;
-    });
-    renderStackedArea($("day-chart"), {
-      xs: [...Array(24).keys()], series, order: DAY_ORDER,
-      xLabel: "", xTickFormat: (h) =>
-        h === 0 ? "midnight" : h === 12 ? "noon" : h % 6 === 0 ? (h < 12 ? `${h}am` : `${h - 12}pm`) : "",
-    });
+    dayWrap.hidden = false;
+    renderDayChart(typicalday.operators[opCode]);
   } else {
-    dayCard.hidden = true; // no hourly data (AK/HI/PR) or state-only view
+    dayWrap.hidden = true; // no hourly data (AK/HI/PR) or state-only view
   }
 
   // ---------- trend ----------
   renderStackedArea($("trend-chart"), {
     xs: state.trend.years, series: state.trend.series, order: TREND_ORDER,
+    maxH: 400,
   });
   $("trend-title").textContent = `${state.name}, ${state.trend.years[0]} → ${state.trend.years.at(-1)}`;
   $("trend-sentence").textContent = trendSentence(state.facts, state.name);
@@ -102,8 +91,8 @@ export function renderRegion(sel, data) {
   renderLines($("price-chart"), {
     xs: years, yUnit: "¢",
     lines: [
-      { label: "US", values: us.price.res, color: "#8E9C92", dash: true },
-      { label: sel.state, values: stVals, color: "#56A8DC", bold: true },
+      { label: "US", values: us.price.res, color: "var(--price-us)", dash: true },
+      { label: sel.state, values: stVals, color: "var(--price-state)", bold: true },
     ],
   });
   const latest = state.price.res.at(-1);

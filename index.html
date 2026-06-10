@@ -8,13 +8,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<meta name="theme-color" content="#101915">
+<meta name="theme-color" content="#11161B">
+<script>
+(function () {
+  var t = localStorage.getItem("ga-theme");
+  if (!t) t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+})();
+</script>
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/charts.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⚡</text></svg>">
 </head>
 <body>
+<button id="theme-toggle" class="theme-toggle" aria-label="Switch color theme">☀️</button>
 
 <!-- slim sticky bar: the ZIP action is always one glance away -->
 <div class="topbar" id="topbar">
@@ -125,17 +133,40 @@
       <div id="price-chart" class="chart"></div>
       <p class="card-sentence" id="price-sentence"></p>
     </section>
+  </div>
 
-    <section class="card card-day" id="day-card">
+  <!-- showcase vis: sticky chart, scroll-driven hour highlights -->
+  <section class="day-scrolly" id="day-scrolly" hidden>
+    <div class="day-sticky">
       <h3>A day on your grid
         <button class="info-btn" data-info="typicalday" aria-label="How this chart was made">i</button>
       </h3>
       <p class="card-note">A typical 24 hours on <strong id="day-operator"></strong>
         <button class="info-btn" data-info="operator" aria-label="Who runs the grid?">i</button>
-        — watch solar swell at midday, then gas and batteries take the evening.</p>
+        — every hour of 2025, averaged. Keep scrolling.</p>
       <div id="day-chart" class="chart"></div>
-    </section>
+    </div>
+    <div class="day-steps">
+      <div class="dstep" data-h0="0" data-h1="6">
+        <h4>While you sleep</h4>
+        <p>Nuclear plants hum along all night — they don't like stopping.
+        And the wind often blows hardest in the dark.</p>
+      </div>
+      <div class="dstep" data-h0="9" data-h1="16">
+        <h4>The sun clocks in</h4>
+        <p>Watch the yellow band. The sunnier your grid, the bigger the midday
+        bulge — and the cleaner every load of laundry you run right now.</p>
+      </div>
+      <div class="dstep" data-h0="17" data-h1="22">
+        <h4>The evening handoff</h4>
+        <p>The sun sets right as everyone comes home and switches things on.
+        Gas plants ramp up fast — and batteries give back the afternoon's
+        sunshine.</p>
+      </div>
+    </div>
+  </section>
 
+  <div class="cards">
     <section class="card card-trend">
       <h3>25 years of change</h3>
       <p class="card-note" id="trend-title"></p>

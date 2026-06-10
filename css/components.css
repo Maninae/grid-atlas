@@ -10,11 +10,12 @@
   justify-content: space-between;
   gap: 16px;
   padding: 8px 18px;
-  background: rgba(13, 20, 16, 0.88);
+  padding-right: 64px;
+  background: var(--topbar-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--rule);
   transform: translateY(-100%);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 }
 .topbar.visible { transform: none; }
 
@@ -45,7 +46,7 @@
   font-weight: 700;
   font-size: 14px;
   background: var(--accent);
-  color: #0C1410;
+  color: var(--on-accent);
   border: none;
   border-radius: 999px;
   padding: 7px 16px;
@@ -88,7 +89,7 @@
   font-weight: 700;
   font-size: 16px;
   background: var(--accent);
-  color: #0C1410;
+  color: var(--on-accent);
   border: none;
   border-radius: 999px;
   padding: 10px 24px;
@@ -106,10 +107,12 @@
   margin: 10px 0 0;
 }
 
-/* ---------- cards: dense grid, minimal vertical travel ----------
-   Row 1: mix | co2 | price (3-up) · Row 2: day | trend (2-up)
-   Row 3+: plants, story (full width) */
-.cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+/* ---------- cards ----------
+   Top grid: big mix tile (4 cols x 2 rows) with carbon + price stacked beside
+   it — no dead vertical space. Bottom grid: full-width trend/plants/story.
+   The day-on-grid scrolly section sits between the two grids. */
+.cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+.cards + .cards, .day-scrolly + .cards { margin-top: 18px; }
 
 .card {
   background: var(--card);
@@ -117,6 +120,7 @@
   border-radius: 16px;
   padding: 20px 22px 22px;
   box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .card h3 {
@@ -126,13 +130,28 @@
   margin-bottom: 5px;
 }
 
-.card-mix, .card-co2, .card-price { grid-column: span 2; }
-.card-day, .card-trend { grid-column: span 3; }
-.card-plants, .card-story { grid-column: 1 / -1; }
+.card-mix { grid-column: 1 / 5; grid-row: span 2; }
+.card-co2, .card-price { grid-column: 5 / 7; }
+.card-trend, .card-plants, .card-story { grid-column: 1 / -1; }
+
+/* waffle + vertical legend side by side inside the big mix tile */
+#mix-waffle { display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap; }
+#mix-waffle .waffle-grid { flex: 0 1 360px; }
+#mix-waffle .waffle-legend {
+  flex: 1 1 210px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 11px;
+  margin-top: 2px;
+  font-size: 15.5px;
+}
+#mix-waffle .legend-item { display: grid; grid-template-columns: 14px 1fr auto; gap: 4px 9px; align-items: center; }
+.legend-sub { grid-column: 2 / 4; font-size: 12.5px; color: var(--ink-soft); }
 
 @media (max-width: 1000px) {
-  .card-mix, .card-co2, .card-price { grid-column: span 3; }
-  .card-day, .card-trend { grid-column: 1 / -1; }
+  .card-mix { grid-column: 1 / -1; grid-row: auto; }
+  .card-co2 { grid-column: 1 / 4; }
+  .card-price { grid-column: 4 / 7; }
 }
 
 .card-note {
@@ -165,7 +184,7 @@
   font-size: clamp(54px, 5.2vw, 74px);
   line-height: 1;
   letter-spacing: -0.03em;
-  text-shadow: 0 0 26px rgba(65, 201, 142, 0.18);
+  text-shadow: var(--num-glow);
 }
 .co2-unit {
   font-family: var(--font-ui);
@@ -195,16 +214,16 @@
   position: absolute;
   z-index: 50;
   background: var(--pop);
-  color: var(--ink);
-  border: 1px solid #3A4A40;
+  color: var(--pop-ink);
+  border: 1px solid var(--pop-border);
   border-radius: 12px;
   padding: 18px 20px;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
   animation: pop-in 0.18s ease;
 }
 .info-pop h4 { font-family: var(--font-display); font-size: 19px; font-weight: 600; letter-spacing: 0.01em; margin: 0 0 8px; }
-.info-pop p { font-size: 15px; line-height: 1.5; margin: 0 0 10px; color: #CBD8CF; }
-.info-pop a { color: var(--accent); font-family: var(--font-ui); font-size: 13.5px; }
+.info-pop p { font-size: 15px; line-height: 1.5; margin: 0 0 10px; color: var(--pop-ink-soft); }
+.info-pop a { color: var(--pop-accent); font-family: var(--font-ui); font-size: 13.5px; }
 @keyframes pop-in { from { opacity: 0; transform: translateY(6px); } }
 
 /* ---------- map bits ---------- */
@@ -214,8 +233,8 @@
   pointer-events: none;
   opacity: 0;
   background: var(--pop);
-  color: var(--ink);
-  border: 1px solid #3A4A40;
+  color: var(--pop-ink);
+  border: 1px solid var(--pop-border);
   font-family: var(--font-ui);
   font-size: 13.5px;
   line-height: 1.45;
@@ -224,7 +243,7 @@
   transition: opacity 0.15s ease;
   max-width: 240px;
 }
-.tip-cta { color: var(--accent); font-size: 12px; }
+.tip-cta { color: var(--pop-accent); font-size: 12px; }
 
 .map-legend {
   display: flex;
@@ -375,11 +394,83 @@
 }
 .sources td { border-bottom: 1px solid var(--rule); padding: 9px 10px 9px 0; }
 
+/* ---------- day-on-grid scrolly showcase ---------- */
+.day-scrolly {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(230px, 1fr);
+  gap: 44px;
+  margin-top: 18px;
+}
+.day-scrolly[hidden] { display: none; }
+
+.day-sticky {
+  position: sticky;
+  top: 58px;
+  align-self: start;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: var(--shadow);
+}
+
+.day-steps { display: flex; flex-direction: column; padding: 4vh 0 10vh; }
+
+.dstep {
+  min-height: 52vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0.3;
+  transition: opacity 0.35s ease;
+}
+.dstep.active { opacity: 1; }
+
+.dstep h4 {
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0 0 6px;
+}
+.dstep p { margin: 0; font-size: 17px; color: var(--ink-soft); max-width: 34ch; }
+
+/* scroll-driven hour-band highlight: dim everything outside the band */
+.chart .dim { fill: var(--card); opacity: 0.62; pointer-events: none; }
+
+@media (max-width: 900px) {
+  .day-scrolly { grid-template-columns: 1fr; gap: 0; }
+  .day-sticky { top: 50px; z-index: 5; }
+  .dstep { min-height: 46vh; }
+  .dstep p { max-width: none; }
+}
+
 @media (max-width: 760px) {
   .cards { grid-template-columns: 1fr; }
+  .card-mix, .card-co2, .card-price { grid-column: 1 / -1; }
   .timeline::before { left: 44px; }
   .tl-year { width: 34px; }
   .tl-event { gap: 20px; }
   .tl-event::after { left: 39px; }
   .co2-number { font-size: 64px; }
 }
+
+/* ---------- theme toggle (top-right, fixed) ---------- */
+.theme-toggle {
+  position: fixed;
+  top: 10px; right: 14px;
+  z-index: 60;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.theme-toggle:hover { border-color: var(--accent); }
+
+[data-theme="light"] .zip-error,
+[data-theme="light"] .zip-mini-error { color: #B3402A; }

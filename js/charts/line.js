@@ -26,16 +26,16 @@ export function renderLines(el, { xs, lines, yUnit }) {
     svg.append("path")
       .attr("d", line(l.values))
       .attr("fill", "none")
-      .attr("stroke", l.color)
       .attr("stroke-width", l.bold ? 3 : 1.8)
-      .attr("stroke-dasharray", l.dash ? "4 4" : null);
+      .attr("stroke-dasharray", l.dash ? "4 4" : null)
+      .style("stroke", l.color);
     const lastIdx = l.values.length - 1;
     svg.append("text").attr("class", "line-label")
       .attr("x", x(xs[lastIdx]) + 6)
       .attr("y", y(l.values[lastIdx]))
       .attr("dy", "0.35em")
-      .attr("fill", l.color)
-      .text(l.label);
+      .text(l.label)
+      .style("fill", l.color);
   }
 
   svg.append("g").attr("class", "axis")

@@ -4,11 +4,11 @@ import { FUELS } from "../meta.js";
 
 const d3 = window.d3;
 
-export function renderStackedArea(el, { xs, series, xLabel, xTickFormat, order }) {
+export function renderStackedArea(el, { xs, series, xLabel, xTickFormat, order, maxH }) {
   el.innerHTML = "";
   const fuels = (order || Object.keys(series)).filter((f) => series[f]);
   const W = el.clientWidth || 600;
-  const H = Math.min(340, Math.max(240, W * 0.45));
+  const H = Math.min(maxH || 340, Math.max(240, W * 0.5));
   const m = { top: 10, right: 12, bottom: 28, left: 44 };
 
   const svg = d3.select(el).append("svg")
@@ -81,6 +81,10 @@ export function renderStackedArea(el, { xs, series, xLabel, xTickFormat, order }
       .attr("x", W / 2).attr("y", H - 2).attr("text-anchor", "middle")
       .text(xLabel);
   }
+
+  return { svg, x: xScale, y: yScale,
+           plot: { left: m.left, right: W - m.right,
+                   top: m.top, bottom: H - m.bottom } };
 }
 
 function pickText(hex) {

@@ -23,7 +23,6 @@ export class USMap {
       .data(features).join("path")
       .attr("d", path)
       .attr("class", "state")
-      .attr("fill", (d) => this.colorFor(this.valueFor(d.properties.name)))
       .attr("tabindex", 0)
       .attr("role", "button")
       .attr("aria-label", (d) => d.properties.name)
@@ -49,6 +48,22 @@ export class USMap {
     this.legendEl = document.createElement("div");
     this.legendEl.className = "map-legend";
     el.appendChild(this.legendEl);
+    this.refresh();
+  }
+
+  themeVals() {
+    const cs = getComputedStyle(document.documentElement);
+    return {
+      rampBase: cs.getPropertyValue("--ramp-base").trim(),
+      cleanHi: cs.getPropertyValue("--clean-hi").trim(),
+      coalHi: cs.getPropertyValue("--coal-hi").trim(),
+      noData: cs.getPropertyValue("--map-nodata").trim(),
+    };
+  }
+
+  refresh() {
+    this.theme = this.themeVals();
+    this.paths.style("fill", (d) => this.colorFor(this.valueFor(d.properties.name)));
     this.renderLegend();
   }
 
@@ -66,13 +81,14 @@ export class USMap {
   }
 
   colorFor(v) {
-    if (v == null) return "#233029";
+    const t = this.theme || this.themeVals();
+    if (v == null) return t.noData;
     switch (this.metric) {
       case "dominant": return FUELS[v].color;
-      case "clean": return d3.interpolateRgb("#22302A", "#3ECF8E")(Math.min(v / 100, 1));
-      case "coal": return d3.interpolateRgb("#22302A", "#CFC5B7")(Math.min(v / 90, 1));
+      case "clean": return d3.interpolateRgb(t.rampBase, t.cleanHi)(Math.min(v / 100, 1));
+      case "coal": return d3.interpolateRgb(t.rampBase, t.coalHi)(Math.min(v / 90, 1));
       case "co2": return co2Color(v);
-      default: return "#233029";
+      default: return t.noData;
     }
   }
 
@@ -102,15 +118,18 @@ export class USMap {
 
   renderLegend() {
     const L = this.legendEl;
+    const t = this.theme || this.themeVals();
     if (this.metric === "dominant") {
       const fuels = ["gas", "coal", "nuclear", "hydro", "wind", "solar"];
       L.innerHTML = fuels.map((f) =>
         `<span class="legend-item"><span class="legend-swatch" style="background:${FUELS[f].color}"></span>${FUELS[f].label}</span>`
       ).join("");
     } else if (this.metric === "clean") {
-      L.innerHTML = ramp(["#22302A", "#2E8A63", "#3ECF8E"], "0%", "100% clean");
+      const mid = d3.interpolateRgb(t.rampBase, t.cleanHi)(0.5);
+      L.innerHTML = ramp([t.rampBase, mid, t.cleanHi], "0%", "100% clean");
     } else if (this.metric === "coal") {
-      L.innerHTML = ramp(["#22302A", "#7E776C", "#CFC5B7"], "0%", "90% coal");
+      const mid = d3.interpolateRgb(t.rampBase, t.coalHi)(0.5);
+      L.innerHTML = ramp([t.rampBase, mid, t.coalHi], "0%", "90% coal");
     } else if (this.metric === "co2") {
       L.innerHTML = ramp(["#3ECF8E", "#E3C03F", "#D2603A", "#8E2F2A"], "low CO₂", "high");
     }
