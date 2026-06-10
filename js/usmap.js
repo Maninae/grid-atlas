@@ -86,7 +86,7 @@ export class USMap {
     switch (this.metric) {
       case "dominant": return FUELS[v].color;
       case "clean": return d3.interpolateRgb(t.rampBase, t.cleanHi)(Math.min(v / 100, 1));
-      case "coal": return d3.interpolateRgb("#F2F0EB", "#15110D")(Math.min(v / 100, 1));
+      case "coal": return d3.interpolateRgb("#F2F0EB", "#403326")(Math.min(v / 100, 1));
       case "co2": return co2Color(v);
       default: return t.noData;
     }
@@ -128,7 +128,7 @@ export class USMap {
       const mid = d3.interpolateRgb(t.rampBase, t.cleanHi)(0.5);
       L.innerHTML = ramp([t.rampBase, mid, t.cleanHi], "0%", "100% clean");
     } else if (this.metric === "coal") {
-      L.innerHTML = ramp(["#F2F0EB", "#847C72", "#15110D"], "0% coal", "100%");
+      L.innerHTML = ramp(["#F2F0EB", "#9A8B79", "#403326"], "0% coal", "100%");
     } else if (this.metric === "co2") {
       L.innerHTML = ramp(["#3ECF8E", "#E3C03F", "#D2603A", "#8E2F2A"], "low CO₂", "high");
     }
