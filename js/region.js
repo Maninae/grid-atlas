@@ -96,6 +96,9 @@ export function renderRegion(sel, data) {
   } else {
     dayWrap.hidden = true; // no hourly data (AK/HI/PR) or state-only view
   }
+  $("day-missing").hidden = !(
+    (sub && !opCode) || sel.state === "AK" || sel.state === "HI"
+  );
 
   // ---------- trend ----------
   renderStackedArea($("trend-chart"), {
@@ -132,11 +135,22 @@ export function renderRegion(sel, data) {
         { label: sel.state, values: stVals, color: "var(--price-state)", bold: true },
       ],
     });
-    $("price-sentence").textContent =
-      `Home electricity in ${state.name} costs about ${latest.toFixed(1)}¢ per kilowatt-hour — ` +
-      (latest > usLatest * 1.07 ? `above the US average of ${usLatest.toFixed(1)}¢.`
-        : latest < usLatest * 0.93 ? `below the US average of ${usLatest.toFixed(1)}¢.`
-        : `right around the US average of ${usLatest.toFixed(1)}¢.`);
+    if (sel.zip && typeof sel.rate === "number" && sel.rate > 0) {
+      const rateStr = sel.rate.toFixed(1).replace(/\.0$/, "");
+      const cmp = sel.rate > latest * 1.07 ? "above"
+        : sel.rate < latest * 0.93 ? "below"
+        : "right around";
+      $("price-sentence").textContent =
+        `Homes served by ${sel.utility} pay about ${rateStr}¢ per kilowatt-hour on average — ` +
+        `${cmp} the ${state.name} average of ${latest.toFixed(1)}¢. ` +
+        `(2024 utility average — your plan may differ.)`;
+    } else {
+      $("price-sentence").textContent =
+        `Home electricity in ${state.name} costs about ${latest.toFixed(1)}¢ per kilowatt-hour — ` +
+        (latest > usLatest * 1.07 ? `above the US average of ${usLatest.toFixed(1)}¢.`
+          : latest < usLatest * 0.93 ? `below the US average of ${usLatest.toFixed(1)}¢.`
+          : `right around the US average of ${usLatest.toFixed(1)}¢.`);
+    }
   }
 
   // ---------- plants ----------

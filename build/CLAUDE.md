@@ -58,6 +58,12 @@ Python 3.9 — no modern-syntax features (no `match`, no `X | Y` type unions).
   "predominant" pick (rows with `Predominant Utility == 1`), same as EPA's tool.
 - **EPA/EIA static files have no CORS** — that's why everything is baked at
   build time instead of fetched in the browser.
+- **ZIP-level prices** (the 4th element in each `zips.json` entry) come from
+  NREL / OpenEI's `iou_zipcodes_2024.csv` + `non_iou_zipcodes_2024.csv` (2024
+  vintage, CC-BY 4.0). Joined to our EPA crosswalk on `(zip, eiaid)`; falls back
+  to the zip's mean `res_rate` if no eiaid match; null if neither file lists
+  the zip. EIA price history (`build_states.py`) stays state-level — these
+  utility averages are the per-ZIP overlay shown in `region.js`.
 
 ## Refreshing next year
 

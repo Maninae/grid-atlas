@@ -41,8 +41,7 @@ async function boot() {
     ["map-coal", "coal"], ["map-co2", "co2"],
   ].map(([id, metric]) => new USMap($(id), topo, states, { metric, onStateClick }));
 
-  const onZip = (zip, res) =>
-    select({ zip, sub: res.sub, utility: res.utility, state: res.state });
+  const onZip = (zip, res) => select({ zip, ...res });
   initZipForm($("zip-form"), $("zip-input"), $("zip-error"), onZip);
   initZipForm($("zip-form-mini"), $("zip-input-mini"), $("zip-mini-error"), onZip);
 
@@ -87,7 +86,7 @@ async function boot() {
   if (/^\d{5}$/.test(h)) {
     const { lookupZip } = await import("./lookup.js");
     const res = await lookupZip(h);
-    if (res) select({ zip: h, sub: res.sub, utility: res.utility, state: res.state }, false);
+    if (res) select({ zip: h, ...res }, false);
     else select({ state: "US" }, false);
   } else if (states[h]) {
     select({ state: h }, false);
@@ -101,7 +100,7 @@ async function boot() {
     if (/^\d{5}$/.test(hh)) {
       const { lookupZip } = await import("./lookup.js");
       const res = await lookupZip(hh);
-      if (res) select({ zip: hh, sub: res.sub, utility: res.utility, state: res.state });
+      if (res) select({ zip: hh, ...res });
     } else if (states[hh]) {
       select({ state: hh });
     }

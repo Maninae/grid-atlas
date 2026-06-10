@@ -8,6 +8,11 @@ cd "$(dirname "$0")/raw"
 curl -sL -o zip.csv "https://raw.githubusercontent.com/USEPA/power-profiler/master/app/data/zip.csv"
 curl -sL -o subregion.json "https://raw.githubusercontent.com/USEPA/power-profiler/master/app/data/subregion.json"
 
+# NREL / OpenEI average residential electricity rates by utility & zip, 2024 (CC-BY 4.0)
+# Join key (zip + eiaid) lets us paint zip-level prices over the zip.csv crosswalk above.
+curl -sL -o iou_zipcodes_2024.csv "https://data.openei.org/files/8563/iou_zipcodes_2024.csv"
+curl -sL -o non_iou_zipcodes_2024.csv "https://data.openei.org/files/8563/non_iou_zipcodes_2024.csv"
+
 # eGRID2023 summary tables (CO2 rates by state/subregion)
 curl -sL -o summary_tables.xlsx "https://www.epa.gov/system/files/documents/2025-06/summary_tables_rev2.xlsx"
 

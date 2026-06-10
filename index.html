@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grid Atlas — where your electricity comes from</title>
 <meta name="description" content="Type your ZIP code and see what makes your electricity — solar, wind, coal, gas — how clean it is, what it costs, and the power plants behind it.">
+<!-- Open Graph / social share -->
+<meta property="og:title" content="Grid Atlas — where your electricity comes from">
+<meta property="og:description" content="Type your ZIP code and see what makes your electricity — solar, wind, coal, gas — how clean it is, what it costs, and the power plants behind it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maninae.github.io/grid-atlas/">
+<meta property="og:image" content="https://maninae.github.io/grid-atlas/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grid Atlas — where your electricity comes from">
+<meta name="twitter:description" content="Type your ZIP code and see what makes your electricity — solar, wind, coal, gas — how clean it is, what it costs, and the power plants behind it.">
+<meta name="twitter:image" content="https://maninae.github.io/grid-atlas/assets/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -165,6 +177,9 @@
       </div>
     </div>
   </section>
+  <p class="card-note day-missing" id="day-missing" hidden>No hour-by-hour chart here:
+  the federal grid monitor doesn't track Alaska's, Hawaii's, or Puerto Rico's
+  island grids — they run on their own, disconnected from the mainland.</p>
 
   <div class="cards">
     <section class="card card-trend">
@@ -206,6 +221,60 @@
     <button class="chip" data-state-link="WV">⛏️ West Virginia <span>coal's last stand</span></button>
     <button class="chip" data-state-link="GA">⚛️ Georgia <span>the nuclear gamble</span></button>
   </div>
+  <p class="chips-all-label">…or jump straight to any state:</p>
+  <div class="chips-all">
+    <button class="chip-mini" data-state-link="AL">Alabama</button>
+    <button class="chip-mini" data-state-link="AK">Alaska</button>
+    <button class="chip-mini" data-state-link="AZ">Arizona</button>
+    <button class="chip-mini" data-state-link="AR">Arkansas</button>
+    <button class="chip-mini" data-state-link="CA">California</button>
+    <button class="chip-mini" data-state-link="CO">Colorado</button>
+    <button class="chip-mini" data-state-link="CT">Connecticut</button>
+    <button class="chip-mini" data-state-link="DE">Delaware</button>
+    <button class="chip-mini" data-state-link="FL">Florida</button>
+    <button class="chip-mini" data-state-link="GA">Georgia</button>
+    <button class="chip-mini" data-state-link="HI">Hawaii</button>
+    <button class="chip-mini" data-state-link="ID">Idaho</button>
+    <button class="chip-mini" data-state-link="IL">Illinois</button>
+    <button class="chip-mini" data-state-link="IN">Indiana</button>
+    <button class="chip-mini" data-state-link="IA">Iowa</button>
+    <button class="chip-mini" data-state-link="KS">Kansas</button>
+    <button class="chip-mini" data-state-link="KY">Kentucky</button>
+    <button class="chip-mini" data-state-link="LA">Louisiana</button>
+    <button class="chip-mini" data-state-link="ME">Maine</button>
+    <button class="chip-mini" data-state-link="MD">Maryland</button>
+    <button class="chip-mini" data-state-link="MA">Massachusetts</button>
+    <button class="chip-mini" data-state-link="MI">Michigan</button>
+    <button class="chip-mini" data-state-link="MN">Minnesota</button>
+    <button class="chip-mini" data-state-link="MS">Mississippi</button>
+    <button class="chip-mini" data-state-link="MO">Missouri</button>
+    <button class="chip-mini" data-state-link="MT">Montana</button>
+    <button class="chip-mini" data-state-link="NE">Nebraska</button>
+    <button class="chip-mini" data-state-link="NV">Nevada</button>
+    <button class="chip-mini" data-state-link="NH">New Hampshire</button>
+    <button class="chip-mini" data-state-link="NJ">New Jersey</button>
+    <button class="chip-mini" data-state-link="NM">New Mexico</button>
+    <button class="chip-mini" data-state-link="NY">New York</button>
+    <button class="chip-mini" data-state-link="NC">North Carolina</button>
+    <button class="chip-mini" data-state-link="ND">North Dakota</button>
+    <button class="chip-mini" data-state-link="OH">Ohio</button>
+    <button class="chip-mini" data-state-link="OK">Oklahoma</button>
+    <button class="chip-mini" data-state-link="OR">Oregon</button>
+    <button class="chip-mini" data-state-link="PA">Pennsylvania</button>
+    <button class="chip-mini" data-state-link="RI">Rhode Island</button>
+    <button class="chip-mini" data-state-link="SC">South Carolina</button>
+    <button class="chip-mini" data-state-link="SD">South Dakota</button>
+    <button class="chip-mini" data-state-link="TN">Tennessee</button>
+    <button class="chip-mini" data-state-link="TX">Texas</button>
+    <button class="chip-mini" data-state-link="UT">Utah</button>
+    <button class="chip-mini" data-state-link="VT">Vermont</button>
+    <button class="chip-mini" data-state-link="VA">Virginia</button>
+    <button class="chip-mini" data-state-link="WA">Washington</button>
+    <button class="chip-mini" data-state-link="DC">Washington, D.C.</button>
+    <button class="chip-mini" data-state-link="WV">West Virginia</button>
+    <button class="chip-mini" data-state-link="WI">Wisconsin</button>
+    <button class="chip-mini" data-state-link="WY">Wyoming</button>
+  </div>
 </section>
 
 <!-- ======================= METHODOLOGY ======================= -->
@@ -231,6 +300,9 @@
       <tr><td>Electricity prices</td>
           <td><a href="https://www.eia.gov/electricity/data.php" target="_blank" rel="noopener">EIA retail sales</a></td>
           <td>2001–2025</td></tr>
+      <tr><td>Utility rates by ZIP</td>
+          <td><a href="https://data.openei.org/submissions/8563" target="_blank" rel="noopener">NREL / OpenEI</a> (CC-BY 4.0)</td>
+          <td>2024</td></tr>
     </tbody>
   </table>
   <p class="fine">Numbers count utility-scale generation (rooftop solar is
@@ -242,6 +314,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script type="module" src="js/main.js"></script>
+<script type="module" src="js/share.js"></script>
 </body>
 </html>

@@ -309,6 +309,17 @@
 
 /* ---------- showcase chips ---------- */
 .chips { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.chips-all-label { font-family: var(--font-ui); font-size: 13px; color: var(--ink-soft); margin: 22px 0 10px; }
+.chips-all { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; max-width: 1000px; margin: 0 auto; }
+.chip-mini {
+  font-family: var(--font-ui); font-size: 13.5px; font-weight: 500;
+  color: var(--ink-soft); background: var(--card);
+  border: 1px solid var(--rule); border-radius: 999px;
+  padding: 6px 13px; cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.chip-mini:hover { color: var(--ink); border-color: var(--accent); }
+p.day-missing { margin: 14px 0; }
 .chip {
   font-family: var(--font-ui);
   font-weight: 600;
@@ -480,3 +491,28 @@
 
 [data-theme="light"] .zip-error,
 [data-theme="light"] .zip-mini-error { color: #B3402A; }
+
+/* ---------- share / download-as-image button ---------- */
+.card, .map-cell, .day-sticky { position: relative; }
+.share-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.card:hover .share-btn,
+.map-cell:hover .share-btn,
+.day-sticky:hover .share-btn,
+.share-btn:focus-visible { opacity: 1; }
+.share-btn:hover { color: var(--accent); border-color: var(--accent); }

@@ -44,7 +44,7 @@ const INFO = {
   },
   price: {
     title: "What's in the price?",
-    body: "This is the average residential price per kWh — everything on the bill (making power, the wires, the utility's costs) divided by the electricity sold. Your own rate depends on your utility and plan.",
+    body: "This is the average residential price per kWh — everything on the bill (making power, the wires, the utility's costs) divided by the electricity sold. Your own rate depends on your utility and plan. ZIP-level utility averages come from 2024 federal data (NREL/OpenEI).",
     link: ["https://www.eia.gov/electricity/data.php", "EIA electricity data"],
   },
   homes: {
