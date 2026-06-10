@@ -1,0 +1,54 @@
+/* SVG chart styling shared across modules. */
+
+.chart svg { display: block; }
+
+.us-map svg .state {
+  cursor: pointer;
+  stroke: none;
+  transition: opacity 0.15s ease;
+}
+.us-map svg .state:hover { opacity: 0.82; }
+.us-map svg .state:focus-visible { outline: none; stroke: var(--accent); stroke-width: 3; }
+.us-map svg .state.selected { stroke: var(--ink); stroke-width: 2.5; }
+
+.us-map svg .state-borders {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.axis text {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  fill: var(--ink-soft);
+}
+.axis line, .axis path { stroke: var(--rule); }
+
+.axis-label {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  fill: var(--ink-soft);
+}
+
+.band-label {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: rgba(255, 253, 246, 0.001); /* keep crisp, no halo on dark bands */
+  pointer-events: none;
+}
+
+.line-label {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.strip-note, .strip-you {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  fill: var(--ink-soft);
+}
+.strip-you { font-weight: 700; fill: var(--ink); }

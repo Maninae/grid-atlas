@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid Atlas — where your electricity comes from</title>
+<meta name="description" content="Type your ZIP code and see what makes your electricity — solar, wind, coal, gas — how clean it is, what it costs, and the power plants behind it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/charts.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='80' font-size='80'>⚡</text></svg>">
+</head>
+<body>
+
+<!-- ======================= HERO ======================= -->
+<header class="hero">
+  <p class="kicker">⚡ Grid Atlas</p>
+  <h1>Where does your<br><em>electricity</em> come from?</h1>
+  <p class="deck">
+    Flip a switch and power just… appears. But every kilowatt-hour
+    <button class="info-btn" data-info="kwh" aria-label="What is a kilowatt-hour?">i</button>
+    has a story — a dam, a wind ridge, a coal seam, an atom.
+    Type your ZIP code and meet your grid.
+  </p>
+  <form id="zip-form" class="zip-form" autocomplete="off">
+    <input id="zip-input" inputmode="numeric" maxlength="5" placeholder="Your ZIP code"
+           aria-label="ZIP code">
+    <button type="submit">Show me</button>
+  </form>
+  <p id="zip-error" class="zip-error" role="alert"></p>
+  <p class="hero-hint">or scroll to see the whole country ↓</p>
+</header>
+
+<!-- ======================= SCROLLY ======================= -->
+<section class="scrolly" aria-label="The national picture">
+  <div class="graphic">
+    <div id="us-map" class="us-map"></div>
+  </div>
+  <div class="steps">
+    <div class="step" data-step="intro">
+      <h2>Every state has its own power story</h2>
+      <p>This map shows the <strong>#1 source of electricity</strong> in each
+      state in 2025. Texas leans on gas and wind. Washington runs on rivers.
+      West Virginia still runs on coal.</p>
+    </div>
+    <div class="step" data-step="clean">
+      <h2>About <span id="stat-clean" class="stat">—</span> of US electricity is now clean</h2>
+      <p>Darker green = more power from sources that release little or no CO₂:
+      solar, wind, water, nuclear, and geothermal
+      <button class="info-btn" data-info="clean" aria-label="What counts as clean?">i</button>.</p>
+    </div>
+    <div class="step" data-step="coal">
+      <h2>The big switch</h2>
+      <p>In 2001, coal made <span id="stat-coal-then" class="stat">—</span> of
+      America's electricity. Today it's down to
+      <span id="stat-coal-now" class="stat">—</span>. Cheap natural gas, then
+      wind and solar, took its place — one of the fastest changes in the
+      history of the grid.</p>
+    </div>
+    <div class="step" data-step="co2">
+      <h2>Every kilowatt-hour has a carbon cost</h2>
+      <p>Where coal hangs on, each unit of electricity releases a lot more
+      CO₂ <button class="info-btn" data-info="co2kwh" aria-label="About CO2 per kWh">i</button>.
+      The same lightbulb is about <strong>seven times dirtier</strong> in West
+      Virginia than in Washington state — and 45 times dirtier than in Vermont.</p>
+    </div>
+    <div class="step" data-step="you">
+      <h2>So — what about <em>your</em> outlet?</h2>
+      <p>Click your state, or jump back up and type your ZIP code.</p>
+      <button class="cta" id="cta-zip">Type my ZIP ↑</button>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= YOUR GRID ======================= -->
+<main id="region-panel" class="region-panel" hidden>
+  <header class="region-header">
+    <p class="kicker" id="region-kicker"></p>
+    <h2 id="region-title"></h2>
+    <p class="region-sub" id="region-sub"></p>
+  </header>
+
+  <div class="cards">
+    <section class="card card-mix">
+      <h3>What makes your electricity
+        <button class="info-btn" data-info="rooftop" aria-label="Where is rooftop solar?">i</button>
+      </h3>
+      <p class="card-note">100 squares = all of it. <span id="mix-year" class="tag"></span></p>
+      <div id="mix-waffle"></div>
+      <p class="card-sentence" id="mix-sentence"></p>
+    </section>
+
+    <section class="card card-co2">
+      <h3>The carbon cost
+        <button class="info-btn" data-info="egridyear" aria-label="Why 2023 data?">i</button>
+      </h3>
+      <div class="co2-big">
+        <span id="co2-number" class="co2-number">—</span>
+        <span class="co2-unit">grams of CO₂<br>per kilowatt-hour</span>
+      </div>
+      <p class="card-sentence" id="co2-sentence"></p>
+      <div id="co2-strip"></div>
+      <p class="card-note" id="co2-strip-caption"></p>
+    </section>
+
+    <section class="card card-day" id="day-card">
+      <h3>A day on your grid
+        <button class="info-btn" data-info="typicalday" aria-label="How this chart was made">i</button>
+      </h3>
+      <p class="card-note">A typical 24 hours on <strong id="day-operator"></strong>
+        <button class="info-btn" data-info="operator" aria-label="Who runs the grid?">i</button>
+        — watch solar swell at midday, then gas and batteries take the evening.</p>
+      <div id="day-chart" class="chart"></div>
+    </section>
+
+    <section class="card card-trend">
+      <h3>25 years of change</h3>
+      <p class="card-note" id="trend-title"></p>
+      <div id="trend-chart" class="chart"></div>
+      <p class="card-sentence" id="trend-sentence"></p>
+    </section>
+
+    <section class="card card-price">
+      <h3>What it costs
+        <button class="info-btn" data-info="price" aria-label="What is in the price?">i</button>
+      </h3>
+      <div id="price-chart" class="chart"></div>
+      <p class="card-sentence" id="price-sentence"></p>
+    </section>
+
+    <section class="card card-plants">
+      <h3 id="plants-title">The biggest power plants
+        <button class="info-btn" data-info="homes" aria-label="How homes are counted">i</button>
+      </h3>
+      <div class="plants-flex">
+        <div id="plants-map"></div>
+        <ul id="plants-list" class="plants-list"></ul>
+      </div>
+    </section>
+
+    <section class="card card-story" id="story-card" hidden>
+      <h3 id="story-title"></h3>
+      <p class="card-sentence" id="story-summary"></p>
+      <ul class="timeline" id="story-timeline"></ul>
+      <p class="sig-plant" id="story-plant"></p>
+    </section>
+  </div>
+</main>
+
+<!-- ======================= SHOWCASE ======================= -->
+<section class="showcase">
+  <h2>Five grids, five stories</h2>
+  <p class="deck-small">Some states tell the whole American power story by themselves.
+  Pick one — each has a hand-researched timeline of the dams, deals, and
+  disasters that shaped it.</p>
+  <div class="chips">
+    <button class="chip" data-state-link="CA">☀️ California <span>the solar bet</span></button>
+    <button class="chip" data-state-link="TX">🌬️ Texas <span>the lone-star grid</span></button>
+    <button class="chip" data-state-link="WA">💧 Washington <span>river power</span></button>
+    <button class="chip" data-state-link="WV">⛏️ West Virginia <span>coal's last stand</span></button>
+    <button class="chip" data-state-link="GA">⚛️ Georgia <span>the nuclear gamble</span></button>
+  </div>
+</section>
+
+<!-- ======================= METHODOLOGY ======================= -->
+<footer class="methodology">
+  <h2>How we know this</h2>
+  <p>Everything here comes from free, public US government data. No estimates
+  of ours — just their numbers, drawn kindly.</p>
+  <table class="sources">
+    <thead><tr><th>What</th><th>Source</th><th>Data year</th></tr></thead>
+    <tbody>
+      <tr><td>Fuel mix &amp; 25-year trends</td>
+          <td><a href="https://www.eia.gov/electricity/data/state/" target="_blank" rel="noopener">US Energy Information Administration</a></td>
+          <td>2001–2025</td></tr>
+      <tr><td>CO₂ per kWh, ZIP → grid region</td>
+          <td><a href="https://www.epa.gov/egrid" target="_blank" rel="noopener">EPA eGRID</a></td>
+          <td>2023 (newest official)</td></tr>
+      <tr><td>Hour-by-hour grid data</td>
+          <td><a href="https://www.eia.gov/electricity/gridmonitor/" target="_blank" rel="noopener">EIA Hourly Grid Monitor</a></td>
+          <td>2025</td></tr>
+      <tr><td>Power plant locations &amp; sizes</td>
+          <td><a href="https://atlas.eia.gov/datasets/eia::power-plants/about" target="_blank" rel="noopener">EIA US Energy Atlas</a></td>
+          <td>2026</td></tr>
+      <tr><td>Electricity prices</td>
+          <td><a href="https://www.eia.gov/electricity/data.php" target="_blank" rel="noopener">EIA retail sales</a></td>
+          <td>2001–2025</td></tr>
+    </tbody>
+  </table>
+  <p class="fine">Numbers count utility-scale generation (rooftop solar is
+  tracked separately and not included). ZIP codes that straddle two grid
+  regions get their main one, same as the EPA's own lookup. This site is a
+  static page — your ZIP never leaves your browser.</p>
+  <p class="fine">Open data, open source — <a id="repo-link" href="https://github.com/Maninae/grid-atlas" target="_blank" rel="noopener">code &amp; data pipeline on GitHub</a>.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script type="module" src="js/main.js"></script>
+<script>
+  // tiny non-module helper: CTA scrolls to hero zip input
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "cta-zip") {
+      document.querySelector(".hero").scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => document.getElementById("zip-input").focus(), 600);
+    }
+  });
+</script>
+</body>
+</html>
