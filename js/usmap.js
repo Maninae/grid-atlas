@@ -14,7 +14,8 @@ export class USMap {
 
     const W = 975, H = 610;
     this.svg = d3.select(el).append("svg")
-      .attr("viewBox", `0 0 ${W} ${H}`).attr("width", "100%");
+      .attr("viewBox", `0 0 ${W} ${H}`).attr("width", "100%")
+      .attr("class", "usmap-svg metric-" + metric);
 
     const features = topojson.feature(topo, topo.objects.states).features;
     const path = d3.geoPath(); // states-albers-10m is pre-projected
@@ -56,7 +57,6 @@ export class USMap {
     return {
       rampBase: cs.getPropertyValue("--ramp-base").trim(),
       cleanHi: cs.getPropertyValue("--clean-hi").trim(),
-      coalHi: cs.getPropertyValue("--coal-hi").trim(),
       noData: cs.getPropertyValue("--map-nodata").trim(),
     };
   }
@@ -86,7 +86,7 @@ export class USMap {
     switch (this.metric) {
       case "dominant": return FUELS[v].color;
       case "clean": return d3.interpolateRgb(t.rampBase, t.cleanHi)(Math.min(v / 100, 1));
-      case "coal": return d3.interpolateRgb(t.rampBase, t.coalHi)(Math.min(v / 90, 1));
+      case "coal": return d3.interpolateRgb("#F2F0EB", "#15110D")(Math.min(v / 100, 1));
       case "co2": return co2Color(v);
       default: return t.noData;
     }
@@ -128,8 +128,7 @@ export class USMap {
       const mid = d3.interpolateRgb(t.rampBase, t.cleanHi)(0.5);
       L.innerHTML = ramp([t.rampBase, mid, t.cleanHi], "0%", "100% clean");
     } else if (this.metric === "coal") {
-      const mid = d3.interpolateRgb(t.rampBase, t.coalHi)(0.5);
-      L.innerHTML = ramp([t.rampBase, mid, t.coalHi], "0%", "90% coal");
+      L.innerHTML = ramp(["#F2F0EB", "#847C72", "#15110D"], "0% coal", "100%");
     } else if (this.metric === "co2") {
       L.innerHTML = ramp(["#3ECF8E", "#E3C03F", "#D2603A", "#8E2F2A"], "low CO₂", "high");
     }

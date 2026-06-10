@@ -1,5 +1,5 @@
 /* 10x10 waffle chart: 100 squares = 100% of electricity.
-   Max 5 colors: the top 4 fuels keep their hue; everything smaller is grouped
+   Max 7 colors: the top 6 fuels keep their hue; everything smaller is grouped
    into one neutral "everything else" block so the chart reads at a glance. */
 import { FUELS } from "../meta.js";
 
@@ -7,18 +7,18 @@ export function renderWaffle(el, mix) {
   el.innerHTML = "";
   const sorted = Object.entries(mix).sort((a, b) => b[1] - a[1]);
 
-  // Build display rows: top 4 fuels + grouped remainder (if 2+ fuels remain)
+  // Build display rows: top 6 fuels + grouped remainder (if 2+ fuels remain)
   let rows = sorted.map(([f, v]) => ({
     key: f, value: v, color: FUELS[f].color,
     label: `${FUELS[f].emoji} ${FUELS[f].label}`, title: FUELS[f].blurb,
   }));
-  if (sorted.length > 5) {
-    const rest = sorted.slice(4);
+  if (sorted.length > 7) {
+    const rest = sorted.slice(6);
     const restShare = rest.reduce((s, [, v]) => s + v, 0);
     const parts = rest
       .map(([f, v]) => `${FUELS[f].label.toLowerCase()} ${Math.round(v) || "<1"}%`)
       .join(", ");
-    rows = rows.slice(0, 4);
+    rows = rows.slice(0, 6);
     rows.push({
       key: "__rest", value: restShare, color: FUELS.other.color,
       label: "⚡ Everything else", title: parts, sub: parts,

@@ -8,6 +8,7 @@
   transition: opacity 0.15s ease;
 }
 .us-map svg .state:hover { opacity: 0.82; }
+.us-map svg .state:focus { outline: none; } /* kill the UA blue box on mouse click */
 .us-map svg .state:focus-visible { outline: none; stroke: var(--accent); stroke-width: 3; }
 .us-map svg .state.selected { stroke: var(--ink); stroke-width: 2.5; }
 
@@ -16,6 +17,11 @@
   stroke: var(--paper);
   stroke-width: 1;
   pointer-events: none;
+}
+
+.us-map svg.metric-coal .state-borders {
+  stroke: #FFFFFF;
+  stroke-width: 1.1;
 }
 
 .axis text {
