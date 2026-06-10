@@ -1,67 +1,2616 @@
 {
-  "CA": {
-    "summary": "California's grid was built on big hydro and natural gas, then shaken apart by the 2000-01 deregulation crisis that brought rolling blackouts. The state rebuilt around clean energy: a million solar roofs, a legal promise of 100% clean power by 2045, and giant batteries that store sunshine for the evening. Today gas still leads, but solar is a strong No. 2 and climbing.",
-    "events": [
-      {"year": 1985, "title": "Diablo Canyon nuclear plant opens", "text": "PG&E's twin reactors on the coast near San Luis Obispo start running. They make about 2,200 megawatts — enough clean power for roughly 3 million homes.", "type": "plant", "source": "https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant"},
-      {"year": 1996, "title": "California deregulates its power market", "text": "Lawmakers pass AB 1890, letting power be bought and sold on open markets. The change was supposed to lower bills — but it set the stage for a crisis.", "type": "policy", "source": "https://en.wikipedia.org/wiki/2000%E2%80%932001_California_electricity_crisis"},
-      {"year": 2001, "title": "Rolling blackouts and the Enron crisis", "text": "Power prices exploded and the lights went out for millions. Traders at Enron gamed the new market, and the state lost tens of billions of dollars.", "type": "market", "source": "https://en.wikipedia.org/wiki/2000%E2%80%932001_California_electricity_crisis"},
-      {"year": 2006, "title": "Million Solar Roofs law", "text": "Governor Schwarzenegger signs SB 1, offering big rebates to put solar panels on homes. California hit one million solar roofs in 2019.", "type": "policy", "source": "https://schwarzenegger.usc.edu/institute_in_action/california-has-reached-it-1000000-solar-roofs-goal/"},
-      {"year": 2013, "title": "San Onofre nuclear plant shuts down", "text": "Faulty new steam generators forced the plant to close for good. The state lost about 2,200 megawatts of carbon-free power overnight.", "type": "plant", "source": "https://en.wikipedia.org/wiki/San_Onofre_Nuclear_Generating_Station"},
-      {"year": 2018, "title": "SB 100 sets 100% clean power goal", "text": "Governor Jerry Brown signs a law requiring all retail electricity to come from clean sources by 2045. It made California's clean energy push the law of the land.", "type": "policy", "source": "https://www.energy.ca.gov/sb100"},
-      {"year": 2022, "title": "Diablo Canyon gets a reprieve", "text": "Worried about blackouts, lawmakers pass SB 846 to keep the state's last nuclear plant open up to five more years. It still supplies about 9% of California's power.", "type": "policy", "source": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/electric-costs/what-are-nuclear-electric-cost/senate-bill-846"}
-    ],
-    "signature_plant": {"name": "Diablo Canyon Power Plant", "fuel": "Nuclear", "capacity_mw": 2256, "fact": "California's last nuclear plant. Its two reactors make about 9% of the state's electricity with zero carbon emissions.", "source": "https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant"}
-  },
-  "TX": {
-    "summary": "Texas runs its own grid, ERCOT, mostly cut off from the rest of the country. In 1999 it threw open its power market to competition, and cheap land plus a $7 billion transmission build-out turned the state into America's wind capital. The deadly 2021 winter blackouts showed the risks of going it alone. Since then, Texas has added more solar and batteries than any other state.",
-    "events": [
-      {"year": 1988, "title": "South Texas Project nuclear opens", "text": "The first of two giant reactors near Bay City starts running. Together they make about 2,560 megawatts of carbon-free power for the Gulf Coast.", "type": "plant", "source": "https://en.wikipedia.org/wiki/South_Texas_Nuclear_Generating_Station"},
-      {"year": 1999, "title": "Texas deregulates its power market", "text": "Governor George W. Bush signs SB 7, letting Texans pick their electricity company. It also locked in ERCOT as the state's own separate grid.", "type": "policy", "source": "https://en.wikipedia.org/wiki/Deregulation_of_the_Texas_electricity_market"},
-      {"year": 2006, "title": "Texas becomes No. 1 in wind", "text": "Texas zooms past California to lead the country in wind power. Big open ranches in West Texas and the Panhandle were perfect for turbines.", "type": "milestone", "source": "https://en.wikipedia.org/wiki/Wind_power_in_Texas"},
-      {"year": 2013, "title": "CREZ transmission lines finished", "text": "A $7 billion network of new power lines connects windy West Texas to the big cities. It unlocked over 18,000 megawatts of wind — more than enough for 4 million homes.", "type": "policy", "source": "https://www.utilitydive.com/news/texas-crez-lines-delivering-grid-benefits-at-7b-price-tag/278834/"},
-      {"year": 2021, "title": "Winter Storm Uri blackouts", "text": "A brutal February freeze knocked out power for over 4.5 million homes. Hundreds of Texans died, mostly because natural gas equipment froze.", "type": "milestone", "source": "https://en.wikipedia.org/wiki/2021_Texas_power_crisis"},
-      {"year": 2024, "title": "Solar and batteries surge", "text": "Texas added more new solar and battery storage than any other state. Big batteries soak up daytime sun and push it back to the grid after dark.", "type": "market", "source": "https://www.eia.gov/todayinenergy/detail.php?id=66464"},
-      {"year": 2025, "title": "Solar passes coal", "text": "For the first time over a full year, solar made more electricity for the Texas grid than coal did. Solar reached about 14% of the grid; coal kept slipping.", "type": "milestone", "source": "https://energycapitalhtx.com/ercot-2025-report-solar"}
-    ],
-    "signature_plant": {"name": "Comanche Peak Nuclear Power Plant", "fuel": "Nuclear", "capacity_mw": 2400, "fact": "Its two reactors near Glen Rose started up in 1990 and 1993 and quietly power roughly 2 million Texas homes, day and night.", "source": "https://en.wikipedia.org/wiki/Comanche_Peak_Nuclear_Power_Plant"}
-  },
-  "WA": {
-    "summary": "Washington's grid was built on big New Deal dams on the Columbia River, with Grand Coulee at its heart. Cheap hydropower drew aluminum smelters and, decades later, data centers. A 1980s plan to build five nuclear plants ended in the biggest municipal bond default in U.S. history — nicknamed 'Whoops.' Today hydro still makes most of the state's power, and a 2019 law requires 100% clean electricity by 2045.",
-    "events": [
-      {"year": 1937, "title": "Bonneville Power Administration created", "text": "President Roosevelt signs a law creating BPA to sell electricity from the new federal dams. It brought cheap power to farms and small towns.", "type": "policy", "source": "https://www.nwcouncil.org/history/BPAHistory/"},
-      {"year": 1942, "title": "Grand Coulee Dam finished", "text": "The huge concrete dam on the Columbia River starts making power. During World War II it ran factories building planes, ships, and atomic bomb material.", "type": "plant", "source": "https://en.wikipedia.org/wiki/Grand_Coulee_Dam"},
-      {"year": 1974, "title": "Grand Coulee becomes biggest US power plant", "text": "A third powerhouse pushes its capacity to 6,809 megawatts. It is still the largest power plant in the country — of any kind.", "type": "plant", "source": "https://en.wikipedia.org/wiki/Grand_Coulee_Dam"},
-      {"year": 1983, "title": "The 'Whoops' nuclear default", "text": "Washington Public Power Supply System defaulted on $2.25 billion in bonds after canceling two half-built nuclear plants. It was the biggest public bond bust in U.S. history.", "type": "market", "source": "https://en.wikipedia.org/wiki/Energy_Northwest"},
-      {"year": 1984, "title": "Columbia Generating Station opens", "text": "The lone survivor of that nuclear plan starts running near Richland. At about 1,207 megawatts, it is still the state's only nuclear plant.", "type": "plant", "source": "https://en.wikipedia.org/wiki/Columbia_Generating_Station"},
-      {"year": 2019, "title": "Clean Energy Transformation Act", "text": "Governor Inslee signs CETA, requiring utilities to drop coal by 2025 and be 100% clean by 2045. Hydro gave Washington a big head start.", "type": "policy", "source": "https://www.utc.wa.gov/regulated-industries/utilities/energy/conservation-and-renewable-energy-overview/clean-energy-transformation-act-ceta"},
-      {"year": 2025, "title": "Coal power ends in Washington", "text": "Under CETA's deadline, utilities stop selling Washington customers electricity made from coal. The grid leans even harder on hydro, wind, and nuclear.", "type": "milestone", "source": "https://www.commerce.wa.gov/energy-policy/electricity-policy/ceta/"}
-    ],
-    "signature_plant": {"name": "Grand Coulee Dam", "fuel": "Hydroelectric", "capacity_mw": 6809, "fact": "Still the largest power plant in the United States. During World War II its power helped build planes, ships, and atomic bomb material.", "source": "https://en.wikipedia.org/wiki/Grand_Coulee_Dam"}
-  },
-  "WV": {
-    "summary": "For more than a century, West Virginia coal has fueled the country — and the state itself. Even today, coal makes about 86% of its electricity, the highest share of any state. Cheap natural gas has closed many coal plants since 2005, but giants like John Amos keep running, and state leaders are betting on coal and gas to power a new wave of data centers.",
-    "events": [
-      {"year": 1924, "title": "Coal country powers America", "text": "After the famous Mine Wars between miners and operators, West Virginia coal kept powering America's factories and homes. Coal became part of the state's identity.", "type": "milestone", "source": "https://www.eia.gov/state/?sid=WV"},
-      {"year": 1973, "title": "John Amos Plant opens", "text": "The huge coal plant on the Kanawha River starts running. At about 2,933 megawatts, it is the biggest power plant in the state — enough for over 2 million homes.", "type": "plant", "source": "https://en.wikipedia.org/wiki/John_E._Amos_Power_Plant"},
-      {"year": 2009, "title": "Mountaineer tests carbon capture", "text": "Engineers at the Mountaineer coal plant tested catching carbon dioxide before it left the smokestack. The pilot worked, but shut down after a few years because no law made it pay.", "type": "plant", "source": "https://en.wikipedia.org/wiki/Mountaineer_Power_Plant"},
-      {"year": 2015, "title": "Old coal plants start retiring", "text": "The 65-year-old Philip Sporn plant shut down — one of about ten coal plants closed in West Virginia since 2005 as cheap natural gas took over.", "type": "plant", "source": "https://www.theintermountain.com/news/local-news/2023/05/lawmakers-hear-report-on-power-plant-retirements/"},
-      {"year": 2021, "title": "State doubles down on coal", "text": "Regulators approved upgrades to keep the Amos, Mountaineer, and Mitchell coal plants running until 2040. West Virginia bet on coal staying central.", "type": "policy", "source": "https://www.wvgazettemail.com/news/energy_and_environment/aep-consideration-of-retiring-marshall-county-coal-plant-continues-trend-rouses-both-sides-of-debate/article_592a35da-4ecc-5038-83a6-5c42e2afe0a4.html"},
-      {"year": 2025, "title": "Data centers push up bills", "text": "The regional grid's yearly payment to power plants jumped from $2.2 billion to $14.7 billion, raising West Virginia bills. Data centers next door in Virginia are the main reason.", "type": "market", "source": "https://www.npr.org/2026/06/07/nx-s1-5828398/virginias-data-center-boom-is-raising-west-virginias-electricity-bills"},
-      {"year": 2025, "title": "The '50 by 50' plan", "text": "Governor Morrisey unveils a plan to triple the state's power capacity to 50 gigawatts by 2050, leaning on coal and natural gas, to attract data centers.", "type": "policy", "source": "https://westvirginiawatch.com/2025/09/11/morrisey-shares-new-energy-plan-for-wv-relying-heavily-on-coal-natural-gas-to-grow-power-creation/"}
-    ],
-    "signature_plant": {"name": "John E. Amos Power Plant", "fuel": "Coal", "capacity_mw": 2933, "fact": "One of the largest coal plants east of the Mississippi. Its three cooling towers are a landmark you can see for miles along Interstate 64.", "source": "https://en.wikipedia.org/wiki/John_E._Amos_Power_Plant"}
-  },
-  "GA": {
-    "summary": "Georgia's grid grew up around Georgia Power, with Plant Scherer near Macon long ranked the biggest coal plant in America. Then the state did something nobody had done in decades: it built two brand-new nuclear reactors at Plant Vogtle, finished in 2023 and 2024 for about $35 billion. Rural Georgia has also become a big solar producer — and now a data-center boom is driving plans for a huge new wave of power.",
-    "events": [
-      {"year": 1982, "title": "Plant Scherer opens", "text": "The huge coal plant near Juliette starts running. With 3,520 megawatts across four units, it became the largest coal-fired power plant in the United States.", "type": "plant", "source": "https://en.wikipedia.org/wiki/Plant_Scherer"},
-      {"year": 1987, "title": "Plant Vogtle Units 1 and 2 open", "text": "Georgia Power's first two reactors near Waynesboro start producing carbon-free power. They quickly became a big chunk of the state's electricity.", "type": "plant", "source": "https://en.wikipedia.org/wiki/Vogtle_Electric_Generating_Plant"},
-      {"year": 2009, "title": "Georgia approves new Vogtle reactors", "text": "Regulators sign off on two new reactors at Vogtle — the first new U.S. nuclear construction in about 30 years. Customers started paying for them on their bills before they were built.", "type": "policy", "source": "https://en.wikipedia.org/wiki/Vogtle_Electric_Generating_Plant"},
-      {"year": 2020, "title": "Scherer's biggest unit shuts down", "text": "Two Florida utilities retired Unit 4 of Plant Scherer, cutting 848 megawatts of coal. Cheap natural gas made the old plant too expensive to run.", "type": "plant", "source": "https://www.utilitydive.com/news/fpl-jea-to-retire-848-mw-unit-of-largest-us-coal-plant/580684/"},
-      {"year": 2023, "title": "Vogtle Unit 3 starts up", "text": "The first newly built U.S. reactor in seven years comes online in Georgia. It makes about 1,100 megawatts — enough for half a million homes.", "type": "plant", "source": "https://www.eia.gov/todayinenergy/detail.php?id=61963"},
-      {"year": 2024, "title": "Vogtle Unit 4 finishes the project", "text": "The second new reactor begins commercial operation. The full Vogtle expansion cost about $35 billion — more than double the original budget.", "type": "plant", "source": "https://www.eia.gov/todayinenergy/detail.php?id=61963"},
-      {"year": 2025, "title": "Massive expansion for data centers", "text": "Regulators approved Georgia Power's plan to add 10,000 megawatts of new capacity, mostly natural gas, to feed data-center growth. About 80% of the new power would serve data centers.", "type": "policy", "source": "https://georgiarecorder.com/2025/12/19/georgia-regulators-approve-massive-power-grid-expansion-to-serve-data-centers/"}
-    ],
-    "signature_plant": {"name": "Plant Vogtle (Units 3 & 4)", "fuel": "Nuclear", "capacity_mw": 2234, "fact": "The first reactors built from scratch in the U.S. in more than 30 years — and, at about $35 billion, the most expensive power project in American history.", "source": "https://en.wikipedia.org/wiki/Vogtle_Electric_Generating_Plant"}
+ "CA": {
+  "summary": "California's grid was built on big hydro and natural gas, then shaken apart by the 2000-01 deregulation crisis that brought rolling blackouts. The state rebuilt around clean energy: a million solar roofs, a legal promise of 100% clean power by 2045, and giant batteries that store sunshine for the evening. Today gas still leads, but solar is a strong No. 2 and climbing.",
+  "events": [
+   {
+    "year": 1985,
+    "title": "Diablo Canyon nuclear plant opens",
+    "text": "PG&E's twin reactors on the coast near San Luis Obispo start running. They make about 2,200 megawatts — enough clean power for roughly 3 million homes.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant"
+   },
+   {
+    "year": 1996,
+    "title": "California deregulates its power market",
+    "text": "Lawmakers pass AB 1890, letting power be bought and sold on open markets. The change was supposed to lower bills — but it set the stage for a crisis.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/2000%E2%80%932001_California_electricity_crisis"
+   },
+   {
+    "year": 2001,
+    "title": "Rolling blackouts and the Enron crisis",
+    "text": "Power prices exploded and the lights went out for millions. Traders at Enron gamed the new market, and the state lost tens of billions of dollars.",
+    "type": "market",
+    "source": "https://en.wikipedia.org/wiki/2000%E2%80%932001_California_electricity_crisis"
+   },
+   {
+    "year": 2006,
+    "title": "Million Solar Roofs law",
+    "text": "Governor Schwarzenegger signs SB 1, offering big rebates to put solar panels on homes. California hit one million solar roofs in 2019.",
+    "type": "policy",
+    "source": "https://schwarzenegger.usc.edu/institute_in_action/california-has-reached-it-1000000-solar-roofs-goal/"
+   },
+   {
+    "year": 2013,
+    "title": "San Onofre nuclear plant shuts down",
+    "text": "Faulty new steam generators forced the plant to close for good. The state lost about 2,200 megawatts of carbon-free power overnight.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/San_Onofre_Nuclear_Generating_Station"
+   },
+   {
+    "year": 2018,
+    "title": "SB 100 sets 100% clean power goal",
+    "text": "Governor Jerry Brown signs a law requiring all retail electricity to come from clean sources by 2045. It made California's clean energy push the law of the land.",
+    "type": "policy",
+    "source": "https://www.energy.ca.gov/sb100"
+   },
+   {
+    "year": 2022,
+    "title": "Diablo Canyon gets a reprieve",
+    "text": "Worried about blackouts, lawmakers pass SB 846 to keep the state's last nuclear plant open up to five more years. It still supplies about 9% of California's power.",
+    "type": "policy",
+    "source": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/electric-costs/what-are-nuclear-electric-cost/senate-bill-846"
+   }
+  ],
+  "signature_plant": {
+   "name": "Diablo Canyon Power Plant",
+   "fuel": "Nuclear",
+   "capacity_mw": 2256,
+   "fact": "California's last nuclear plant. Its two reactors make about 9% of the state's electricity with zero carbon emissions.",
+   "source": "https://en.wikipedia.org/wiki/Diablo_Canyon_Power_Plant"
   }
+ },
+ "TX": {
+  "summary": "Texas runs its own grid, ERCOT, mostly cut off from the rest of the country. In 1999 it threw open its power market to competition, and cheap land plus a $7 billion transmission build-out turned the state into America's wind capital. The deadly 2021 winter blackouts showed the risks of going it alone. Since then, Texas has added more solar and batteries than any other state.",
+  "events": [
+   {
+    "year": 1988,
+    "title": "South Texas Project nuclear opens",
+    "text": "The first of two giant reactors near Bay City starts running. Together they make about 2,560 megawatts of carbon-free power for the Gulf Coast.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/South_Texas_Nuclear_Generating_Station"
+   },
+   {
+    "year": 1999,
+    "title": "Texas deregulates its power market",
+    "text": "Governor George W. Bush signs SB 7, letting Texans pick their electricity company. It also locked in ERCOT as the state's own separate grid.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Deregulation_of_the_Texas_electricity_market"
+   },
+   {
+    "year": 2006,
+    "title": "Texas becomes No. 1 in wind",
+    "text": "Texas zooms past California to lead the country in wind power. Big open ranches in West Texas and the Panhandle were perfect for turbines.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_Texas"
+   },
+   {
+    "year": 2013,
+    "title": "CREZ transmission lines finished",
+    "text": "A $7 billion network of new power lines connects windy West Texas to the big cities. It unlocked over 18,000 megawatts of wind — more than enough for 4 million homes.",
+    "type": "policy",
+    "source": "https://www.utilitydive.com/news/texas-crez-lines-delivering-grid-benefits-at-7b-price-tag/278834/"
+   },
+   {
+    "year": 2021,
+    "title": "Winter Storm Uri blackouts",
+    "text": "A brutal February freeze knocked out power for over 4.5 million homes. Hundreds of Texans died, mostly because natural gas equipment froze.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/2021_Texas_power_crisis"
+   },
+   {
+    "year": 2024,
+    "title": "Solar and batteries surge",
+    "text": "Texas added more new solar and battery storage than any other state. Big batteries soak up daytime sun and push it back to the grid after dark.",
+    "type": "market",
+    "source": "https://www.eia.gov/todayinenergy/detail.php?id=66464"
+   },
+   {
+    "year": 2025,
+    "title": "Solar passes coal",
+    "text": "For the first time over a full year, solar made more electricity for the Texas grid than coal did. Solar reached about 14% of the grid; coal kept slipping.",
+    "type": "milestone",
+    "source": "https://energycapitalhtx.com/ercot-2025-report-solar"
+   }
+  ],
+  "signature_plant": {
+   "name": "Comanche Peak Nuclear Power Plant",
+   "fuel": "Nuclear",
+   "capacity_mw": 2400,
+   "fact": "Its two reactors near Glen Rose started up in 1990 and 1993 and quietly power roughly 2 million Texas homes, day and night.",
+   "source": "https://en.wikipedia.org/wiki/Comanche_Peak_Nuclear_Power_Plant"
+  }
+ },
+ "WA": {
+  "summary": "Washington's grid was built on big New Deal dams on the Columbia River, with Grand Coulee at its heart. Cheap hydropower drew aluminum smelters and, decades later, data centers. A 1980s plan to build five nuclear plants ended in the biggest municipal bond default in U.S. history — nicknamed 'Whoops.' Today hydro still makes most of the state's power, and a 2019 law requires 100% clean electricity by 2045.",
+  "events": [
+   {
+    "year": 1937,
+    "title": "Bonneville Power Administration created",
+    "text": "President Roosevelt signs a law creating BPA to sell electricity from the new federal dams. It brought cheap power to farms and small towns.",
+    "type": "policy",
+    "source": "https://www.nwcouncil.org/history/BPAHistory/"
+   },
+   {
+    "year": 1942,
+    "title": "Grand Coulee Dam finished",
+    "text": "The huge concrete dam on the Columbia River starts making power. During World War II it ran factories building planes, ships, and atomic bomb material.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Grand_Coulee_Dam"
+   },
+   {
+    "year": 1974,
+    "title": "Grand Coulee becomes biggest US power plant",
+    "text": "A third powerhouse pushes its capacity to 6,809 megawatts. It is still the largest power plant in the country — of any kind.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Grand_Coulee_Dam"
+   },
+   {
+    "year": 1983,
+    "title": "The 'Whoops' nuclear default",
+    "text": "Washington Public Power Supply System defaulted on $2.25 billion in bonds after canceling two half-built nuclear plants. It was the biggest public bond bust in U.S. history.",
+    "type": "market",
+    "source": "https://en.wikipedia.org/wiki/Energy_Northwest"
+   },
+   {
+    "year": 1984,
+    "title": "Columbia Generating Station opens",
+    "text": "The lone survivor of that nuclear plan starts running near Richland. At about 1,207 megawatts, it is still the state's only nuclear plant.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Columbia_Generating_Station"
+   },
+   {
+    "year": 2019,
+    "title": "Clean Energy Transformation Act",
+    "text": "Governor Inslee signs CETA, requiring utilities to drop coal by 2025 and be 100% clean by 2045. Hydro gave Washington a big head start.",
+    "type": "policy",
+    "source": "https://www.utc.wa.gov/regulated-industries/utilities/energy/conservation-and-renewable-energy-overview/clean-energy-transformation-act-ceta"
+   },
+   {
+    "year": 2025,
+    "title": "Coal power ends in Washington",
+    "text": "Under CETA's deadline, utilities stop selling Washington customers electricity made from coal. The grid leans even harder on hydro, wind, and nuclear.",
+    "type": "milestone",
+    "source": "https://www.commerce.wa.gov/energy-policy/electricity-policy/ceta/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Grand Coulee Dam",
+   "fuel": "Hydroelectric",
+   "capacity_mw": 6809,
+   "fact": "Still the largest power plant in the United States. During World War II its power helped build planes, ships, and atomic bomb material.",
+   "source": "https://en.wikipedia.org/wiki/Grand_Coulee_Dam"
+  }
+ },
+ "WV": {
+  "summary": "For more than a century, West Virginia coal has fueled the country — and the state itself. Even today, coal makes about 86% of its electricity, the highest share of any state. Cheap natural gas has closed many coal plants since 2005, but giants like John Amos keep running, and state leaders are betting on coal and gas to power a new wave of data centers.",
+  "events": [
+   {
+    "year": 1924,
+    "title": "Coal country powers America",
+    "text": "After the famous Mine Wars between miners and operators, West Virginia coal kept powering America's factories and homes. Coal became part of the state's identity.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/?sid=WV"
+   },
+   {
+    "year": 1973,
+    "title": "John Amos Plant opens",
+    "text": "The huge coal plant on the Kanawha River starts running. At about 2,933 megawatts, it is the biggest power plant in the state — enough for over 2 million homes.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/John_E._Amos_Power_Plant"
+   },
+   {
+    "year": 2009,
+    "title": "Mountaineer tests carbon capture",
+    "text": "Engineers at the Mountaineer coal plant tested catching carbon dioxide before it left the smokestack. The pilot worked, but shut down after a few years because no law made it pay.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Mountaineer_Power_Plant"
+   },
+   {
+    "year": 2015,
+    "title": "Old coal plants start retiring",
+    "text": "The 65-year-old Philip Sporn plant shut down — one of about ten coal plants closed in West Virginia since 2005 as cheap natural gas took over.",
+    "type": "plant",
+    "source": "https://www.theintermountain.com/news/local-news/2023/05/lawmakers-hear-report-on-power-plant-retirements/"
+   },
+   {
+    "year": 2021,
+    "title": "State doubles down on coal",
+    "text": "Regulators approved upgrades to keep the Amos, Mountaineer, and Mitchell coal plants running until 2040. West Virginia bet on coal staying central.",
+    "type": "policy",
+    "source": "https://www.wvgazettemail.com/news/energy_and_environment/aep-consideration-of-retiring-marshall-county-coal-plant-continues-trend-rouses-both-sides-of-debate/article_592a35da-4ecc-5038-83a6-5c42e2afe0a4.html"
+   },
+   {
+    "year": 2025,
+    "title": "Data centers push up bills",
+    "text": "The regional grid's yearly payment to power plants jumped from $2.2 billion to $14.7 billion, raising West Virginia bills. Data centers next door in Virginia are the main reason.",
+    "type": "market",
+    "source": "https://www.npr.org/2026/06/07/nx-s1-5828398/virginias-data-center-boom-is-raising-west-virginias-electricity-bills"
+   },
+   {
+    "year": 2025,
+    "title": "The '50 by 50' plan",
+    "text": "Governor Morrisey unveils a plan to triple the state's power capacity to 50 gigawatts by 2050, leaning on coal and natural gas, to attract data centers.",
+    "type": "policy",
+    "source": "https://westvirginiawatch.com/2025/09/11/morrisey-shares-new-energy-plan-for-wv-relying-heavily-on-coal-natural-gas-to-grow-power-creation/"
+   }
+  ],
+  "signature_plant": {
+   "name": "John E. Amos Power Plant",
+   "fuel": "Coal",
+   "capacity_mw": 2933,
+   "fact": "One of the largest coal plants east of the Mississippi. Its three cooling towers are a landmark you can see for miles along Interstate 64.",
+   "source": "https://en.wikipedia.org/wiki/John_E._Amos_Power_Plant"
+  }
+ },
+ "GA": {
+  "summary": "Georgia's grid grew up around Georgia Power, with Plant Scherer near Macon long ranked the biggest coal plant in America. Then the state did something nobody had done in decades: it built two brand-new nuclear reactors at Plant Vogtle, finished in 2023 and 2024 for about $35 billion. Rural Georgia has also become a big solar producer — and now a data-center boom is driving plans for a huge new wave of power.",
+  "events": [
+   {
+    "year": 1982,
+    "title": "Plant Scherer opens",
+    "text": "The huge coal plant near Juliette starts running. With 3,520 megawatts across four units, it became the largest coal-fired power plant in the United States.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Plant_Scherer"
+   },
+   {
+    "year": 1987,
+    "title": "Plant Vogtle Units 1 and 2 open",
+    "text": "Georgia Power's first two reactors near Waynesboro start producing carbon-free power. They quickly became a big chunk of the state's electricity.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Vogtle_Electric_Generating_Plant"
+   },
+   {
+    "year": 2009,
+    "title": "Georgia approves new Vogtle reactors",
+    "text": "Regulators sign off on two new reactors at Vogtle — the first new U.S. nuclear construction in about 30 years. Customers started paying for them on their bills before they were built.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Vogtle_Electric_Generating_Plant"
+   },
+   {
+    "year": 2020,
+    "title": "Scherer's biggest unit shuts down",
+    "text": "Two Florida utilities retired Unit 4 of Plant Scherer, cutting 848 megawatts of coal. Cheap natural gas made the old plant too expensive to run.",
+    "type": "plant",
+    "source": "https://www.utilitydive.com/news/fpl-jea-to-retire-848-mw-unit-of-largest-us-coal-plant/580684/"
+   },
+   {
+    "year": 2023,
+    "title": "Vogtle Unit 3 starts up",
+    "text": "The first newly built U.S. reactor in seven years comes online in Georgia. It makes about 1,100 megawatts — enough for half a million homes.",
+    "type": "plant",
+    "source": "https://www.eia.gov/todayinenergy/detail.php?id=61963"
+   },
+   {
+    "year": 2024,
+    "title": "Vogtle Unit 4 finishes the project",
+    "text": "The second new reactor begins commercial operation. The full Vogtle expansion cost about $35 billion — more than double the original budget.",
+    "type": "plant",
+    "source": "https://www.eia.gov/todayinenergy/detail.php?id=61963"
+   },
+   {
+    "year": 2025,
+    "title": "Massive expansion for data centers",
+    "text": "Regulators approved Georgia Power's plan to add 10,000 megawatts of new capacity, mostly natural gas, to feed data-center growth. About 80% of the new power would serve data centers.",
+    "type": "policy",
+    "source": "https://georgiarecorder.com/2025/12/19/georgia-regulators-approve-massive-power-grid-expansion-to-serve-data-centers/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Plant Vogtle (Units 3 & 4)",
+   "fuel": "Nuclear",
+   "capacity_mw": 2234,
+   "fact": "The first reactors built from scratch in the U.S. in more than 30 years — and, at about $35 billion, the most expensive power project in American history.",
+   "source": "https://en.wikipedia.org/wiki/Vogtle_Electric_Generating_Plant"
+  }
+ },
+ "AL": {
+  "summary": "Alabama's electric story starts on its rivers. Big federal dams in the 1920s and 1930s lit up farms and factories, and in the 1970s the giant Browns Ferry nuclear plant joined in. Coal once ruled, but cheap natural gas pushed it aside, and today gas plus nuclear power most homes.",
+  "events": [
+   {
+    "year": 1924,
+    "title": "Wilson Dam fires up Muscle Shoals",
+    "text": "The federal government finished Wilson Dam on the Tennessee River to power World War I nitrate factories. It became the seed of a much bigger river-wide power system.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wilson_Dam"
+   },
+   {
+    "year": 1933,
+    "title": "TVA is born",
+    "text": "President Roosevelt signed the law creating the Tennessee Valley Authority. TVA took over Wilson Dam and built a chain of dams that brought cheap electricity to most of north Alabama.",
+    "type": "policy",
+    "source": "https://www.tva.com/about-tva/our-history/built-for-the-people/a-dam-for-the-people"
+   },
+   {
+    "year": 1936,
+    "title": "Wheeler Dam joins the chain",
+    "text": "TVA finished Wheeler Dam, the longest of its Tennessee River dams at over 6,000 feet. It is still spinning turbines today.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wheeler_Dam"
+   },
+   {
+    "year": 1974,
+    "title": "Browns Ferry nuclear starts up",
+    "text": "TVA's Browns Ferry began commercial operation on the Tennessee River. At the time it was the largest nuclear plant in the world.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Browns_Ferry_Nuclear_Plant"
+   },
+   {
+    "year": 2007,
+    "title": "Browns Ferry Unit 1 returns",
+    "text": "After a 1975 fire and a 1985 shutdown, TVA spent $1.8 billion to bring Unit 1 back online. It made Browns Ferry one of the country's top nuclear producers again.",
+    "type": "milestone",
+    "source": "https://www.powermag.com/history-of-power-tvas-browns-ferry-nuclear-power-plant-turns-50/"
+   },
+   {
+    "year": 2024,
+    "title": "Gas leads, coal fades",
+    "text": "By the mid-2020s natural gas supplied close to half of Alabama's power and nuclear about 30 percent. Coal slipped to a small share as old plants closed.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/?sid=AL"
+   }
+  ],
+  "signature_plant": {
+   "name": "Browns Ferry Nuclear Plant",
+   "fuel": "nuclear",
+   "capacity_mw": 3662,
+   "fact": "When it opened in 1974, Browns Ferry was the biggest nuclear plant on Earth.",
+   "source": "https://en.wikipedia.org/wiki/Browns_Ferry_Nuclear_Plant"
+  }
+ },
+ "AK": {
+  "summary": "Alaska is too big and too rugged for one grid, so it runs on islands of power. The Railbelt from Fairbanks to the Kenai Peninsula leans hard on Cook Inlet natural gas, with a boost from Bradley Lake hydro. Now that gas is running low, the state is hunting for new options, including imported LNG, more hydro, and wind.",
+  "events": [
+   {
+    "year": 1955,
+    "title": "Eklutna hydro lights up Anchorage",
+    "text": "The federal Eklutna project came online near Anchorage with about 30 megawatts of hydropower. It gave the growing city its first big, clean source of electricity.",
+    "type": "plant",
+    "source": "https://usbr.gov/history/eklutna.html"
+   },
+   {
+    "year": 1960,
+    "title": "Cook Inlet gas takes over",
+    "text": "Oil and gas discoveries in Cook Inlet in the 1960s gave Southcentral Alaska cheap fuel. Utilities built gas plants instead of big dams, and gas became the Railbelt's backbone.",
+    "type": "market",
+    "source": "https://alaskarenewableenergy.org/ppf/alaskas-energy-infrastructure/"
+   },
+   {
+    "year": 1991,
+    "title": "Bradley Lake hydro opens",
+    "text": "Bradley Lake on the Kenai Peninsula started up as the state's biggest hydro project at 120 megawatts. It still sends clean power across the whole Railbelt.",
+    "type": "plant",
+    "source": "https://susitna-watanahydro.org/hydropower_in_alaska.html"
+   },
+   {
+    "year": 2016,
+    "title": "New Anchorage gas plant",
+    "text": "Municipal Light & Power finished the 120 MW Sullivan Plant 2A in Anchorage. It replaced older, less efficient gas units and helped keep the city's lights on.",
+    "type": "plant",
+    "source": "https://www.adn.com/opinions/2018/01/03/how-an-expensive-mistake-created-an-opening-to-merge-anchorage-utilities/"
+   },
+   {
+    "year": 2024,
+    "title": "Cook Inlet gas warning",
+    "text": "Hilcorp, which produces most Cook Inlet gas, warned utilities supply is shrinking. Production fell from about 200 to 70 billion cubic feet a year, pushing Alaska to plan for LNG imports.",
+    "type": "market",
+    "source": "https://www.alaskaenergy.org/p/why-are-the-warnings-about-cook-inlet"
+   },
+   {
+    "year": 2026,
+    "title": "Susitna hydro back on the table",
+    "text": "Lawmakers and engineers began revisiting the long-shelved Susitna-Watana hydro project as one way to replace declining Cook Inlet gas. No final decision yet, but the idea is alive again.",
+    "type": "policy",
+    "source": "https://alaskabeacon.com/2026/05/08/its-time-for-alaska-to-reconsider-the-susitna-watana-hydroelectric-project/"
+   }
+  ],
+  "signature_plant": {
+   "name": "George M. Sullivan Generation Plant 2",
+   "fuel": "gas",
+   "capacity_mw": 309,
+   "fact": "This Anchorage gas plant, named for a former mayor, is the biggest single power station in Alaska.",
+   "source": "https://www.gem.wiki/George_M_Sullivan_Generation_Plant_2"
+  }
+ },
+ "AZ": {
+  "summary": "Arizona's grid was born on dams and grew up on the sun. Big federal projects like Hoover and Roosevelt brought hydro, and in 1988 the desert got Palo Verde, the largest nuclear plant in the country. Now natural gas leads, solar is climbing fast, and a wave of new data centers is straining what the grid can deliver.",
+  "events": [
+   {
+    "year": 1911,
+    "title": "Roosevelt Dam opens",
+    "text": "The Salt River Project finished Theodore Roosevelt Dam east of Phoenix. It brought water and early hydropower to a fast-growing desert region.",
+    "type": "plant",
+    "source": "https://www.britannica.com/topic/Hoover-Dam"
+   },
+   {
+    "year": 1936,
+    "title": "Hoover Dam powers up",
+    "text": "Hoover Dam on the Colorado River began generating in 1936. Arizona, Nevada, and California still share its hydropower today.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Hoover_Dam"
+   },
+   {
+    "year": 1988,
+    "title": "Palo Verde Unit 3 starts up",
+    "text": "Palo Verde's last reactor came online west of Phoenix. With three reactors, the plant became and remains the largest nuclear station in the United States.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Palo_Verde_Nuclear_Generating_Station"
+   },
+   {
+    "year": 2014,
+    "title": "Agua Caliente sets a solar record",
+    "text": "The 290 MW Agua Caliente solar farm finished in Yuma County. When commissioned, it was the largest solar plant in the world.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Agua_Caliente_Solar_Project"
+   },
+   {
+    "year": 2013,
+    "title": "Solana stores sunlight",
+    "text": "Solana Generating Station near Gila Bend opened with 280 MW of concentrating solar. It was the first U.S. solar plant that could keep making power after sunset using molten salt storage.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Solana_Generating_Station"
+   },
+   {
+    "year": 2025,
+    "title": "Data centers strain the grid",
+    "text": "Arizona's electricity demand grew about 8 percent in 2025, four times the U.S. average, driven by AI data centers around Phoenix. Utility APS started turning away projects to protect existing customers.",
+    "type": "market",
+    "source": "https://www.utilitydive.com/news/data-center-grid-reliability-residential-cost-aps-load-growth/732480/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Palo Verde Nuclear Generating Station",
+   "fuel": "nuclear",
+   "capacity_mw": 3937,
+   "fact": "Palo Verde is the only big nuclear plant in the world that cools itself with treated city wastewater instead of a river or ocean.",
+   "source": "https://en.wikipedia.org/wiki/Palo_Verde_Nuclear_Generating_Station"
+  }
+ },
+ "AR": {
+  "summary": "Arkansas got its first big power from a 1920s dam on the Ouachita River, then leaned on coal and a single nuclear plant for decades. Today natural gas, coal, and Arkansas Nuclear One each carry about a third of the load. The state's two giant coal plants are slated to close by 2030.",
+  "events": [
+   {
+    "year": 1924,
+    "title": "Remmel Dam, the state's first",
+    "text": "Arkansas Power and Light finished Remmel Dam on the Ouachita River. It was Arkansas's first hydroelectric plant and created Lake Catherine.",
+    "type": "plant",
+    "source": "https://encyclopediaofarkansas.net/entries/remmel-dam-2319/"
+   },
+   {
+    "year": 1974,
+    "title": "Arkansas Nuclear One starts up",
+    "text": "Entergy's Arkansas Nuclear One Unit 1 began commercial operation near Russellville. Unit 2 followed in 1980, and together they still cover more than half of Entergy Arkansas's customer needs.",
+    "type": "plant",
+    "source": "https://www.entergy.com/nuclear/arkansas-nuclear-one"
+   },
+   {
+    "year": 1983,
+    "title": "Independence coal plant opens",
+    "text": "The Independence Steam Electric Station near Newark started its first 850 MW unit, burning low-sulfur coal hauled by train from Wyoming. A second unit followed in 1984.",
+    "type": "plant",
+    "source": "https://encyclopediaofarkansas.net/entries/independence-steam-electric-station-7452/"
+   },
+   {
+    "year": 2018,
+    "title": "Union Power Station expansion",
+    "text": "Entergy bought the Union Power Station, a roughly 2,000 MW natural gas plant in El Dorado. It became the largest single generator in Arkansas.",
+    "type": "market",
+    "source": "https://www.entergyarkansas.com/our-community/news-room/news/news-releases/2018/entergy-arkansas-acquires-union-power-station-unit-2/"
+   },
+   {
+    "year": 2022,
+    "title": "Big coal retirement deal",
+    "text": "Entergy Arkansas agreed to close the state's two biggest coal plants, White Bluff and Independence, by 2030. It was part of a settlement over Clean Air Act lawsuits.",
+    "type": "policy",
+    "source": "https://www.powermag.com/utility-agrees-to-close-arkansas-largest-coal-plants/"
+   },
+   {
+    "year": 2025,
+    "title": "Gas pulls ahead of coal",
+    "text": "Gas reached about a third of Arkansas's generation, just ahead of coal at 31 percent, with nuclear about 23 percent. The state's mix is now a near three-way split.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/?sid=AR"
+   }
+  ],
+  "signature_plant": {
+   "name": "Union Power Station",
+   "fuel": "gas",
+   "capacity_mw": 2037,
+   "fact": "Union Power was actually built during the late 1990s gas boom, then sat idle before Entergy bought it for a bargain.",
+   "source": "https://www.entergyarkansas.com/our-community/news-room/news/news-releases/2018/entergy-arkansas-acquires-union-power-station-unit-2/"
+  }
+ },
+ "CO": {
+  "summary": "Colorado was a coal state for a century, with mines feeding power plants on the plains. In 2004 voters did something no other state had done: they passed the country's first ballot-driven renewable energy mandate. Wind farms exploded, coal is shrinking fast, and gas plus wind now lead the mix.",
+  "events": [
+   {
+    "year": 1973,
+    "title": "Craig coal plant breaks ground",
+    "text": "Tri-State and partners started building the Craig Generating Station in northwest Colorado. It grew into a roughly 1,285 MW coal complex and one of the state's biggest power plants.",
+    "type": "plant",
+    "source": "https://www.gem.wiki/Craig_Generating_Station"
+   },
+   {
+    "year": 2004,
+    "title": "Voters pass Amendment 37",
+    "text": "Colorado became the first state where voters approved a Renewable Energy Standard. It required big utilities to get 10 percent of power from renewables by 2015.",
+    "type": "policy",
+    "source": "https://ballotpedia.org/Colorado_Amendment_37,_Renewable_Energy_Sources_for_Utilities_Initiative_(2004)"
+   },
+   {
+    "year": 2010,
+    "title": "Clean Air, Clean Jobs Act",
+    "text": "Colorado passed a law pushing utilities to swap aging coal units for gas and renewables. It led to over 1,000 MW of coal closures within a few years.",
+    "type": "policy",
+    "source": "https://blogs.law.columbia.edu/climatechange/2010/10/19/colorado%E2%80%99s-clean-air-clean-jobs-act-encouraging-conversion-of-coal-plants-to-natural-gas/"
+   },
+   {
+    "year": 2010,
+    "title": "Comanche 3 fires up",
+    "text": "Xcel's Comanche 3 near Pueblo became the state's largest single coal unit at about 750 MW. Even as it opened, the state was already pivoting toward cleaner fuels.",
+    "type": "plant",
+    "source": "https://www.wri.org/insights/5-ways-colorado-can-reduce-power-plant-emissions"
+   },
+   {
+    "year": 2019,
+    "title": "100 percent clean by 2050",
+    "text": "Colorado passed a law requiring investor-owned utilities to reach 100 percent carbon-free electricity by 2050. It locked in the wind and solar boom.",
+    "type": "policy",
+    "source": "https://leg.colorado.gov/bills/hb19-1261"
+   },
+   {
+    "year": 2025,
+    "title": "Wind catches coal",
+    "text": "Wind grew to about 30 percent of Colorado's electricity, nearly matching natural gas and pushing coal down to roughly a quarter of the mix. Craig units are scheduled to close by 2028.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/?sid=CO"
+   }
+  ],
+  "signature_plant": {
+   "name": "Craig Generating Station",
+   "fuel": "coal",
+   "capacity_mw": 1285,
+   "fact": "Craig is one of Colorado's last big coal plants. Its three units are all set to shut down by 2028 as the state moves to wind and gas.",
+   "source": "https://www.gem.wiki/Craig_Generating_Station"
+  }
+ },
+ "CT": {
+  "summary": "Connecticut's grid is small but unusual: more than a third of its power comes from one nuclear plant on Long Island Sound. After the state opened the electricity market in 1998, utilities sold off their generators, and gas pipelines from Pennsylvania took over the rest. Today gas and nuclear together provide nearly all the state's electricity.",
+  "events": [
+   {
+    "year": 1970,
+    "title": "Millstone Unit 1 opens",
+    "text": "The first reactor at Millstone in Waterford started generating power in 1970. Connecticut became a nuclear-leaning state from then on.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Millstone_Nuclear_Power_Plant"
+   },
+   {
+    "year": 1986,
+    "title": "Millstone Unit 3 joins in",
+    "text": "Millstone 3, a 1,200 MW pressurized water reactor, came online. It is still the single biggest generator in the state.",
+    "type": "plant",
+    "source": "https://www.nrc.gov/info-finder/reactors/mill3"
+   },
+   {
+    "year": 1998,
+    "title": "Connecticut deregulates electricity",
+    "text": "Public Act 98-28 forced utilities to split off and auction their power plants and let customers pick their own supplier. Dominion bought Millstone in 2001.",
+    "type": "policy",
+    "source": "https://www.cga.ct.gov/PS98/rpt/olr/htm/98-R-1084.htm"
+   },
+   {
+    "year": 2019,
+    "title": "Bridgeport Harbor goes gas",
+    "text": "PSEG opened a new 485 MW gas unit at Bridgeport Harbor, replacing the coal plant next door. It was a key step in the state's coal exit.",
+    "type": "plant",
+    "source": "https://www.powerengineeringint.com/world-regions/north-america/pseg-ends-coal-era-with-bridgeport-harbor-station-retirement/"
+   },
+   {
+    "year": 2021,
+    "title": "Last coal plant closes",
+    "text": "PSEG retired the coal-fired Bridgeport Harbor Unit 3 on May 31, 2021. Connecticut became one of the first states to fully exit coal-fired generation.",
+    "type": "milestone",
+    "source": "https://nj.pseg.com/newsroom/newsrelease227"
+   },
+   {
+    "year": 2025,
+    "title": "Millstone marks 50 years",
+    "text": "Millstone, now owned by Dominion, celebrated half a century of operation. It still provides more than 90 percent of Connecticut's carbon-free electricity.",
+    "type": "milestone",
+    "source": "https://www.wfsb.com/2025/09/29/millstone-nuclear-power-plant-marks-50-years-powering-ct/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Millstone Power Station",
+   "fuel": "nuclear",
+   "capacity_mw": 2104,
+   "fact": "Millstone makes more than 90 percent of Connecticut's carbon-free electricity and is the only operating nuclear plant in New England outside New Hampshire.",
+   "source": "https://en.wikipedia.org/wiki/Millstone_Nuclear_Power_Plant"
+  }
+ },
+ "DE": {
+  "summary": "Delaware is tiny, flat, and very fossil-fueled. For decades the Indian River coal plant on the Inland Bays anchored the state's grid. After 2010, owners shut coal units one by one and switched to natural gas at places like Hay Road. Now offshore wind is the next chapter.",
+  "events": [
+   {
+    "year": 1957,
+    "title": "Indian River coal plant opens",
+    "text": "The first 80 MW unit at Indian River started up near Millsboro. More units followed, growing the plant into Delaware's biggest power source for decades.",
+    "type": "plant",
+    "source": "https://spotlightdelaware.org/2026/04/03/could-the-indian-river-power-plant-be-restarted/"
+   },
+   {
+    "year": 2010,
+    "title": "Calpine ditches coal at Hay Road",
+    "text": "Calpine bought the Hay Road and Edge Moor sites and decided to stop burning coal there. The plants switched to natural gas, joining Delaware's gas pivot.",
+    "type": "market",
+    "source": "https://www.gem.wiki/Edge_Moor_Power_Plant"
+   },
+   {
+    "year": 2017,
+    "title": "Older Indian River units retire",
+    "text": "By 2017 the three smaller coal units at Indian River were closed. Only one big unit was left burning coal in the state.",
+    "type": "milestone",
+    "source": "https://spotlightdelaware.org/2026/04/03/could-the-indian-river-power-plant-be-restarted/"
+   },
+   {
+    "year": 2021,
+    "title": "Delaware joins RGGI",
+    "text": "Delaware participates in the Regional Greenhouse Gas Initiative, a multi-state cap-and-trade market for power plant CO2. It steadily tightens the cap on fossil power.",
+    "type": "policy",
+    "source": "https://www.rggi.org/program-overview-and-design/elements"
+   },
+   {
+    "year": 2025,
+    "title": "Last coal unit shuts down",
+    "text": "The final coal-fired unit at Indian River closed in February 2025 after losing money for years. Delaware was now almost entirely a natural-gas grid.",
+    "type": "milestone",
+    "source": "https://spotlightdelaware.org/2026/04/03/could-the-indian-river-power-plant-be-restarted/"
+   },
+   {
+    "year": 2025,
+    "title": "US Wind offshore deal signed",
+    "text": "Governor John Carney signed agreements worth over $128 million with US Wind for offshore turbines in Sussex County. The first phase, MarWin, aims for 300 MW.",
+    "type": "policy",
+    "source": "https://news.delaware.gov/2025/01/06/governor-carney-dnrec-sign-agreement-with-us-wind/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Hay Road Generating Station",
+   "fuel": "gas",
+   "capacity_mw": 1128,
+   "fact": "Hay Road sits along the Delaware River in Wilmington and is now the largest power plant in the state, all natural gas.",
+   "source": "https://www.delawarebusinessnow.com/news/finance/delaware-pennsylvania-gas-fired-power-plants-sold-in-5-billion-deal/article_03e9a103-87e1-4a94-a7a2-dec89bbed549.html"
+  }
+ },
+ "DC": {
+  "summary": "Washington, D.C. is the only place in the country that barely makes any of its own electricity. About 98 percent flows in from PJM power plants in nearby states. The District's old Benning Road plant shut in 2012, leaving just a few small generators, including one that turns sewage into power.",
+  "events": [
+   {
+    "year": 1910,
+    "title": "Capitol Power Plant opens",
+    "text": "The federal Capitol Power Plant started in December 1910 to heat and power the Capitol and nearby offices. It still produces steam, though now from natural gas, not coal.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Capitol_Power_Plant"
+   },
+   {
+    "year": 1906,
+    "title": "Benning Road plant fires up",
+    "text": "Pepco built the Benning Road power plant on the Anacostia River. For most of the 20th century it was one of the main sources of city power.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Benning_Road_Power_Plant"
+   },
+   {
+    "year": 2000,
+    "title": "Pepco exits generation",
+    "text": "Pepco sold its power plants and became a wires-only utility, buying electricity from the regional PJM market. D.C. now imports nearly all its power.",
+    "type": "policy",
+    "source": "https://www.wepowerdc.org/latest-news/who-is-our-grid-operator-pjm"
+   },
+   {
+    "year": 2012,
+    "title": "Benning Road shuts down",
+    "text": "Pepco permanently closed the Benning Road and Buzzard Point peaking plants in 2012. After that, almost no large generation remained in the District.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Benning_Road_Power_Plant"
+   },
+   {
+    "year": 2015,
+    "title": "Sewage becomes power",
+    "text": "The Walter F. Bailey Bioenergy Facility opened at the Blue Plains wastewater plant. It cooks sewage solids to make methane, generating about 10 MW.",
+    "type": "plant",
+    "source": "https://www.dcwater.com/bailey-bioenergy-facility"
+   },
+   {
+    "year": 2024,
+    "title": "Solar fills in the gaps",
+    "text": "Rooftop and community solar grew to roughly a quarter of D.C.'s own generation. Combined with the Bailey biogas plant, biomass and solar now outpace gas inside city limits.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/?sid=DC"
+   }
+  ],
+  "signature_plant": {
+   "name": "Walter F. Bailey Bioenergy Facility",
+   "fuel": "biomass",
+   "capacity_mw": 12,
+   "fact": "When it opened it was the world's largest thermal hydrolysis plant, turning the city's sewage into electricity for the treatment plant itself.",
+   "source": "https://www.dcwater.com/bailey-bioenergy-facility"
+  }
+ },
+ "FL": {
+  "summary": "Florida grew up on natural gas, with nuclear plants at Turkey Point and St. Lucie helping along the coast. Hurricane Andrew in 1992 forced utilities to harden the grid with stronger poles and buried lines. Since 2020 the state has quietly become a solar powerhouse, second only to Texas in utility-scale solar, while gas still does most of the heavy lifting.",
+  "events": [
+   {
+    "year": 1972,
+    "title": "Turkey Point goes nuclear",
+    "text": "FPL started Florida's first nuclear reactor at Turkey Point south of Miami. A second unit followed in 1973.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Turkey_Point_Nuclear_Generating_Station"
+   },
+   {
+    "year": 1976,
+    "title": "St. Lucie Unit 1 opens",
+    "text": "FPL added St. Lucie Unit 1 on Hutchinson Island. With Unit 2 in 1983, the plant became another major source of carbon-free power for the state.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/St._Lucie_Nuclear_Power_Plant"
+   },
+   {
+    "year": 1992,
+    "title": "Hurricane Andrew rewires Florida",
+    "text": "Category 5 Andrew left 1.4 million people without power and caused about $25 billion in damage. Utilities rebuilt with sturdier poles, more underground lines, and storm-hardening rules.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Hurricane_Andrew"
+   },
+   {
+    "year": 2011,
+    "title": "West County Energy Center grows",
+    "text": "FPL finished the third 1,200 MW combined-cycle gas unit at West County. The plant became one of the largest gas stations in the U.S. at about 3,800 MW.",
+    "type": "plant",
+    "source": "https://newsroom.fpl.com/2011-04-28-FPL-Powers-Up-West-County-Energy-Center-Unit-3"
+   },
+   {
+    "year": 2017,
+    "title": "Crystal River coal closes; nuclear gone",
+    "text": "Duke Energy retired the Crystal River coal units and confirmed the closed Crystal River nuclear plant would not restart. Florida leaned even harder on gas.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Crystal_River_Energy_Complex"
+   },
+   {
+    "year": 2025,
+    "title": "Florida overtakes California in solar growth",
+    "text": "Florida added over 3 GW of new utility-scale solar in early 2025, with FPL building 70 percent of it. The state's solar fleet now powers more than 2.3 million homes.",
+    "type": "market",
+    "source": "https://www.cnbc.com/2025/08/02/how-florida-quietly-surpassed-california-in-solar-growth.html"
+   }
+  ],
+  "signature_plant": {
+   "name": "West County Energy Center",
+   "fuel": "gas",
+   "capacity_mw": 3777,
+   "fact": "West County is one of the largest combined-cycle gas plants in the U.S., with three units that together can power millions of Florida homes.",
+   "source": "https://newsroom.fpl.com/2011-04-28-FPL-Powers-Up-West-County-Energy-Center-Unit-3"
+  }
+ },
+ "HI": {
+  "summary": "Hawaii has no pipelines or interstate lines, so big oil-burning plants ran almost everything for decades. Rooftop solar took off in the 2010s after homeowners chased the highest power bills in the country. The last coal plant closed in 2022, but in 2025 oil still made about three out of every four kilowatt-hours.",
+  "events": [
+   {
+    "year": 1963,
+    "title": "Kahe oil plant fires up on Oahu",
+    "text": "Hawaiian Electric built Kahe near the Barbers Point oil refinery to feed Honolulu. It grew into the state's biggest power plant and still anchors Oahu today.",
+    "type": "plant",
+    "source": "https://www.hawaiibusiness.com/kahe-power-plant-hawaii-electricity/"
+   },
+   {
+    "year": 1992,
+    "title": "AES coal plant opens on Oahu",
+    "text": "The AES plant near Kalaeloa burned imported coal and ran for 30 years. At its peak it made about one-fifth of Oahu's electricity.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/AES_Hawaii_Power_Plant"
+   },
+   {
+    "year": 2015,
+    "title": "100% clean energy by 2045 law",
+    "text": "Hawaii became the first state to require 100% renewable electricity. The deadline is 2045, and rooftop solar is doing a lot of the work.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Solar_power_in_Hawaii"
+   },
+   {
+    "year": 2022,
+    "title": "Last coal plant shuts down",
+    "text": "The AES plant closed in September 2022 under a state coal ban. Oil-burning plants had to fill the gap until more solar and batteries came online.",
+    "type": "milestone",
+    "source": "https://www.canarymedia.com/articles/clean-energy/hawaii-quit-coal-one-year-ago-heres-how-its-been-going"
+   },
+   {
+    "year": 2023,
+    "title": "Maui wildfire and grid rethink",
+    "text": "Downed power lines helped spark the deadly Lahaina fire. Hawaiian Electric launched a $450 million plan to harden poles and add cameras.",
+    "type": "milestone",
+    "source": "https://www.renewableenergyworld.com/power-grid/outage-management/inside-hawaiian-electrics-450m-high-tech-wildfire-resliency-plan-following-deadly-2023-blaze/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Kahe",
+   "fuel": "oil",
+   "capacity_mw": 582,
+   "fact": "The site was first scouted in the 1950s for a nuclear reactor, but Hawaiian Electric built an oil plant instead and never went nuclear.",
+   "source": "https://www.hawaiibusiness.com/kahe-power-plant-hawaii-electricity/"
+  }
+ },
+ "ID": {
+  "summary": "Idaho's grid was built around dams on the Snake River, with Idaho Power damming Hells Canyon in the 1950s and 60s. Hydro still leads the mix, but dry years and growth pushed the utility to lean on natural gas and wind. Coal is on the way out by 2030, with new gas plants planned to fill in.",
+  "events": [
+   {
+    "year": 1916,
+    "title": "Idaho Power founded on hydro",
+    "text": "Idaho Power formed by combining small hydro companies along the Snake River. Dams have been its backbone ever since.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Idaho_Power"
+   },
+   {
+    "year": 1958,
+    "title": "Brownlee Dam goes online",
+    "text": "Brownlee was the first and biggest of three dams in the Hells Canyon Complex. It still makes about 661 megawatts on the Snake River.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Brownlee_Dam"
+   },
+   {
+    "year": 1967,
+    "title": "Hells Canyon Complex completed",
+    "text": "The third dam came online, finishing a project that supplies most of Idaho Power's clean energy. In a normal water year the three dams cover roughly 30% of the utility's needs.",
+    "type": "plant",
+    "source": "https://www.idahopower.com/energy-environment/energy/energy-sources/hydroelectric/"
+   },
+   {
+    "year": 2012,
+    "title": "Langley Gulch gas plant opens",
+    "text": "Idaho Power's first big gas plant came online in Payette County. It helps fill in when the wind and sun fade.",
+    "type": "plant",
+    "source": "https://www.idahopower.com/energy-environment/energy/energy-sources/natural-gas/"
+   },
+   {
+    "year": 2024,
+    "title": "Bridger coal units switch to gas",
+    "text": "Two units at the Jim Bridger plant in Wyoming, which Idaho Power partly owns, were converted from coal to natural gas. It was a big step in Idaho Power's plan to be coal-free by 2030.",
+    "type": "plant",
+    "source": "https://www.idahopower.com/energy-environment/energy/energy-sources/our-path-away-from-coal/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Brownlee Dam",
+   "fuel": "hydro",
+   "capacity_mw": 661,
+   "fact": "Brownlee's reservoir is 58 miles long and sits on the Oregon-Idaho border, dropping water through five giant turbines.",
+   "source": "https://en.wikipedia.org/wiki/Brownlee_Dam"
+  }
+ },
+ "IL": {
+  "summary": "Illinois is America's nuclear capital. Dresden, the first big private reactor, came online here in 1960, and the state still hosts more reactors than any other. State bailout laws in 2016 and 2021 kept the fleet running, and coal is now on a path to zero by 2030.",
+  "events": [
+   {
+    "year": 1960,
+    "title": "Dresden, first private nuclear plant",
+    "text": "Dresden Unit 1 was the country's first full-scale, privately financed nuclear plant. It proved utilities could go nuclear without the government building the reactor.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Dresden_Generating_Station"
+   },
+   {
+    "year": 1988,
+    "title": "Braidwood reactors come online",
+    "text": "Braidwood's two big reactors started up in 1988 near Joliet. Today they make about 2,330 megawatts, the most of any plant in Illinois.",
+    "type": "plant",
+    "source": "https://www.ans.org/news/article-7706/from-uncertainty-to-vitality-the-future-of-nuclear-energy-in-illinois/"
+   },
+   {
+    "year": 2016,
+    "title": "Future Energy Jobs Act saves nukes",
+    "text": "Exelon was about to close Clinton and Quad Cities. The state stepped in with credits worth about $235 million a year to keep them open and grow solar.",
+    "type": "policy",
+    "source": "https://www.world-nuclear-news.org/Articles/Illinois-passes-Future-Energy-Jobs-Bill"
+   },
+   {
+    "year": 2021,
+    "title": "Climate and Equitable Jobs Act",
+    "text": "Governor Pritzker signed CEJA, which closes private coal plants by 2030 and gas plants by 2045. It also rescued Byron and Dresden from early shutdown.",
+    "type": "policy",
+    "source": "https://dceo.illinois.gov/ceja.html"
+   },
+   {
+    "year": 2024,
+    "title": "Braidwood and Byron get power boost",
+    "text": "Constellation announced an $800 million upgrade to squeeze about 135 more megawatts out of the two big plants. Data center demand was a big reason why.",
+    "type": "market",
+    "source": "https://www.world-nuclear-news.org/Articles/Reprieved-Illinois-plants-to-be-uprated"
+   }
+  ],
+  "signature_plant": {
+   "name": "Braidwood Generation Station",
+   "fuel": "nuclear",
+   "capacity_mw": 2332,
+   "fact": "Braidwood's cooling lake is stocked with bass and catfish, and people line up to fish in water warmed by the reactors.",
+   "source": "https://www.nuclearpowersillinois.com/dresden_clean_energy_center"
+  }
+ },
+ "IN": {
+  "summary": "Indiana sits on top of a coal seam and burned it hard for decades. Gibson, near the Illinois border, became one of the biggest coal plants in the country. Cheap shale gas and tougher pollution rules cut coal's share to 45% by 2025, but Duke now wants to keep Gibson running until 2038.",
+  "events": [
+   {
+    "year": 1972,
+    "title": "Gibson coal plant fires up",
+    "text": "Public Service Indiana opened Gibson with two units near the Wabash River. It grew to five units and over 3,000 megawatts, the state's biggest plant.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Gibson_Generating_Station"
+   },
+   {
+    "year": 1995,
+    "title": "Cinergy and the merger era",
+    "text": "Public Service Indiana merged into Cinergy, which Duke Energy bought in 2006. Duke still runs Gibson and most of southern Indiana's grid.",
+    "type": "market",
+    "source": "https://en.wikipedia.org/wiki/Gibson_Generating_Station"
+   },
+   {
+    "year": 2018,
+    "title": "NIPSCO plans to quit coal by 2028",
+    "text": "Northern Indiana Public Service said wind and solar were cheaper than its old coal units. The utility set a 2028 coal-exit goal that surprised the industry.",
+    "type": "policy",
+    "source": "https://www.power-eng.com/coal/northern-indiana-utility-retiring-5-coal-units-by-2028/"
+   },
+   {
+    "year": 2023,
+    "title": "Coal drops to about 45% of mix",
+    "text": "Gas generation rose from about 8% in 2013 to nearly 40% as new combined-cycle plants opened. Wind farms across the flat north added another 9%.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/analysis.php?sid=IN"
+   },
+   {
+    "year": 2024,
+    "title": "Duke delays Gibson retirement",
+    "text": "Duke proposed keeping Gibson running until 2038, retrofitting units to burn coal or gas. Rising demand from data centers and factories was the reason.",
+    "type": "policy",
+    "source": "https://insideclimatenews.org/news/04102024/indiana-duke-energy-coal-plant-extension/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Gibson",
+   "fuel": "coal",
+   "capacity_mw": 3132,
+   "fact": "Gibson is the second-largest coal plant in the country, with a man-made cooling lake big enough to be a state fish and wildlife area.",
+   "source": "https://www.gem.wiki/Gibson_Generating_Station"
+  }
+ },
+ "IA": {
+  "summary": "Iowa was the first state to require utilities to buy wind power, way back in 1983. MidAmerican took the rule and ran with it, building thousands of turbines across the corn rows. By 2022 the company served 100% of customer demand from wind, and Iowa now leads the nation in wind share.",
+  "events": [
+   {
+    "year": 1983,
+    "title": "First state wind purchase law",
+    "text": "Iowa told utilities to buy 105 megawatts of wind power. It was the country's first state-level renewable mandate.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_Iowa"
+   },
+   {
+    "year": 2007,
+    "title": "Walter Scott Unit 4 opens",
+    "text": "MidAmerican brought on a huge new coal unit at Council Bluffs. The plant is still Iowa's biggest, but its older units retired in 2015.",
+    "type": "plant",
+    "source": "https://www.gem.wiki/Walter_Scott_Jr._power_station"
+   },
+   {
+    "year": 2013,
+    "title": "MidAmerican bets $1.9B on wind",
+    "text": "The utility ordered what was then the biggest single onshore wind turbine purchase ever. It put Iowa on the path to wind dominance.",
+    "type": "market",
+    "source": "https://en.wikipedia.org/wiki/MidAmerican_Energy_Company"
+   },
+   {
+    "year": 2019,
+    "title": "Wind hits 41% of Iowa power",
+    "text": "About 5,100 turbines made 41% of Iowa's electricity, the highest share in the country. Wind passed coal in many months.",
+    "type": "milestone",
+    "source": "https://www.yesmagazine.org/issue/life-after-oil/2016/05/02/how-iowa-became-the-nations-leader-in-wind-energy"
+   },
+   {
+    "year": 2022,
+    "title": "MidAmerican hits 100% renewable match",
+    "text": "MidAmerican became the first investor-owned utility to generate as much renewable energy as its customers used in a year. Wind XII farms made it happen.",
+    "type": "milestone",
+    "source": "https://www.midamericanenergy.com/newsroom/2023-wind-generation-100-pct-in-2022"
+   }
+  ],
+  "signature_plant": {
+   "name": "Walter Scott Jr Energy Center",
+   "fuel": "coal",
+   "capacity_mw": 1512,
+   "fact": "It sits across the river from Omaha. Two of its four original coal units shut down in 2015, leaving just the newer ones running.",
+   "source": "https://www.gem.wiki/Walter_Scott_Jr._power_station"
+  }
+ },
+ "KS": {
+  "summary": "Kansas built its grid on coal and one nuclear plant at Wolf Creek, but the constant Plains wind changed everything. The first commercial wind farm opened in 2001 near Montezuma, and by 2025 wind made nearly half the state's electricity. Coal is shrinking but still anchors the grid through Jeffrey Energy Center.",
+  "events": [
+   {
+    "year": 1978,
+    "title": "Jeffrey Energy Center starts up",
+    "text": "Westar Energy opened the first of three big coal units near St. Marys. The full plant now totals about 2,400 megawatts and is the state's biggest power source.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Jeffrey_Energy_Center"
+   },
+   {
+    "year": 1985,
+    "title": "Wolf Creek nuclear comes online",
+    "text": "Kansas got its only nuclear plant near Burlington. Wolf Creek makes about 20% of the state's electricity and roughly a third of its clean power.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wolf_Creek_Generating_Station"
+   },
+   {
+    "year": 2001,
+    "title": "Gray County, first wind farm",
+    "text": "Kansas's first commercial wind farm opened near Montezuma with 170 turbines. At the time it was the largest wind farm in the US not built by mandate.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Gray_County_Wind_Farm"
+   },
+   {
+    "year": 2008,
+    "title": "Smoky Hills wind farm completed",
+    "text": "Smoky Hills grew to 250 megawatts across two phases, with turbines visible from Interstate 70. It helped kick off a wind boom across central Kansas.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Smoky_Hills_Wind_Farm"
+   },
+   {
+    "year": 2024,
+    "title": "Wind passes 50% of generation",
+    "text": "Wind made about 52% of Kansas's electricity in 2024, with coal down to 22%. Evergy plans to retire one Jeffrey unit by 2030.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Jeffrey_Energy_Center"
+   }
+  ],
+  "signature_plant": {
+   "name": "Jeffrey Energy Center",
+   "fuel": "coal",
+   "capacity_mw": 2179,
+   "fact": "Each of Jeffrey's three units was rated at 800 megawatts when it opened, making them among the biggest single coal units ever built in the Midwest.",
+   "source": "https://www.gem.wiki/Jeffrey_Energy_Center"
+  }
+ },
+ "KY": {
+  "summary": "Kentucky is coal country and has been since the 1930s. A decade ago coal made over 90% of the state's power; in 2025 it's down to about 66% as natural gas takes a growing slice. The biggest single plant, Trimble County, is one of the newest coal units in the country and is built to keep running for years.",
+  "events": [
+   {
+    "year": 1963,
+    "title": "TVA's Paradise plant opens",
+    "text": "The Paradise plant on the Green River had the world's two biggest coal units when it opened. It powered western Kentucky for decades.",
+    "type": "plant",
+    "source": "https://www.powermag.com/after-long-history-paradise-coal-plant-ceases-operation/"
+   },
+   {
+    "year": 1990,
+    "title": "Trimble County Unit 1 fires up",
+    "text": "LG&E opened a 514-megawatt coal unit on the Ohio River. It is now part of Kentucky's biggest power plant.",
+    "type": "plant",
+    "source": "https://www.gem.wiki/Trimble_County_power_station"
+   },
+   {
+    "year": 2011,
+    "title": "Trimble County Unit 2 comes online",
+    "text": "A second 760-megawatt unit started up, costing about $1.2 billion. It uses supercritical boilers and is one of the newest coal units in the US.",
+    "type": "plant",
+    "source": "https://www.gem.wiki/Trimble_County_power_station"
+   },
+   {
+    "year": 2020,
+    "title": "TVA closes Paradise coal",
+    "text": "TVA shut Paradise's last coal unit in February 2020 after 50 years. A new gas-fired plant on the same site replaced most of the lost capacity.",
+    "type": "plant",
+    "source": "https://www.wkms.org/business-economy/2020-02-03/tva-takes-its-last-coal-fired-unit-offline-at-western-kentucky-power-plant"
+   },
+   {
+    "year": 2024,
+    "title": "Utilities pivot to gas, keep some coal",
+    "text": "Kentucky's biggest utility said it would add four new gas plants and battery storage. It also plans to keep Ghent and Trimble County coal running into the 2030s.",
+    "type": "policy",
+    "source": "https://kentuckylantern.com/2024/10/25/less-power-from-coal-more-from-natural-gas-is-in-kentuckys-future-says-states-largest-utility/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Trimble County",
+   "fuel": "coal",
+   "capacity_mw": 2179,
+   "fact": "Trimble's two units are partly owned by city utilities in Illinois and Indiana, so the power flows across three states.",
+   "source": "https://www.gem.wiki/Trimble_County_power_station"
+  }
+ },
+ "LA": {
+  "summary": "Louisiana sits on top of the Gulf gas fields, so cheap gas has run the grid for a long time. Entergy added two nuclear plants in the 1980s, but gas is still about 72% of generation. Hurricanes keep knocking out lines, and a wave of new gas plants is on the way to power Meta's giant data center.",
+  "events": [
+   {
+    "year": 1925,
+    "title": "Louisiana Power & Light founded",
+    "text": "Harvey Couch set up LP&L to send power from north Louisiana gas fields. The company eventually became part of Entergy.",
+    "type": "milestone",
+    "source": "https://www.entergy.com/history"
+   },
+   {
+    "year": 1951,
+    "title": "Nine Mile Point opens",
+    "text": "Entergy's biggest plant started near Bridge City as a gas-burning station. New units were added in the 1970s, 1990s, and 2015.",
+    "type": "plant",
+    "source": "https://www.gem.wiki/Nine_Mile_Point_power_station"
+   },
+   {
+    "year": 1985,
+    "title": "Waterford 3 nuclear opens",
+    "text": "Entergy started Louisiana's biggest nuclear reactor on the Mississippi River. It makes about a quarter of the state's clean power.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Waterford_Nuclear_Generating_Station"
+   },
+   {
+    "year": 2021,
+    "title": "Hurricane Ida wrecks transmission",
+    "text": "Ida knocked out all eight transmission lines into New Orleans and left over a million people in the dark. It exposed how fragile the coastal grid was.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Entergy"
+   },
+   {
+    "year": 2025,
+    "title": "Approved 3 gas plants for Meta",
+    "text": "Louisiana regulators approved three new combined-cycle gas plants totaling about 2,200 megawatts to power Meta's $27 billion data center in Richland Parish.",
+    "type": "policy",
+    "source": "https://www.power-eng.com/gas/combined-cycle/entergy-louisiana-gets-approval-to-build-3-new-combined-cycle-plants-to-power-huge-meta-data-center/"
+   },
+   {
+    "year": 2026,
+    "title": "Meta data center expansion vote",
+    "text": "Regulators began fast-tracking seven more gas plants for Meta in April 2026. If approved, the total Meta power buildout would hit about 7.5 gigawatts.",
+    "type": "market",
+    "source": "https://blog.ucs.org/paul-arbaje/whats-next-after-louisianas-gas-plant-approval-for-meta-data-center/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Nine Mile Point",
+   "fuel": "gas",
+   "capacity_mw": 2376,
+   "fact": "The site has been making power since 1951 and can switch to fuel oil if natural gas runs short.",
+   "source": "https://www.gem.wiki/Nine_Mile_Point_power_station"
+  }
+ },
+ "ME": {
+  "summary": "Maine's electricity story starts with paper mills tapping rivers for hydropower in the 1800s. The big oil-burning Wyman plant on Cousins Island took over in 1957 to back up the dams. Now Maine runs heavily on gas, wind, and hydro, and a long-fought Hydro-Quebec transmission line finally turned on in January 2026.",
+  "events": [
+   {
+    "year": 1928,
+    "title": "Wyman Dam begins construction",
+    "text": "Central Maine Power started Wyman Dam at Bingham, the biggest dam in the eastern US at the time. It locked in hydro as Maine's backbone.",
+    "type": "plant",
+    "source": "https://www.mainememory.net/sitebuilder/site/815/display"
+   },
+   {
+    "year": 1957,
+    "title": "Wyman oil plant opens",
+    "text": "The W.F. Wyman station on Cousins Island in Yarmouth started burning oil to back up hydro. It is still Maine's biggest single plant.",
+    "type": "plant",
+    "source": "https://www.mmwec.org/our-energy-assets/wyman/"
+   },
+   {
+    "year": 1999,
+    "title": "Maine restructures the grid",
+    "text": "Maine forced its utilities to sell off power plants and opened the market to competition. Central Maine Power kept the wires but not the generators.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/List_of_power_stations_in_Maine"
+   },
+   {
+    "year": 2021,
+    "title": "Voters reject NECEC corridor",
+    "text": "Mainers voted 59% to block the New England Clean Energy Connect line carrying Quebec hydropower. It set off a huge legal fight.",
+    "type": "policy",
+    "source": "https://www.cbc.ca/news/world/maine-vote-hydro-quebec-1.6233569"
+   },
+   {
+    "year": 2023,
+    "title": "Courts overturn referendum",
+    "text": "A Maine jury ruled the 2021 vote was unconstitutional. Construction on the transmission corridor restarted soon after.",
+    "type": "policy",
+    "source": "https://www.cbc.ca/news/canada/montreal/hydro-quebec-1.6816752"
+   },
+   {
+    "year": 2026,
+    "title": "NECEC line begins service",
+    "text": "The 145-mile line started carrying 1,200 megawatts of Quebec hydro into New England in January 2026. It became the region's biggest renewable source overnight.",
+    "type": "milestone",
+    "source": "https://www.nhpr.org/nh-news/2026-01-16/what-the-new-hydropower-transmission-line-in-maine-could-mean-for-nhs-energy-future"
+   }
+  ],
+  "signature_plant": {
+   "name": "William F Wyman",
+   "fuel": "oil",
+   "capacity_mw": 827,
+   "fact": "The plant sits on Cousins Island in Casco Bay and ships in oil by tanker; it is named for the son of Central Maine Power's founder.",
+   "source": "https://www.mmwec.org/our-energy-assets/wyman/"
+  }
+ },
+ "MD": {
+  "summary": "Maryland's grid story is split between an old river and a Cold War-era reactor. The Conowingo Dam on the Susquehanna started spinning in 1928 and still feeds the state. Calvert Cliffs went nuclear in the 1970s and today provides about 4 in 10 Maryland kilowatt-hours. Coal hung on at Brandon Shores, but it is finally on the way out, and offshore wind plans keep shifting.",
+  "events": [
+   {
+    "year": 1928,
+    "title": "Conowingo Dam opens on the Susquehanna",
+    "text": "When finished it was second only to Niagara for hydro power in the U.S. It powered Baltimore and Philadelphia and still runs today with 11 turbines.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Conowingo_Dam"
+   },
+   {
+    "year": 1975,
+    "title": "Calvert Cliffs nuclear plant starts up",
+    "text": "Unit 1 came online in 1975 and Unit 2 followed in 1977. Maryland's only nuclear plant has been the state's biggest power source for decades.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Calvert_Cliffs_Nuclear_Power_Plant"
+   },
+   {
+    "year": 2019,
+    "title": "Maryland sets 50% clean energy goal",
+    "text": "The state passed a Clean Energy Jobs Act requiring half of electricity to come from renewables by 2030. It also pushed for offshore wind off the Eastern Shore.",
+    "type": "policy",
+    "source": "https://energy.maryland.gov/Pages/Info/renewable/offshorewind.aspx"
+   },
+   {
+    "year": 2024,
+    "title": "US Wind offshore plan approved",
+    "text": "Federal officials okayed a plan for up to 114 turbines off Ocean City, totaling about 1,700 MW. Permits later hit legal trouble in 2025, delaying construction.",
+    "type": "policy",
+    "source": "https://www.offshorewind.biz/2025/01/29/maryland-ups-us-winds-capacity-award-to-1-7-gw/"
+   },
+   {
+    "year": 2025,
+    "title": "Brandon Shores coal exit delayed to 2029",
+    "text": "Talen wanted to close the 1.3 GW coal plant in 2025, but PJM said the grid still needs it. New power lines must be built first, pushing closure to May 2029.",
+    "type": "market",
+    "source": "https://www.powermag.com/talen-pjm-reach-agreement-to-keep-2-gw-of-coal-oil-generation-online-for-reliability-in-maryland/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Calvert Cliffs Nuclear Power Plant",
+   "fuel": "nuclear",
+   "capacity_mw": 1745,
+   "fact": "Its two reactors have run for about half a century and supply roughly 40% of Maryland's electricity with zero carbon emissions.",
+   "source": "https://www.powermag.com/a-half-century-of-reliability-calvert-cliffs-nuclear-power-plant/"
+  }
+ },
+ "MA": {
+  "summary": "Massachusetts went all-in on coal and oil last century, then spent the 2010s shutting those plants down. Pilgrim, the only nuclear plant, closed in 2019. A famous offshore wind project called Cape Wind died after years of lawsuits. Then in 2024, Vineyard Wind became the first big U.S. offshore wind farm to deliver power.",
+  "events": [
+   {
+    "year": 1972,
+    "title": "Pilgrim Nuclear opens in Plymouth",
+    "text": "Massachusetts joined the nuclear era with one reactor near Plymouth Rock. It would run for 47 years.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Pilgrim_Nuclear_Power_Station"
+   },
+   {
+    "year": 2017,
+    "title": "Cape Wind project officially dies",
+    "text": "After 16 years of lawsuits and well-funded opposition near Nantucket, developers gave up the lease. It was meant to be America's first offshore wind farm.",
+    "type": "milestone",
+    "source": "https://www.utilitydive.com/news/cape-wind-developers-call-it-quits/512203/"
+   },
+   {
+    "year": 2017,
+    "title": "Brayton Point coal plant shuts down",
+    "text": "New England's largest coal plant closed in May 2017 after losing money to cheaper gas. The site is now a hub for offshore wind construction.",
+    "type": "plant",
+    "source": "https://www.wbur.org/news/2017/05/31/brayton-power-plant-somerset"
+   },
+   {
+    "year": 2019,
+    "title": "Pilgrim Nuclear shuts down",
+    "text": "Entergy closed the state's only nuclear plant on May 31, blaming low wholesale power prices. Massachusetts lost its biggest carbon-free generator overnight.",
+    "type": "plant",
+    "source": "https://www.washingtonpost.com/national/energy-environment/pilgrim-shutdown-ends-nuclear-power-era-in-massachusetts/2019/05/31/ebbfa10a-8402-11e9-b585-e36b16a531aa_story.html"
+   },
+   {
+    "year": 2024,
+    "title": "Vineyard Wind sends first power",
+    "text": "On January 2, 2024, a turbine 15 miles off Martha's Vineyard sent power to the grid. It became the first commercial-scale U.S. offshore wind farm.",
+    "type": "milestone",
+    "source": "https://www.vineyardwind.com/press-releases/2024/1/3/cip-avangrid-announce-first-power-from-nation-leading-vineyard-wind-1-project"
+   },
+   {
+    "year": 2026,
+    "title": "Vineyard Wind finishes construction",
+    "text": "Workers placed the final blades in March 2026. The full 62-turbine, 806 MW farm can power about 400,000 homes.",
+    "type": "milestone",
+    "source": "https://www.bostonglobe.com/2026/03/13/metro/vineyard-wind-construction-complete/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Canal Generating Plant",
+   "fuel": "oil",
+   "capacity_mw": 1449,
+   "fact": "This Cape Cod oil plant only fires up on the coldest winter days when gas pipelines are full and prices spike.",
+   "source": "https://en.wikipedia.org/wiki/Canal_Generating_Plant"
+  }
+ },
+ "MI": {
+  "summary": "Michigan was built on coal, and the giant Monroe plant still ranks as the second-biggest coal burner in America. Gas overtook coal as the top fuel, and nuclear holds about a fifth of the mix. The state is now famous for a historic first: a closed reactor at Palisades is being restarted, the first time in U.S. history. Data centers are also driving the biggest demand surge since the 1970s.",
+  "events": [
+   {
+    "year": 1971,
+    "title": "Monroe coal plant begins operating",
+    "text": "DTE built a four-unit, 3,400 MW coal giant on Lake Erie. It became the second-largest coal plant in the country.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Monroe_Power_Plant"
+   },
+   {
+    "year": 1971,
+    "title": "Palisades reactor starts on Lake Michigan",
+    "text": "The 800 MW reactor came online near South Haven. It ran for over 50 years before shutting down in 2022.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Palisades_Nuclear_Generating_Station"
+   },
+   {
+    "year": 2008,
+    "title": "Thumb wind farms come online",
+    "text": "Harvest Wind and Michigan Wind 1 began the wind boom in Michigan's Thumb region. The Thumb now hosts about 1,900 MW of turbines.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_Michigan"
+   },
+   {
+    "year": 2022,
+    "title": "Palisades closes for good (almost)",
+    "text": "Owner Entergy shut Palisades in May 2022, citing economics. Holtec bought it days later with a plan no one had ever pulled off: restarting a closed reactor.",
+    "type": "plant",
+    "source": "https://www.canarymedia.com/articles/nuclear/holtec-palisades-restart-federal-approval"
+   },
+   {
+    "year": 2025,
+    "title": "Palisades cleared for historic restart",
+    "text": "On August 25, the NRC moved Palisades back to operations status, the first U.S. decommissioned reactor to do so. Restart slipped to early 2026.",
+    "type": "milestone",
+    "source": "https://www.utilitydive.com/news/palisades-nuclear-plant-holtec-nrc-operations/758845/"
+   },
+   {
+    "year": 2025,
+    "title": "Data center demand surges",
+    "text": "Oracle and OpenAI joined a $7 billion campus near Ann Arbor. Utilities now forecast up to 16 GW of new data center demand.",
+    "type": "market",
+    "source": "https://www.crainsdetroit.com/politics-policy/michigan-data-centers-may-power-demand-16-gigawatts"
+   }
+  ],
+  "signature_plant": {
+   "name": "Monroe Power Plant",
+   "fuel": "coal",
+   "capacity_mw": 3080,
+   "fact": "It burns enough Powder River Basin coal each year to release more CO2 than most small countries. Two of its four units retire in 2028.",
+   "source": "https://bridgemi.com/michigan-environment-watch/michigan-regulators-approve-dte-plan-cut-pollution-close-monroe-plant/"
+  }
+ },
+ "MN": {
+  "summary": "Minnesota's grid arc runs from coal and a 1970s nuclear plant to one of the biggest wind buildouts in the country. The Prairie Island nuclear fight in the 1990s actually forced Xcel Energy to invest in wind on Buffalo Ridge. Today wind tops the mix at 25%. The state's biggest coal plant, Sherco, is being swapped for a massive solar farm using the same power lines.",
+  "events": [
+   {
+    "year": 1973,
+    "title": "Prairie Island Nuclear starts up",
+    "text": "Xcel's two-reactor plant came online near Red Wing along the Mississippi. It still runs and is licensed through the 2030s.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Prairie_Island_Nuclear_Power_Plant"
+   },
+   {
+    "year": 1976,
+    "title": "Sherco coal plant opens",
+    "text": "The Sherburne County plant became the state's largest power source. For 50 years it has burned Western coal hauled in by train.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Sherburne_County_Generating_Station"
+   },
+   {
+    "year": 1994,
+    "title": "Nuclear waste deal launches wind",
+    "text": "To get permission to store more spent fuel at Prairie Island, Xcel had to build 550 MW of renewables. That kicked off the Buffalo Ridge wind boom.",
+    "type": "policy",
+    "source": "https://www.mepartnership.org/minnesotas-rich-history-in-the-debate-over-nuclear-energy/"
+   },
+   {
+    "year": 2007,
+    "title": "25% renewable standard becomes law",
+    "text": "Minnesota's Renewable Energy Standard required Xcel to hit 30% renewables by 2020. It pulled wind investment in faster.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_Minnesota"
+   },
+   {
+    "year": 2023,
+    "title": "First Sherco coal unit retires",
+    "text": "Xcel shut Sherco Unit 2 on December 31, 2023. The other units retire in 2026 and 2030.",
+    "type": "plant",
+    "source": "https://stories.xcelenergy.com/stories/Xcel-Energy-retires-first-coal-unit-at-Sherco"
+   },
+   {
+    "year": 2024,
+    "title": "Sherco Solar comes online",
+    "text": "A 710 MW solar farm started up on the Sherco site, reusing the same transmission lines.",
+    "type": "plant",
+    "source": "https://electrek.co/2024/11/20/minnesota-sherco-solar-comes-online/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Sherburne County (Sherco)",
+   "fuel": "coal",
+   "capacity_mw": 1556,
+   "fact": "Once Minnesota's coal king, it is being replaced unit-by-unit with solar panels that reuse its old grid connection.",
+   "source": "https://rmi.org/the-sherco-clean-repowering-how-one-community-turned-a-coal-plant-into-a-hub-for-a-new-clean-economy/"
+  }
+ },
+ "MS": {
+  "summary": "Mississippi got electricity late, thanks largely to the New Deal and the Tennessee Valley Authority in the 1930s. Grand Gulf came online in 1985 as the only nuclear plant in the state, and after a 2012 power uprate became the most powerful single reactor in America. Mississippi also hosted one of the most expensive flops in U.S. energy history: the Kemper 'clean coal' project that burned through $7.5 billion before giving up and just burning gas.",
+  "events": [
+   {
+    "year": 1935,
+    "title": "TVA brings power to the country",
+    "text": "The Tennessee Valley Authority and the new Rural Electrification Administration started wiring Mississippi farms. In 1935, less than 1% of farms had electricity.",
+    "type": "policy",
+    "source": "https://www.mshistorynow.mdah.ms.gov/lesson-plan/the-rural-electrification-of-northeast-mississippi-lesson-plan"
+   },
+   {
+    "year": 1985,
+    "title": "Grand Gulf Nuclear starts up",
+    "text": "After 14 years of construction, the state's only nuclear plant opened near Port Gibson. It is jointly owned by Entergy and Cooperative Energy.",
+    "type": "plant",
+    "source": "https://www.entergy.com/nuclear/grand-gulf"
+   },
+   {
+    "year": 2001,
+    "title": "Plant Daniel adds gas units",
+    "text": "Mississippi Power started building two combined-cycle gas units at Plant Daniel, adding about 1 GW. Gas began its rise to today's 74% share.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Plant_Daniel"
+   },
+   {
+    "year": 2012,
+    "title": "Grand Gulf becomes America's biggest reactor",
+    "text": "A power uprate bumped Grand Gulf's output to 1,443 MW net, making it the largest single-unit nuclear reactor in the country.",
+    "type": "milestone",
+    "source": "https://www.entergy.com/nuclear/grand-gulf/anniversary"
+   },
+   {
+    "year": 2017,
+    "title": "Kemper clean coal project fails",
+    "text": "After $7.5 billion and years of delays, Mississippi Power gave up on capturing carbon at Kemper and just burned gas instead.",
+    "type": "plant",
+    "source": "https://www.technologyreview.com/2017/06/29/150681/clean-coals-flagship-project-has-failed/"
+   },
+   {
+    "year": 2021,
+    "title": "Kemper gasifier imploded",
+    "text": "Crews dynamited the gasification chambers that never worked.",
+    "type": "milestone",
+    "source": "https://gizmodo.com/a-multibillion-dollar-clean-coal-plant-never-worked-an-1847866199"
+   }
+  ],
+  "signature_plant": {
+   "name": "Victor J Daniel Jr",
+   "fuel": "gas",
+   "capacity_mw": 2153,
+   "fact": "Once half-coal, half-gas, this Jackson County plant is now mostly natural gas and helped push gas to three-fourths of Mississippi's power.",
+   "source": "https://en.wikipedia.org/wiki/Plant_Daniel"
+  }
+ },
+ "MO": {
+  "summary": "Missouri's grid is built on coal, and lots of it. The state still gets about 64% of its electricity from coal, the most of any state covered here. Hydro arrived first when Bagnell Dam created the Lake of the Ozarks in 1931. Coal giants like Labadie came online in the 1970s, and the state's only nuclear plant, Callaway, started in 1984. Coal retirement plans keep getting pushed back.",
+  "events": [
+   {
+    "year": 1931,
+    "title": "Bagnell Dam creates Lake of the Ozarks",
+    "text": "Union Electric (now Ameren) finished a 215 MW hydro dam on the Osage River. It was built during the Great Depression and gave Missourians their first big lake.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Bagnell_Dam"
+   },
+   {
+    "year": 1970,
+    "title": "Labadie coal plant begins running",
+    "text": "Union Electric started Missouri's largest coal plant west of St. Louis. Its four units total about 2,400 MW and it has run nonstop ever since.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Labadie_Power_Station"
+   },
+   {
+    "year": 1984,
+    "title": "Callaway Nuclear opens",
+    "text": "Missouri's only nuclear plant came online in December 1984 with one Westinghouse reactor. It still produces about 1,190 MW for Ameren.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Callaway_Nuclear_Generating_Station"
+   },
+   {
+    "year": 2008,
+    "title": "Renewable standard passes by ballot",
+    "text": "Voters approved Proposition C requiring investor-owned utilities to hit 15% renewables by 2021. It was the first U.S. renewable mandate set by voters.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/2008_Missouri_Proposition_C"
+   },
+   {
+    "year": 2024,
+    "title": "Ameren delays Labadie retirement",
+    "text": "Ameren now plans to keep Labadie running until 2042, far later than earlier plans. Coal remains the dominant fuel in Missouri's mix.",
+    "type": "market",
+    "source": "https://www.ameren.com/-/media/missouri-site/files/aboutus/amerenmissourifactsheet.ashx"
+   }
+  ],
+  "signature_plant": {
+   "name": "Labadie Energy Center",
+   "fuel": "coal",
+   "capacity_mw": 2372,
+   "fact": "Missouri's biggest coal plant has no sulfur dioxide scrubbers, making it the nation's top sulfur dioxide emitter.",
+   "source": "https://www.stltoday.com/news/local/business/ameren-coal-plant-is-top-polluter-labadie-emits-more-so2-than-any-in-us/article_85c77c20-e211-11ee-b0ec-73282e33d4eb.html"
+  }
+ },
+ "MT": {
+  "summary": "Montana's grid is a tug-of-war between coal and hydro. Big federal dams like Hungry Horse went up in the 1950s, and they still supply about a third of state generation. Then Colstrip's coal plants opened in the 1970s and 1980s, sending power west to Washington and Oregon. Coastal owners began exiting after 2020, but in 2025 NorthWestern Energy bought their shares for nothing and plans to keep the coal burning.",
+  "events": [
+   {
+    "year": 1953,
+    "title": "Hungry Horse Dam finished",
+    "text": "The federal Bureau of Reclamation completed the 564-foot arch dam near Glacier National Park. It was the third-largest concrete dam in the world at the time.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Hungry_Horse_Dam"
+   },
+   {
+    "year": 1975,
+    "title": "Colstrip Units 1 and 2 open",
+    "text": "Montana Power built two coal units in Rosebud County, using local strip-mined coal. They mostly powered customers in Washington and Oregon.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Colstrip_Power_Plant"
+   },
+   {
+    "year": 1984,
+    "title": "Colstrip Units 3 and 4 come online",
+    "text": "Two bigger 740 MW units were added, hitting peak Colstrip capacity. They were designed to last 37 years.",
+    "type": "plant",
+    "source": "https://northernplains.org/history-project-colstrip-1984-2024/"
+   },
+   {
+    "year": 2020,
+    "title": "Colstrip Units 1 and 2 close",
+    "text": "Puget Sound Energy and Talen shut the older units in January 2020. Washington state law required its utilities to exit coal.",
+    "type": "plant",
+    "source": "https://www.powermag.com/in-a-surprise-announcement-colstrip-units-1-and-2-to-close-by-year-end/"
+   },
+   {
+    "year": 2025,
+    "title": "NorthWestern buys Colstrip stakes for $0",
+    "text": "Avista and Puget Sound Energy handed their combined 40% (592 MW) of Units 3 and 4 to NorthWestern Energy for free. Coal will keep running for Montana customers.",
+    "type": "market",
+    "source": "https://www.sec.gov/Archives/edgar/data/0001993004/000199300424000073/ex991pressreleaseq22024.htm"
+   }
+  ],
+  "signature_plant": {
+   "name": "Colstrip Steam Plant",
+   "fuel": "coal",
+   "capacity_mw": 1480,
+   "fact": "Most of Colstrip's power historically left Montana on wires to the West Coast, even as those states banned coal at home.",
+   "source": "https://en.wikipedia.org/wiki/Colstrip_Power_Plant"
+  }
+ },
+ "NE": {
+  "summary": "Nebraska is the only state where every electric utility is publicly owned. No investor-owned power companies. That structure dates to a populist push in the 1930s and was completed in 1946 when Omaha bought out the last private utility. The state runs heavily on coal from the giant Gerald Gentleman plant, with one of the country's biggest wind shares (29%) growing market-driven on top.",
+  "events": [
+   {
+    "year": 1933,
+    "title": "Norris pushes public power law",
+    "text": "Senator George Norris helped pass the state Enabling Act letting voters petition for publicly owned utilities. It opened the door to total public power.",
+    "type": "policy",
+    "source": "https://www.yesmagazine.org/economy/2015/01/30/nebraskas-community-owned-energy"
+   },
+   {
+    "year": 1946,
+    "title": "Last private utility goes public",
+    "text": "Omaha Public Power District bought out the Nebraska Power Company, completing the public takeover. Nebraska became the only all-public-power state.",
+    "type": "milestone",
+    "source": "https://www.publicpower.org/blog/100-percent-public-power-state"
+   },
+   {
+    "year": 1979,
+    "title": "Gerald Gentleman Unit 1 starts",
+    "text": "Nebraska Public Power District's giant coal plant near Sutherland began running. Unit 2 was added in 1982, totaling 1,365 MW.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Gerald_Gentleman_Station"
+   },
+   {
+    "year": 2012,
+    "title": "Crofton Bluffs wind farm online",
+    "text": "A 40.6 MW project marked the start of Nebraska's wind boom. Capacity has roughly doubled every two years through the 2010s.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_Nebraska"
+   },
+   {
+    "year": 2019,
+    "title": "Wind hits 20% of state generation",
+    "text": "By 2019, Nebraska had 2,142 MW of wind capacity and wind generated nearly 20% of in-state electricity. No state subsidy was ever passed.",
+    "type": "milestone",
+    "source": "https://dee.nebraska.gov/state-energy-information/energy-statistics/fuels/wind/wind-energy-generation-nebraska"
+   }
+  ],
+  "signature_plant": {
+   "name": "Gerald Gentleman Station",
+   "fuel": "coal",
+   "capacity_mw": 1365,
+   "fact": "It is one of the cheapest coal plants to run in the country and is owned by the public, not investors.",
+   "source": "https://www.nppd.com/powering-nebraska/energy-resources/coal"
+  }
+ },
+ "NV": {
+  "summary": "Nevada's grid started with one of the largest construction projects in U.S. history: the Hoover Dam, finished in 1935. The state was a coal-and-gas grid for decades, then closed its last coal plant, Reid Gardner, in 2017. Sunshine and underground heat now do heavy lifting. Solar provides about 30% of state generation, geothermal another 9%, and the massive Gemini Solar + Storage project north of Las Vegas started up in 2024.",
+  "events": [
+   {
+    "year": 1935,
+    "title": "Hoover Dam dedicated",
+    "text": "President Roosevelt dedicated the world's tallest dam on September 30, 1935. Its 17 turbines still send power to Nevada, Arizona, and Southern California.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Hoover_Dam"
+   },
+   {
+    "year": 1965,
+    "title": "Reid Gardner coal plant opens",
+    "text": "Nevada Power built four coal units 50 miles north of Las Vegas. It became one of the dirtiest coal plants in the country.",
+    "type": "plant",
+    "source": "https://www.utilitydive.com/news/nv-energy-shutters-final-unit-at-reid-gardner-coal-plant/438330/"
+   },
+   {
+    "year": 2015,
+    "title": "Crescent Dunes solar tower starts",
+    "text": "Near Tonopah, a 110 MW concentrated solar plant with molten salt storage came online. It would soon become a famous failure as panels got cheaper.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Crescent_Dunes_Solar_Energy_Project"
+   },
+   {
+    "year": 2017,
+    "title": "Last coal plant in Nevada closes",
+    "text": "NV Energy shut Reid Gardner's final unit in March 2017, nine months early. Nevada became one of only a handful of coal-free states.",
+    "type": "plant",
+    "source": "https://thenevadaindependent.com/article/final-coal-fired-unit-put-rest-reid-gardner"
+   },
+   {
+    "year": 2020,
+    "title": "Crescent Dunes bankrupts SolarReserve",
+    "text": "Molten-salt leaks and falling PV prices pushed its owner into bankruptcy. It became a cautionary tale for solar thermal.",
+    "type": "plant",
+    "source": "https://www.bloomberg.com/news/articles/2020-01-06/a-1-billion-solar-plant-was-obsolete-before-it-ever-went-online"
+   },
+   {
+    "year": 2024,
+    "title": "Gemini Solar + Storage online",
+    "text": "A 690 MW solar farm with 380 MW of batteries opened north of Las Vegas, covering about 10% of Nevada's peak demand.",
+    "type": "plant",
+    "source": "https://pv-magazine-usa.com/2024/07/19/largest-solar-plus-storage-project-in-u-s-now-operational-in-nevada/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Chuck Lenzie Generating Station",
+   "fuel": "gas",
+   "capacity_mw": 1242,
+   "fact": "This combined-cycle gas plant northwest of Las Vegas backs up the desert sun when solar panels go quiet at night.",
+   "source": "https://www.nvenergy.com/about-nvenergy/facilities/lenzie-station"
+  }
+ },
+ "NH": {
+  "summary": "New Hampshire's grid story is mostly the long, loud fight over one plant. Seabrook was supposed to be two reactors but ended up as one, after huge protests in the 1970s and a 14-year build that nearly bankrupted the utility. That single reactor still cranks out more than half the state's power today. The rest is mostly natural gas, with a little hydro from old mill rivers.",
+  "events": [
+   {
+    "year": 1976,
+    "title": "Clamshell Alliance forms",
+    "text": "A new anti-nuclear group started organizing against the planned Seabrook reactors. In 1977 over 1,400 protesters were arrested on the construction site, the biggest nuclear protest in U.S. history.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Clamshell_Alliance"
+   },
+   {
+    "year": 1990,
+    "title": "Seabrook finally turns on",
+    "text": "After 14 years of building, lawsuits and one bankrupt utility, Seabrook Unit 1 began commercial operation in August 1990. The plant cost about $6.5 billion, way more than planned.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Seabrook_Station_Nuclear_Power_Plant"
+   },
+   {
+    "year": 2002,
+    "title": "NextEra buys Seabrook",
+    "text": "Florida-based NextEra Energy Resources took over the plant from its struggling original owners. It has run quietly ever since, licensed to operate until 2050.",
+    "type": "market",
+    "source": "https://en.wikipedia.org/wiki/Seabrook_Station_Nuclear_Power_Plant"
+   },
+   {
+    "year": 2019,
+    "title": "Gas pipelines fill the gap",
+    "text": "New England's switch from coal and oil to natural gas left New Hampshire heavily reliant on gas piped in from Pennsylvania. Winter price spikes became a regular headache.",
+    "type": "market",
+    "source": "https://www.eia.gov/state/analysis.php?sid=NH"
+   },
+   {
+    "year": 2024,
+    "title": "Floating wind auction off NH coast",
+    "text": "The federal government held the first offshore wind lease sale in the Gulf of Maine in October 2024. The deep water means future turbines would have to float, a new technology for the U.S.",
+    "type": "policy",
+    "source": "https://newhampshirebulletin.com/2024/10/29/winning-bids-for-gulf-of-maine-offshore-wind-leases-total-about-22-million/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Seabrook Station",
+   "fuel": "nuclear",
+   "capacity_mw": 1250,
+   "fact": "One of the most protested power plants in U.S. history, it now quietly makes more than half of New Hampshire's electricity.",
+   "source": "https://en.wikipedia.org/wiki/Seabrook_Station_Nuclear_Power_Plant"
+  }
+ },
+ "NJ": {
+  "summary": "New Jersey's grid leans on two old nuclear plants on the Delaware Bay and a lot of natural gas. The state spent the 2010s and 2020s promising a giant offshore wind buildout, then watched developer after developer pull out as costs spiked. By 2026, almost no offshore wind has actually been built. Solar keeps creeping up on suburban roofs.",
+  "events": [
+   {
+    "year": 1977,
+    "title": "Salem nuclear opens",
+    "text": "Salem Unit 1 began commercial operation in June 1977 on an artificial island in the Delaware Bay. Together with later Unit 2 and nearby Hope Creek, it became the biggest nuclear complex in the eastern U.S.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Salem_Nuclear_Power_Plant"
+   },
+   {
+    "year": 1986,
+    "title": "Hope Creek joins the cluster",
+    "text": "Hope Creek's boiling water reactor came online in 1986 next door to Salem. The three reactors together make about 3,572 MW, enough to cover a huge share of NJ's nuclear demand.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Hope_Creek_Nuclear_Generating_Station"
+   },
+   {
+    "year": 1997,
+    "title": "PJM market opens",
+    "text": "PJM became the nation's first independent grid operator in 1997 and opened a bid-based wholesale electricity market. NJ utilities started buying power from across a multi-state grid instead of just their own plants.",
+    "type": "market",
+    "source": "https://en.wikipedia.org/wiki/PJM_Interconnection"
+   },
+   {
+    "year": 2023,
+    "title": "Orsted cancels Ocean Wind",
+    "text": "Danish developer Orsted scrapped its two big NJ offshore wind projects in October 2023, taking a $4 billion writedown. High interest rates and supply chain costs killed the math.",
+    "type": "market",
+    "source": "https://www.utilitydive.com/news/orsted-cancel-ocean-wind-offshore-project-development-new-jersey/698464/"
+   },
+   {
+    "year": 2025,
+    "title": "Shell exits Atlantic Shores",
+    "text": "Shell walked away from the last big NJ offshore wind project in late 2025, writing off about $1 billion. NJ then canceled its fourth wind solicitation, leaving the state's wind dreams stalled.",
+    "type": "policy",
+    "source": "https://www.offshorewind.biz/2025/11/03/shell-ends-atlantic-shores-offshore-wind-involvement-in-us/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Salem Generating Station",
+   "fuel": "nuclear",
+   "capacity_mw": 2323,
+   "fact": "Sits on an artificial island in the Delaware Bay and sucks in millions of gallons of seawater to cool its reactors.",
+   "source": "https://en.wikipedia.org/wiki/Salem_Nuclear_Power_Plant"
+  }
+ },
+ "NM": {
+  "summary": "For 50 years New Mexico's grid ran on a cluster of giant coal plants in the Four Corners that polluted Navajo land. A landmark 2019 law put the state on a path to carbon-free electricity, and the giant San Juan plant shut for good in 2022. Wind from the eastern plains has rushed in to fill the gap, and now makes more power than gas or coal.",
+  "events": [
+   {
+    "year": 1963,
+    "title": "Four Corners coal plant opens",
+    "text": "The first units of Four Corners Generating Station started up in 1963 on Navajo Nation land. It became one of the biggest sources of pollution in the United States.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Four_Corners_Generating_Station"
+   },
+   {
+    "year": 1976,
+    "title": "San Juan coal plant joins it",
+    "text": "The 1,683 MW San Juan Generating Station came online next to Four Corners. Together the two plants ran the regional grid for decades.",
+    "type": "plant",
+    "source": "https://www.eia.gov/state/analysis.php?sid=NM"
+   },
+   {
+    "year": 2019,
+    "title": "Energy Transition Act signed",
+    "text": "Governor Lujan Grisham signed a law requiring 100% carbon-free electricity by 2045. It made NM the third state with a 100% clean target, after California and Hawaii.",
+    "type": "policy",
+    "source": "https://www.governor.state.nm.us/2019/03/22/governor-signs-landmark-energy-legislation-establishing-new-mexico-as-a-national-leader-in-renewable-transition-efforts/"
+   },
+   {
+    "year": 2022,
+    "title": "San Juan coal plant closes",
+    "text": "The San Juan plant shut down for good in September 2022. Replacement solar and battery projects had to be built within the same school district to keep tax money flowing.",
+    "type": "plant",
+    "source": "https://sourcenm.com/2022/11/07/pnm-customers-continue-to-pay-for-san-juan-coal-plant-thats-no-longer-operating/"
+   },
+   {
+    "year": 2025,
+    "title": "Wind tops the mix",
+    "text": "Wind from the eastern plains hit 36% of state generation in 2025, beating both natural gas and the lone surviving coal plant. NM is now mostly powered by moving air.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/analysis.php?sid=NM"
+   }
+  ],
+  "signature_plant": {
+   "name": "Four Corners Generating Station",
+   "fuel": "coal",
+   "capacity_mw": 1540,
+   "fact": "The last operating coal plant in New Mexico, sitting on Navajo Nation land and scheduled to close by 2038.",
+   "source": "https://en.wikipedia.org/wiki/Four_Corners_Generating_Station"
+  }
+ },
+ "NY": {
+  "summary": "New York's grid is really two grids: upstate runs on hydro from Niagara and nuclear from the Finger Lakes, while downstate burns a lot of natural gas. The giant Indian Point nuclear plant closed in 2021, and emissions promptly jumped. A 2019 climate law now demands 100% carbon-free power by 2040, which is going to be a stretch.",
+  "events": [
+   {
+    "year": 1950,
+    "title": "Niagara Treaty signed",
+    "text": "The U.S. and Canada agreed in 1950 to divide the Niagara River's water for power. The deal cleared the way for a huge new hydropower project on the U.S. side.",
+    "type": "policy",
+    "source": "https://ourniagarariver.ca/niagara-treaty-of-1950/"
+   },
+   {
+    "year": 1961,
+    "title": "Robert Moses Niagara opens",
+    "text": "First power flowed in January 1961 from the world's largest hydropower plant at the time. It was named for NYC planner Robert Moses, who ran the project.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Robert_Moses_Niagara_Power_Plant"
+   },
+   {
+    "year": 2019,
+    "title": "CLCPA climate law passes",
+    "text": "New York passed the Climate Leadership and Community Protection Act, requiring 70% renewable power by 2030 and 100% carbon-free by 2040. It is one of the toughest state climate laws in the country.",
+    "type": "policy",
+    "source": "https://climate.ny.gov/"
+   },
+   {
+    "year": 2021,
+    "title": "Indian Point closes",
+    "text": "The Indian Point nuclear plant outside NYC shut its last reactor in April 2021. Emissions from NY's power sector jumped nearly a third the next year as gas plants replaced it.",
+    "type": "plant",
+    "source": "https://www.eia.gov/todayinenergy/detail.php?id=47776"
+   },
+   {
+    "year": 2024,
+    "title": "Champlain Hudson line approved",
+    "text": "A new buried power line started running 1,250 MW of Canadian hydro into NYC. It's meant to help replace what Indian Point used to send south.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Champlain_Hudson_Power_Express"
+   }
+  ],
+  "signature_plant": {
+   "name": "Robert Moses Niagara",
+   "fuel": "hydro",
+   "capacity_mw": 2435,
+   "fact": "When it opened in 1961, it was the biggest hydropower plant in the Western world. It still uses water sent down a four-mile underground tunnel.",
+   "source": "https://en.wikipedia.org/wiki/Robert_Moses_Niagara_Power_Plant"
+  }
+ },
+ "NC": {
+  "summary": "North Carolina's grid runs on a Duke Energy mix of nuclear, coal and gas, plus a surprising amount of solar. A 2007 renewable law made NC a national solar leader for a while. Hurricane Helene tore up the western part of the grid in 2024. Now Duke is racing to swap coal for natural gas to feed booming data center demand.",
+  "events": [
+   {
+    "year": 1966,
+    "title": "Roxboro coal plant opens",
+    "text": "The first Roxboro unit came online in 1966 in rural Person County. It grew into one of the biggest coal plants in the country at 2,462 MW.",
+    "type": "plant",
+    "source": "https://www.duke-energy.com/our-company/about-us/power-plants/roxboro-plant"
+   },
+   {
+    "year": 1987,
+    "title": "Shearon Harris nuclear starts",
+    "text": "Duke's Shearon Harris reactor started commercial operation in 1987. Together with McGuire and Catawba, it locked in nuclear as a big chunk of NC power.",
+    "type": "plant",
+    "source": "https://www.duke-energy.com/our-company/about-us/power-plants/harris-nuclear-station"
+   },
+   {
+    "year": 2007,
+    "title": "REPS solar law",
+    "text": "NC became the first Southern state to require utilities to use renewable energy. Combined with a 35% state tax credit, it triggered a utility-scale solar boom.",
+    "type": "policy",
+    "source": "https://www.ncuc.gov/Reps/reps.html"
+   },
+   {
+    "year": 2024,
+    "title": "Hurricane Helene wrecks grid",
+    "text": "Helene's floods and mudslides destroyed substations and wiped out whole stretches of transmission in the western mountains. Over 1.1 million Duke customers lost power in NC and SC.",
+    "type": "milestone",
+    "source": "https://news.duke-energy.com/releases/duke-energy-continues-rebuild-of-power-infrastructure-following-hurricane-helene"
+   },
+   {
+    "year": 2025,
+    "title": "Roxboro coal-to-gas approved",
+    "text": "State regulators approved Duke's plan to replace two Roxboro coal units with 1,360 MW of new natural gas by 2029. Critics said it locks in fossil fuels for decades.",
+    "type": "policy",
+    "source": "https://www.enerdata.net/publications/daily-energy-news/us-duke-energy-gets-approvals-replace-two-coal-fired-units-1360-mw.html"
+   }
+  ],
+  "signature_plant": {
+   "name": "Roxboro Steam Plant",
+   "fuel": "coal",
+   "capacity_mw": 2439,
+   "fact": "One of the largest coal plants in the country. Half of it will be replaced by gas turbines, but two units keep burning coal until 2034.",
+   "source": "https://www.duke-energy.com/our-company/about-us/power-plants/roxboro-plant"
+  }
+ },
+ "ND": {
+  "summary": "North Dakota sits on the world's biggest deposit of lignite, a soft brown coal, and that fuel powered the state's grid for decades. Then wind turbines started sprouting on the prairie. By 2025 wind makes more than a third of ND's electricity, though coal still tops the mix. The state also exports a huge share of its power to Minnesota.",
+  "events": [
+   {
+    "year": 1956,
+    "title": "Garrison Dam goes online",
+    "text": "Three big hydropower units at Garrison Dam on the Missouri River started running in 1956. It was part of the federal Pick-Sloan program to tame the river.",
+    "type": "plant",
+    "source": "https://www.nwo.usace.army.mil/Missions/Dam-and-Lake-Projects/Missouri-River-Dams/Garrison/Hydropower/"
+   },
+   {
+    "year": 1979,
+    "title": "Coal Creek Station opens",
+    "text": "Unit 1 of Coal Creek Station fired up in 1979, burning local lignite mined right next door. It became ND's biggest power plant.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Coal_Creek_Station"
+   },
+   {
+    "year": 2007,
+    "title": "Wind takes off",
+    "text": "Federal tax credits and improving turbine tech sparked a wind rush onto the windy ND plains. Capacity climbed quickly through the 2010s.",
+    "type": "market",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_North_Dakota"
+   },
+   {
+    "year": 2021,
+    "title": "Coal Creek nearly closes",
+    "text": "Owner Great River Energy planned to shut Coal Creek in 2022 after losing $170 million in a year. But Rainbow Energy bought it instead, keeping the plant running on lignite.",
+    "type": "plant",
+    "source": "https://www.washingtonpost.com/climate-environment/2022/01/17/coal-creek-station-power-plant/"
+   },
+   {
+    "year": 2025,
+    "title": "Wind hits 36% of mix",
+    "text": "Wind reached 36% of ND's electricity in 2025, second only to coal. The state now generates far more electricity than it uses and sends the rest east.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/analysis.php?sid=ND"
+   }
+  ],
+  "signature_plant": {
+   "name": "Coal Creek Station",
+   "fuel": "coal",
+   "capacity_mw": 1148,
+   "fact": "Burns about 8 million tons of lignite a year from a mine right next to the plant. Was nearly shut down in 2022 before a new owner stepped in.",
+   "source": "https://en.wikipedia.org/wiki/Coal_Creek_Station"
+  }
+ },
+ "OH": {
+  "summary": "Ohio's grid was once dominated by Ohio River coal plants. It is now mostly natural gas, thanks to fracking next door in Pennsylvania. The state is famous for a giant 2019 bribery scandal in which a utility paid $60 million to legislators for a nuclear bailout. Data centers in central Ohio are now exploding in size and demand.",
+  "events": [
+   {
+    "year": 1974,
+    "title": "Gavin coal plant opens",
+    "text": "Both 1,300 MW units of the Gavin Power Plant came online in 1974 and 1975 on the Ohio River. It's still the biggest coal plant in Ohio.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Gavin_Power_Plant"
+   },
+   {
+    "year": 2010,
+    "title": "Fracking gas floods in",
+    "text": "Cheap shale gas from Pennsylvania and Ohio's own Utica Shale started crushing coal economics. Utilities began closing old coal plants and building gas ones.",
+    "type": "market",
+    "source": "https://www.eia.gov/state/analysis.php?sid=OH"
+   },
+   {
+    "year": 2019,
+    "title": "HB6 nuclear bailout passes",
+    "text": "Ohio passed House Bill 6 in July 2019, giving $150 million a year to two struggling nuclear plants. The law was secretly bought with $60 million in bribes from FirstEnergy.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Ohio_nuclear_bribery_scandal"
+   },
+   {
+    "year": 2023,
+    "title": "Householder convicted",
+    "text": "Former Ohio House Speaker Larry Householder was convicted of racketeering in March 2023 for the HB6 scheme. FirstEnergy paid a $230 million fine.",
+    "type": "milestone",
+    "source": "https://www.commoncause.org/ohio/resources/a-cycle-of-corruption-a-timeline-of-the-householder-hb6-scandal/"
+   },
+   {
+    "year": 2025,
+    "title": "Data center tariff approved",
+    "text": "Utility regulators forced data centers to pay for at least 85% of the power they reserved, even if they use less. Ohio had 13 GW of pending data center requests, the size of a small country.",
+    "type": "policy",
+    "source": "https://www.utilitydive.com/news/firstenergy-agrees-to-pay-230m-fine-for-bribing-ohio-officials-to-bail-out/603836/"
+   }
+  ],
+  "signature_plant": {
+   "name": "General James M. Gavin Power Plant",
+   "fuel": "coal",
+   "capacity_mw": 2722,
+   "fact": "Ohio's biggest coal plant, on the Ohio River. A 2023 Sierra Club study said its pollution causes more premature deaths than any other U.S. coal plant.",
+   "source": "https://en.wikipedia.org/wiki/Gavin_Power_Plant"
+  }
+ },
+ "OK": {
+  "summary": "Oklahoma's grid is a tale of two fuels: natural gas from local wells, and wind from the giant gusts that sweep the plains. Wind came almost out of nowhere in the 2010s. By 2025 Oklahoma is consistently the #3 wind state in the country, and wind makes 42% of its electricity, nearly matching gas.",
+  "events": [
+   {
+    "year": 1971,
+    "title": "Seminole gas plant opens",
+    "text": "Oklahoma Gas & Electric finished its Seminole plant in March 1971, burning local natural gas. Cooling water came from a new 1,350-acre lake the utility built.",
+    "type": "plant",
+    "source": "https://www.oge.com/web/portal/label_ord/who-we-are/our-culture/history"
+   },
+   {
+    "year": 2003,
+    "title": "First commercial wind farms",
+    "text": "The first big wind farms started going up in western Oklahoma in the early 2000s. The plains turned out to be one of the windiest places on Earth.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_Oklahoma"
+   },
+   {
+    "year": 2017,
+    "title": "State wind tax credit ends early",
+    "text": "Oklahoma lawmakers ended a generous wind tax credit three years early after a budget crunch. But wind kept growing anyway because the projects were already cheap.",
+    "type": "policy",
+    "source": "https://oklahomawatch.org/2025/06/24/is-oklahoma-among-the-top-states-for-wind-power-production/"
+   },
+   {
+    "year": 2022,
+    "title": "Traverse wind farm opens",
+    "text": "The 999 MW Traverse wind farm finished in April 2022 in north-central Oklahoma. It was the largest wind farm built in a single phase in North America.",
+    "type": "plant",
+    "source": "https://www.eia.gov/todayinenergy/detail.php?id=54739"
+   },
+   {
+    "year": 2025,
+    "title": "Wind hits 42% of mix",
+    "text": "Wind reached 42% of Oklahoma's electricity in 2025, nearly tying natural gas at 45%. The state alone produced about 9% of all U.S. wind power.",
+    "type": "milestone",
+    "source": "https://www.eia.gov/state/analysis.php?sid=OK"
+   }
+  ],
+  "signature_plant": {
+   "name": "Seminole Power Plant",
+   "fuel": "gas",
+   "capacity_mw": 1522,
+   "fact": "OG&E built it in 1971 next to a man-made lake. It still burns natural gas piped from local Oklahoma wells.",
+   "source": "https://www.oge.com/web/portal/label_ord/who-we-are/our-culture/history"
+  }
+ },
+ "OR": {
+  "summary": "Oregon's grid was built around the Columbia River. Federal dams from the 1930s and 1960s still make about half the state's electricity. Oregon also briefly had one nuclear plant, Trojan, which closed in 1993 after only 17 years. Today data centers along the Columbia are gobbling so much power that Oregon is finally building gas plants again.",
+  "events": [
+   {
+    "year": 1938,
+    "title": "Bonneville Dam opens",
+    "text": "Bonneville Dam started generating power in June 1938, the first federal dam on the Columbia. The Bonneville Power Administration was created to sell its cheap public power.",
+    "type": "plant",
+    "source": "https://www.historylink.org/file/7823"
+   },
+   {
+    "year": 1968,
+    "title": "John Day Dam goes online",
+    "text": "John Day Dam started generating in September 1968 and grew to 16 turbines. At over 2,000 MW it became one of the biggest hydro plants in the country.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/John_Day_Dam"
+   },
+   {
+    "year": 1976,
+    "title": "Trojan nuclear starts",
+    "text": "Oregon's only nuclear plant started commercial power in May 1976. At 1,130 MW it was briefly the world's largest pressurized water reactor.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Trojan_Nuclear_Power_Plant"
+   },
+   {
+    "year": 1993,
+    "title": "Trojan closes early",
+    "text": "PGE shut Trojan in January 1993 after persistent steam generator leaks. It was the first U.S. nuclear plant shut down for purely economic reasons, only 17 years into a 30-year license.",
+    "type": "plant",
+    "source": "https://www.oregonencyclopedia.org/articles/trojan_nuclear_power_plant/"
+   },
+   {
+    "year": 2025,
+    "title": "Data centers reshape demand",
+    "text": "Oregon's data centers were on track to use over 4 GW by end of 2025, up from 3.5 GW in 2024. PGE and PacifiCorp started planning new gas plants to keep up.",
+    "type": "market",
+    "source": "https://www.spglobal.com/commodity-insights/en/news-research/latest-news/electric-power/101425-data-center-grid-power-demand-to-rise-22-in-2025-nearly-triple-by-2030"
+   }
+  ],
+  "signature_plant": {
+   "name": "John Day Dam",
+   "fuel": "hydro",
+   "capacity_mw": 2052,
+   "fact": "Has 16 turbines on the Columbia River and contains one of the world's tallest navigation locks, lifting boats 110 feet.",
+   "source": "https://en.wikipedia.org/wiki/John_Day_Dam"
+  }
+ },
+ "PA": {
+  "summary": "Pennsylvania was built on coal. For most of the 1900s, dirty bituminous and anthracite mines kept the lights on across the East Coast. Then a partial nuclear meltdown at Three Mile Island in 1979 froze new reactor builds for decades. Today the grid is mostly fracked gas from the Marcellus shale, with nuclear a strong second. The state is even restarting an old Three Mile Island reactor to power Microsoft's data centers.",
+  "events": [
+   {
+    "year": 1918,
+    "title": "Pennsylvania coal hits its peak",
+    "text": "The state mined about 276 million tons of coal in one year. Pennsylvania coal fueled steel mills, trains, and power plants across the whole country.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/History_of_anthracite_coal_mining_in_Pennsylvania"
+   },
+   {
+    "year": 1974,
+    "title": "Peach Bottom reactors start up",
+    "text": "Two big nuclear reactors near the Susquehanna River came online. Peach Bottom is still Pennsylvania's largest single power plant today.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Peach_Bottom_Nuclear_Generating_Station"
+   },
+   {
+    "year": 1979,
+    "title": "Three Mile Island meltdown",
+    "text": "On March 28, a stuck valve and confused operators caused a partial meltdown at TMI Unit 2. About 140,000 people fled the area. No new US reactors got built for decades after.",
+    "type": "plant",
+    "source": "https://www.nrc.gov/reading-rm/doc-collections/fact-sheets/3mile-isle.html"
+   },
+   {
+    "year": 2008,
+    "title": "Fracking unlocks Marcellus shale",
+    "text": "Drillers cracked open the giant Marcellus gas field under Pennsylvania. Cheap gas slowly pushed coal plants off the grid and made gas the state's #1 fuel.",
+    "type": "market",
+    "source": "https://en.wikipedia.org/wiki/Marcellus_natural_gas_trend"
+   },
+   {
+    "year": 2024,
+    "title": "Microsoft funds TMI restart",
+    "text": "Constellation signed a 20-year deal to restart the undamaged TMI Unit 1 reactor for Microsoft's AI data centers. The site is being renamed the Crane Clean Energy Center.",
+    "type": "market",
+    "source": "https://www.utilitydive.com/news/constellation-three-mile-island-nuclear-power-plant-microsoft-data-center-ppa/727652/"
+   },
+   {
+    "year": 2025,
+    "title": "Federal loan greenlights restart",
+    "text": "The Department of Energy committed a $1 billion loan to help bring the old reactor back. Constellation now expects power to flow by 2027.",
+    "type": "policy",
+    "source": "https://www.cnbc.com/2025/11/18/trump-nuclear-three-mile-island-crane-loan-constellation-ceg.html"
+   }
+  ],
+  "signature_plant": {
+   "name": "Peach Bottom Atomic Power Station",
+   "fuel": "nuclear",
+   "capacity_mw": 2549,
+   "fact": "Its two reactors have been humming since 1974 and are now licensed to run all the way to 2054, making them some of the oldest workhorses on the grid.",
+   "source": "https://en.wikipedia.org/wiki/Peach_Bottom_Nuclear_Generating_Station"
+  }
+ },
+ "RI": {
+  "summary": "Rhode Island is small but its grid tells a big story. The state burns natural gas for almost all its power. In 2016 it became the birthplace of US offshore wind when five turbines started spinning off Block Island. A much bigger offshore project, Revolution Wind, just began sending power to New England in 2026.",
+  "events": [
+   {
+    "year": 1995,
+    "title": "Manchester Street goes gas",
+    "text": "A 1920s coal and oil plant in Providence was rebuilt as a clean-burning natural gas station. It signaled Rhode Island's full pivot away from coal.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Manchester_Street_Power_Station"
+   },
+   {
+    "year": 2002,
+    "title": "Big new gas plant fires up",
+    "text": "The Rhode Island State Energy Center, a 554 MW gas plant in Johnston, started running. It is still the biggest power plant in the state.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Rhode_Island_State_Energy_Center"
+   },
+   {
+    "year": 2016,
+    "title": "First US offshore wind farm",
+    "text": "Five big turbines started spinning off Block Island in December. The 30 MW project, built by Deepwater Wind, was the first commercial offshore wind farm in America.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Block_Island_Wind_Farm"
+   },
+   {
+    "year": 2022,
+    "title": "100% renewable by 2033 law",
+    "text": "Rhode Island passed one of the most ambitious clean energy laws in the country. It requires every electron sold in the state to be renewable by 2033.",
+    "type": "policy",
+    "source": "https://www.energy.ri.gov/renewable-energy/100-renewable-electricity"
+   },
+   {
+    "year": 2026,
+    "title": "Revolution Wind sends first power",
+    "text": "On March 13, the 704 MW Revolution Wind farm started feeding electricity to New England. When done it will power more than 350,000 homes.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Revolution_Wind"
+   }
+  ],
+  "signature_plant": {
+   "name": "Rhode Island State Energy Center",
+   "fuel": "gas",
+   "capacity_mw": 554,
+   "fact": "This one gas plant in Johnston can make more electricity than every other plant in Rhode Island combined, which is why almost 9 out of 10 RI electrons come from gas.",
+   "source": "https://en.wikipedia.org/wiki/Rhode_Island_State_Energy_Center"
+  }
+ },
+ "SC": {
+  "summary": "South Carolina runs more on nuclear power than almost any other state. Duke and the old SCE&G built four big reactors in the 1970s and 80s. Then a $9 billion attempt to add two more reactors at V.C. Summer collapsed in 2017 and dragged a utility into scandal. Today nuclear still makes more than half the state's electricity.",
+  "events": [
+   {
+    "year": 1973,
+    "title": "Oconee starts the nuclear era",
+    "text": "Duke's Oconee Nuclear Station, with three big reactors on Lake Keowee, came online. It is still South Carolina's largest power plant.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Oconee_Nuclear_Station"
+   },
+   {
+    "year": 1984,
+    "title": "V.C. Summer first reactor opens",
+    "text": "The original Summer reactor near Jenkinsville joined the grid. South Carolina was now firmly a nuclear state.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Virgil_C._Summer_Nuclear_Generating_Station"
+   },
+   {
+    "year": 2008,
+    "title": "Base Load Review Act passed",
+    "text": "A new law let utilities charge customers in advance for nuclear plants still being built. It would later make the V.C. Summer disaster much worse.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Virgil_C._Summer_Nuclear_Generating_Station"
+   },
+   {
+    "year": 2017,
+    "title": "V.C. Summer expansion abandoned",
+    "text": "After spending about $9 billion, SCANA and Santee Cooper quit building two new reactors. Westinghouse had gone bankrupt and costs were spiraling. Customers were left paying for nothing.",
+    "type": "plant",
+    "source": "https://www.sec.gov/Archives/edgar/data/0000754737/000075473717000043/july31announcement.htm"
+   },
+   {
+    "year": 2019,
+    "title": "Dominion swallows SCANA",
+    "text": "After the nuclear meltdown of a different kind, SCANA was sold to Virginia's Dominion Energy. Customers got billions in refunds, and a former CEO later went to prison for fraud.",
+    "type": "market",
+    "source": "https://www.utilitydive.com/news/dominion-and-scana-merger-completed-creating-new-utility-giant/544858/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Oconee Nuclear Station",
+   "fuel": "nuclear",
+   "capacity_mw": 2554,
+   "fact": "Its three reactors have run for over 50 years and were just cleared to keep going to age 80, making Oconee one of the oldest nuclear plants in the world.",
+   "source": "https://www.world-nuclear-news.org/articles/oconee-cleared-to-operate-for-up-to-80-years"
+  }
+ },
+ "SD": {
+  "summary": "South Dakota's grid was born from the Missouri River. Massive federal dams built in the 1950s and 60s gave the state cheap, clean hydropower. Starting in the 2000s, the wide open prairies filled up with wind turbines. Today wind alone makes well over half of South Dakota's electricity, one of the highest shares in the country.",
+  "events": [
+   {
+    "year": 1944,
+    "title": "Pick-Sloan Act becomes law",
+    "text": "Congress authorized a giant chain of dams on the Missouri River for flood control and power. South Dakota would get four of the biggest ones.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Pick%E2%80%93Sloan_Missouri_Basin_Program"
+   },
+   {
+    "year": 1962,
+    "title": "Oahe Dam dedicated by JFK",
+    "text": "President Kennedy cut the ribbon on Oahe Dam just north of Pierre. It became the biggest power producer on the entire Missouri River.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Oahe_Dam"
+   },
+   {
+    "year": 2003,
+    "title": "First major wind farm",
+    "text": "The 40 MW South Dakota Wind Energy Center near Highmore started spinning. It opened the door to a wind boom across the eastern prairie.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_South_Dakota"
+   },
+   {
+    "year": 2011,
+    "title": "PrairieWinds SD1 fires up",
+    "text": "Basin Electric's 151 MW PrairieWinds SD1 wind farm started running. It showed that big public power co-ops were going all in on wind.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_South_Dakota"
+   },
+   {
+    "year": 2021,
+    "title": "Deuel Harvest wind farm opens",
+    "text": "A 301 MW wind farm in Deuel County came online. By the mid-2020s, more than half of South Dakota's electricity came from wind.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Wind_power_in_South_Dakota"
+   }
+  ],
+  "signature_plant": {
+   "name": "Oahe Dam",
+   "fuel": "hydro",
+   "capacity_mw": 714,
+   "fact": "Its reservoir, Lake Oahe, is so long it stretches nearly all the way to Bismarck, North Dakota, making it one of America's biggest man-made lakes.",
+   "source": "https://www.nwo.usace.army.mil/Missions/Dam-and-Lake-Projects/Missouri-River-Dams/Oahe/"
+  }
+ },
+ "TN": {
+  "summary": "Tennessee's grid is run by the Tennessee Valley Authority, a federal utility born in the Great Depression. TVA built dozens of dams, then big coal plants, then nuclear. In 2016 it brought online Watts Bar 2, the first new US reactor in 20 years. Today nuclear is the largest single source of Tennessee's electricity.",
+  "events": [
+   {
+    "year": 1933,
+    "title": "TVA created by New Deal",
+    "text": "President Roosevelt signed a law creating the Tennessee Valley Authority. It promised electricity, flood control, and jobs to a region crushed by the Depression.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Tennessee_Valley_Authority"
+   },
+   {
+    "year": 1936,
+    "title": "Norris Dam closes its gates",
+    "text": "TVA's very first dam, on the Clinch River, began making power. Over 2,800 families had been moved to build it.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Norris_Dam"
+   },
+   {
+    "year": 1973,
+    "title": "Cumberland coal plant opens",
+    "text": "TVA's 2,470 MW Cumberland Fossil Plant fired up along Barkley Lake. It is still the biggest single power plant in Tennessee and the largest in TVA's coal fleet.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Cumberland_Fossil_Plant"
+   },
+   {
+    "year": 1996,
+    "title": "Watts Bar 1 finally finishes",
+    "text": "After 23 years of construction, Watts Bar Unit 1 started commercial operation. It would be the last new US reactor for two decades.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Watts_Bar_Nuclear_Plant"
+   },
+   {
+    "year": 2016,
+    "title": "Watts Bar 2 ends the drought",
+    "text": "On October 19, Watts Bar Unit 2 began commercial operation. It was the first brand-new US reactor in 20 years.",
+    "type": "plant",
+    "source": "https://www.powermag.com/its-official-watts-bar-unit-2-begins-commercial-operation/"
+   },
+   {
+    "year": 2025,
+    "title": "TVA pauses coal retirements",
+    "text": "After earlier promising to close Cumberland and Kingston by 2028, TVA announced it might keep its coal plants running longer to meet rising demand.",
+    "type": "policy",
+    "source": "https://www.selc.org/press-release/tennessee-valley-authority-goes-back-on-commitment-to-retire-dirty-coal-plants/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Cumberland Fossil Plant",
+   "fuel": "coal",
+   "capacity_mw": 2470,
+   "fact": "Cumberland burns about 20,000 tons of coal a day, which is why it is the single largest source of carbon pollution in TVA's whole system.",
+   "source": "https://en.wikipedia.org/wiki/Cumberland_Fossil_Plant"
+  }
+ },
+ "UT": {
+  "summary": "Utah has long been a coal state. Cheap coal from the Wasatch Plateau kept the lights on in Salt Lake City and, through one giant plant, Los Angeles too. Now the famous Intermountain Power Project near Delta is swapping coal for natural gas mixed with green hydrogen. Solar has also grown fast, especially on rooftops.",
+  "events": [
+   {
+    "year": 1986,
+    "title": "Intermountain coal plant opens",
+    "text": "A huge coal plant near Delta started sending almost all its power 488 miles west to Los Angeles. It became the workhorse of the LA grid for decades.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Intermountain_Power_Plant"
+   },
+   {
+    "year": 2008,
+    "title": "Utah sets 20% renewable goal",
+    "text": "The state passed a non-binding goal to get 20% of its power from renewables by 2025. It opened the door for utility-scale wind and solar projects.",
+    "type": "policy",
+    "source": "https://www.eia.gov/state/analysis.php?sid=UT"
+   },
+   {
+    "year": 2016,
+    "title": "Rooftop solar boom peaks",
+    "text": "Over 10,000 Utah homes added rooftop solar in one year. The state had some of the fastest residential solar growth in America.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Solar_power_in_Utah"
+   },
+   {
+    "year": 2019,
+    "title": "Hydrogen storage hub announced",
+    "text": "Mitsubishi and Magnum announced the Advanced Clean Energy Storage project: underground salt caverns near Delta to hold green hydrogen made from renewables.",
+    "type": "milestone",
+    "source": "https://www.canarymedia.com/articles/hydrogen/massive-green-hydrogen-hub-in-utah-wins-504m-federal-loan-guarantee"
+   },
+   {
+    "year": 2025,
+    "title": "IPP goes from coal to gas",
+    "text": "Los Angeles stopped taking coal power from Intermountain. The plant opened new gas turbines designed to burn up to 30% green hydrogen, climbing to 100% by 2045.",
+    "type": "plant",
+    "source": "https://www.ladwp.com/strategic-initiatives/clean-energy-future/intermountain-power-project"
+   }
+  ],
+  "signature_plant": {
+   "name": "Intermountain Power Project",
+   "fuel": "coal",
+   "capacity_mw": 1800,
+   "fact": "For nearly 40 years this single Utah plant kept Los Angeles' lights on through a high-voltage line that crosses three states.",
+   "source": "https://en.wikipedia.org/wiki/Intermountain_Power_Plant"
+  }
+ },
+ "VT": {
+  "summary": "Vermont has the cleanest electricity in the country, with almost no fossil fuels. For 40 years one nuclear plant, Vermont Yankee, supplied most of the in-state power. After it closed in 2014, the state leaned harder on hydro from Quebec, plus its own dams, biomass, and a growing fleet of wind and solar.",
+  "events": [
+   {
+    "year": 1928,
+    "title": "Great Flood spurs new dams",
+    "text": "A devastating November flood killed dozens and washed out many small power dams. Rebuilding led to a wave of new hydro stations that still run today.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/Vermont_flood_of_1927"
+   },
+   {
+    "year": 1972,
+    "title": "Vermont Yankee reactor opens",
+    "text": "A nuclear plant in Vernon began running. For decades it made most of the electricity used in Vermont.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Vermont_Yankee_Nuclear_Power_Plant"
+   },
+   {
+    "year": 2012,
+    "title": "Big Hydro-Quebec contract signed",
+    "text": "Vermont utilities signed a 26-year deal to buy huge amounts of clean hydropower from Canada. It now covers nearly a third of the state's electricity.",
+    "type": "market",
+    "source": "https://www.eia.gov/state/analysis.php?sid=VT"
+   },
+   {
+    "year": 2012,
+    "title": "Kingdom Community Wind opens",
+    "text": "A 63 MW wind farm on a ridge in Lowell came online. It was the biggest power plant built in Vermont in decades and is still the state's largest today.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Kingdom_Community_Wind"
+   },
+   {
+    "year": 2014,
+    "title": "Vermont Yankee shuts down",
+    "text": "Cheap fracked gas had made the old reactor unprofitable. Entergy closed it on December 29. Vermont's grid became almost entirely renewable.",
+    "type": "plant",
+    "source": "https://www.eia.gov/todayinenergy/detail.php?id=12851"
+   },
+   {
+    "year": 2024,
+    "title": "100% clean electricity law",
+    "text": "Vermont passed a law requiring 100% renewable electricity by 2035. It cemented the state's spot as #1 cleanest grid in America.",
+    "type": "policy",
+    "source": "https://publicservice.vermont.gov/renewable_energy_standard"
+   }
+  ],
+  "signature_plant": {
+   "name": "Kingdom Community Wind",
+   "fuel": "wind",
+   "capacity_mw": 65,
+   "fact": "Its 21 turbines sit on a ridge in Lowell that is so windy that locals say the trees grow sideways.",
+   "source": "https://en.wikipedia.org/wiki/Kingdom_Community_Wind"
+  }
+ },
+ "VA": {
+  "summary": "Virginia's grid was reshaped by two things: nuclear power and data centers. Dominion built four reactors at Surry and North Anna in the 1970s. Then in the 2010s, northern Virginia became the data center capital of the world. AI is now driving electricity demand through the roof, and Dominion is racing to build new gas plants and even small modular reactors to keep up.",
+  "events": [
+   {
+    "year": 1972,
+    "title": "Surry nuclear plant opens",
+    "text": "Dominion's Surry Power Station, on the James River across from Jamestown, started its first reactor in December. It was Virginia's first nuclear plant.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Surry_Nuclear_Power_Plant"
+   },
+   {
+    "year": 1978,
+    "title": "North Anna goes online",
+    "text": "Dominion's bigger nuclear plant on Lake Anna started running. Its two reactors still make more power than any other plant in the state.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/North_Anna_Nuclear_Generating_Station"
+   },
+   {
+    "year": 1992,
+    "title": "MAE-East kicks off Data Center Alley",
+    "text": "One of the world's first major internet exchange points opened in Tysons Corner. Loudoun County's quiet farmland slowly became the center of global internet traffic.",
+    "type": "milestone",
+    "source": "https://en.wikipedia.org/wiki/MAE-East"
+   },
+   {
+    "year": 2020,
+    "title": "Virginia Clean Economy Act",
+    "text": "A new law required Dominion and Appalachian Power to retire fossil fuel plants and go 100% clean by 2045. It also pushed offshore wind.",
+    "type": "policy",
+    "source": "https://www.dmme.virginia.gov/de/VirginiaEnergyPlan.shtml"
+   },
+   {
+    "year": 2025,
+    "title": "Data centers drive 24% of demand",
+    "text": "Data centers now use almost a quarter of all Dominion's Virginia electricity. The utility says it needs $50 billion in new lines and plants by 2029 to keep up.",
+    "type": "market",
+    "source": "https://www.eia.gov/todayinenergy/detail.php?id=67664"
+   },
+   {
+    "year": 2026,
+    "title": "Dominion proposes 14% rate hike",
+    "text": "To pay for the data center build-out, Dominion asked regulators to raise residential bills by 14%. Homeowners are pushing back hard.",
+    "type": "policy",
+    "source": "https://www.loudounnow.com/news/scc-approves-new-data-center-rate-class-for-dominion/article_02d5fa0c-1ed8-4771-b57d-c24765739854.html"
+   }
+  ],
+  "signature_plant": {
+   "name": "North Anna Nuclear Generating Station",
+   "fuel": "nuclear",
+   "capacity_mw": 1893,
+   "fact": "The plant's cooling pond, Lake Anna, is so big it has become a popular vacation spot, with one warmer 'hot side' kept toasty by reactor heat year-round.",
+   "source": "https://en.wikipedia.org/wiki/North_Anna_Nuclear_Generating_Station"
+  }
+ },
+ "WI": {
+  "summary": "Wisconsin's grid has been a coal-and-nuclear mix for decades. Two reactors at Point Beach on Lake Michigan still run, and the state's last new big coal plant, Elm Road, came online in 2010 and 2011. Now WEC Energy is racing to retire those coal units and convert the rest to natural gas, while solar farms quickly fill in the gaps.",
+  "events": [
+   {
+    "year": 1970,
+    "title": "Point Beach nuclear comes online",
+    "text": "Wisconsin Electric started its first reactor at Point Beach, on the shores of Lake Michigan. A second unit followed in 1972.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Point_Beach_Nuclear_Plant"
+   },
+   {
+    "year": 2010,
+    "title": "Elm Road coal units go online",
+    "text": "Two big new coal units at the Oak Creek site started running. At over 1,200 MW combined, Elm Road was one of the last major US coal plants ever built.",
+    "type": "plant",
+    "source": "https://www.powermag.com/top-plant-oak-creek-power-plant-elm-road-units-1-and-2-milwaukee-and-racine-counties-wisconsin/"
+   },
+   {
+    "year": 2013,
+    "title": "Kewaunee nuclear plant shuts",
+    "text": "Dominion closed the Kewaunee reactor on May 7, blaming cheap fracked gas. Wisconsin lost about 20% of its zero-carbon electricity overnight.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Kewaunee_Power_Station"
+   },
+   {
+    "year": 2024,
+    "title": "WEC accelerates coal exit",
+    "text": "WEC Energy moved up plans to stop burning coal. Elm Road will be converted to natural gas, ending Wisconsin's long reliance on coal.",
+    "type": "policy",
+    "source": "https://www.wpr.org/economy/wec-energy-we-energies-utility-plans-stop-using-coal-fuel"
+   },
+   {
+    "year": 2025,
+    "title": "Point Beach licensed to age 80",
+    "text": "Federal regulators cleared Point Beach to run until the early 2050s. Wisconsin's only remaining nuclear plant will keep providing carbon-free power for decades.",
+    "type": "policy",
+    "source": "https://www.world-nuclear-news.org/articles/wisconsin-plant-cleared-for-80-years-of-operation"
+   }
+  ],
+  "signature_plant": {
+   "name": "Elm Road Generating Station",
+   "fuel": "gas",
+   "capacity_mw": 1271,
+   "fact": "Built as one of America's last new coal plants in 2010, Elm Road is already being converted to burn natural gas instead, less than 20 years later.",
+   "source": "https://en.wikipedia.org/wiki/Oak_Creek_Power_Plant"
+  }
+ },
+ "WY": {
+  "summary": "Wyoming digs up about 40% of all the coal in America, mostly from huge open-pit mines in the Powder River Basin. Most of that coal moves out of state by train, but the rest fuels Wyoming's own grid, which is still the most coal-heavy in the US. Strong winds and a brand new nuclear project are starting to change the picture.",
+  "events": [
+   {
+    "year": 1974,
+    "title": "Clean Air Act fuels coal boom",
+    "text": "Tougher air rules pushed power plants to buy Wyoming's low-sulfur coal. Giant new strip mines opened across the Powder River Basin.",
+    "type": "policy",
+    "source": "https://en.wikipedia.org/wiki/Coal_mining_in_Wyoming"
+   },
+   {
+    "year": 1986,
+    "title": "Wyoming becomes #1 in coal",
+    "text": "Wyoming surpassed Kentucky and West Virginia to become America's top coal-producing state. It has held the crown ever since.",
+    "type": "market",
+    "source": "https://www.eia.gov/todayinenergy/detail.php?id=41053"
+   },
+   {
+    "year": 1974,
+    "title": "Jim Bridger plant fires up",
+    "text": "PacifiCorp's huge Jim Bridger station, near Rock Springs, began running its first coal unit. It is still the largest power plant in Wyoming.",
+    "type": "plant",
+    "source": "https://en.wikipedia.org/wiki/Jim_Bridger_Power_Plant"
+   },
+   {
+    "year": 2018,
+    "title": "Wyoming wind tax remains",
+    "text": "Wyoming is the only US state that taxes wind power generation. Developers still poured in because the wind here is some of the strongest in the country.",
+    "type": "policy",
+    "source": "https://www.energy.gov/eere/wind/wind-market-reports"
+   },
+   {
+    "year": 2026,
+    "title": "TerraPower breaks ground at Kemmerer",
+    "text": "On April 23, Bill Gates' TerraPower officially started building America's first big advanced nuclear reactor in Kemmerer, replacing a retiring coal plant. The 345 MW Natrium reactor uses sodium to cool itself and is aimed for 2030.",
+    "type": "plant",
+    "source": "https://www.terrapower.com/TerraPower-Commences-Construction-on-Americas-First-Utility-Scale-Advanced-Nuclear-Power-Plant"
+   },
+   {
+    "year": 2026,
+    "title": "TransWest line under construction",
+    "text": "After 18 years of permits and lawsuits, the giant TransWest Express transmission line started construction to carry Wyoming wind 732 miles to Las Vegas.",
+    "type": "market",
+    "source": "https://grist.org/energy/massive-transmission-line-will-send-wind-power-from-wyoming-to-california/"
+   }
+  ],
+  "signature_plant": {
+   "name": "Jim Bridger Power Plant",
+   "fuel": "coal",
+   "capacity_mw": 2119,
+   "fact": "Two of Jim Bridger's four big coal units were converted to run on natural gas in 2024, marking a slow shift even at the biggest plant in coal country.",
+   "source": "https://en.wikipedia.org/wiki/Jim_Bridger_Power_Plant"
+  }
+ }
 }
