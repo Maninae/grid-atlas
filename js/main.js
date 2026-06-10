@@ -74,20 +74,25 @@ async function boot() {
     selection = sel;
     maps.forEach((m) => m.setSelected(sel.state));
     renderRegion(sel, data);
-    history.replaceState(null, "", sel.zip ? `#${sel.zip}` : `#${sel.state}`);
+    if (sel.state !== "US") {
+      history.replaceState(null, "", sel.zip ? `#${sel.zip}` : `#${sel.state}`);
+    }
     if (scroll) {
       $("region-panel").scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
-  // Deep links: #94110 or #CA
+  // Deep links: #94110 or #CA — otherwise default to the national view
   const h = location.hash.replace("#", "").toUpperCase();
   if (/^\d{5}$/.test(h)) {
     const { lookupZip } = await import("./lookup.js");
     const res = await lookupZip(h);
     if (res) select({ zip: h, sub: res.sub, utility: res.utility, state: res.state }, false);
+    else select({ state: "US" }, false);
   } else if (states[h]) {
     select({ state: h }, false);
+  } else {
+    select({ state: "US" }, false);
   }
 
   // Back/forward + pasted-hash navigation without a reload

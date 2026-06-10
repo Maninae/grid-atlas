@@ -13,8 +13,13 @@ export function renderPlantsMap(el, topo, plants, stateAb) {
   el.innerHTML = "";
   if (!proj) proj = d3.geoAlbersUsa().scale(1300).translate([487.5, 305]);
 
-  const features = topojson.feature(topo, topo.objects.states).features;
-  const feature = features.find((f) => STATE_ABBREV[f.properties.name] === stateAb);
+  let feature;
+  if (stateAb === "US") {
+    feature = topojson.feature(topo, topo.objects.nation).features[0];
+  } else {
+    const features = topojson.feature(topo, topo.objects.states).features;
+    feature = features.find((f) => STATE_ABBREV[f.properties.name] === stateAb);
+  }
   if (!feature) return;
 
   const path = d3.geoPath();
@@ -34,7 +39,10 @@ export function renderPlantsMap(el, topo, plants, stateAb) {
     .style("fill", "var(--plant-fill)")
     .style("stroke", "var(--rule)");
 
-  const inState = plants.filter((p) => p[1] === stateAb);
+  // National view: only the heavyweights, or 13k dots turn to soup
+  const inState = stateAb === "US"
+    ? plants.filter((p) => p[3] >= 1200 && p[2] !== "storage")
+    : plants.filter((p) => p[1] === stateAb);
   const r = d3.scaleSqrt()
     .domain([0, Math.max(...inState.map((p) => p[3]), 100)])
     .range([0, 16 / Math.sqrt(k)]);

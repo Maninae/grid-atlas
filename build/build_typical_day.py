@@ -87,11 +87,17 @@ def main():
                     if ba == "CISO" and fuel == "other":
                         fuel = "battery"
                     sums[op][hh][fuel] += max(v, 0.0)
+                    # National aggregate, summed by LOCAL hour — "what a
+                    # typical day looks like on your clock, averaged
+                    # across the country"
+                    sums["US"][hh][fuel] += max(v, 0.0)
                 if any_val:
                     counts[op][hh] += 1
 
     operators = {}
-    for op, (label, _bas) in OPERATORS.items():
+    all_ops = list(OPERATORS.items()) + \
+        [("US", ("America's grids, combined (your local time)", []))]
+    for op, (label, _bas) in all_ops:
         if op not in sums:
             print(f"  !! no 930 data for {op}")
             continue
