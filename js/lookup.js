@@ -1,7 +1,9 @@
 /* ZIP lookup: lazy-loads zips.json on first focus, resolves a ZIP to
-   { sub, utility, state, rate } or null. `rate` is the 2024 average residential
-   price in cents/kWh (NREL/OpenEI) and may be undefined for legacy 3-element
-   entries or null when no utility-level rate was available. */
+   { sub, utility, state, rate, options? } or null. `rate` is the 2024 average
+   residential price in cents/kWh (NREL/OpenEI), null when no utility-level rate
+   was available. Texas entries carry `options` — every bundled-rate utility
+   known for the ZIP (predominant first) so the UI can offer a picker, since
+   geographic predominance often misassigns deregulated suburbs to coops. */
 let zipsPromise = null;
 
 export function preloadZips() {
@@ -15,8 +17,11 @@ export async function lookupZip(zip) {
   const d = await preloadZips();
   const hit = d.zips[zip];
   if (!hit) return null;
-  const [subIdx, utilIdx, state, rate] = hit;
-  return { sub: d.subs[subIdx], utility: d.utils[utilIdx], state, rate };
+  const [subIdx, utilIdx, state, rate, opts] = hit;
+  return {
+    sub: d.subs[subIdx], utility: d.utils[utilIdx], state, rate,
+    options: opts ? opts.map(([u, r]) => ({ utility: d.utils[u], rate: r })) : null,
+  };
 }
 
 export function initZipForm(formEl, inputEl, errEl, onResolve) {

@@ -132,6 +132,21 @@
   margin: 10px 0 0;
 }
 
+/* ---------- Texas utility picker (region sub-line) ---------- */
+#util-select {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 4px 8px;
+  max-width: min(340px, 80vw);
+  cursor: pointer;
+}
+#util-select:focus { outline: none; border-color: var(--accent); }
+
 /* ---------- cards ----------
    Top grid: big mix tile beside a stacked carbon + price column. The two
    columns size to their own content (no row-span stretching the mix tile

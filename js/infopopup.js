@@ -47,6 +47,11 @@ const INFO = {
     body: "This is the average residential price per kWh — everything on the bill (making power, the wires, the utility's costs) divided by the electricity sold. Your own rate depends on your utility and plan. ZIP-level utility averages come from 2024 federal data (NREL/OpenEI).",
     link: ["https://www.eia.gov/electricity/data.php", "EIA electricity data"],
   },
+  txchoice: {
+    title: "Texas: you pick your provider",
+    body: "Most of Texas has retail choice — one company runs the wires, but you buy electricity from a provider you pick, so your bill may come from a different company than the one named here. Cooperative and city-utility areas (like Austin Energy) are the exception: there, one utility serves everyone. We name the utility serving the largest share of this ZIP's land area.",
+    link: ["https://www.powertochoose.org", "Power to Choose (the official Texas shopping site)"],
+  },
   homes: {
     title: "\"Powers X homes\" — how we count",
     body: "A plant's megawatts (MW) tell you its maximum output, not what it produces around the clock — the sun sets, plants rest for repairs. We assume an average plant delivers about 45% of its maximum over a year, and a typical US home uses about 10,700 kWh a year. It's a feel-for-the-size number, not an exact one.",

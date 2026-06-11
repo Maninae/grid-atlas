@@ -52,13 +52,37 @@ export function renderRegion(sel, data) {
     ? `Your power comes from ${place}`
     : isUS ? "How America makes electricity"
     : `How ${state.name} makes electricity`;
+  // Texas ZIPs get a utility picker: the crosswalk's "predominant utility" is
+  // a land-area pick that often names a rural coop for deregulated suburbs,
+  // so let people correct it — or say they shop for their own plan.
+  const txZip = !!(sel.zip && sel.state === "TX" && sel.options);
+  const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
   $("region-sub").innerHTML = sub
     ? `Your electricity is a blend from a grid region the EPA calls <strong>${sel.sub}</strong> ` +
       `(${sub.fullName}) <button class="info-btn" data-info="region" aria-label="What is a grid region?">i</button>` +
-      (sel.utility ? ` &nbsp;·&nbsp; Your utility: <strong>${sel.utility}</strong>` : "")
+      (txZip
+        ? ` &nbsp;·&nbsp; <label for="util-select">Utility:</label> ` +
+          `<select id="util-select" aria-label="Pick who you buy electricity from">` +
+          sel.options.map((o, i) =>
+            `<option value="${i}"${!sel.choice && sel.utility === o.utility ? " selected" : ""}>${esc(o.utility)}</option>`).join("") +
+          `<option value="choice"${sel.choice ? " selected" : ""}>I pick my own plan (retail choice)</option>` +
+          `</select> <button class="info-btn" data-info="txchoice" aria-label="Why a choice here?">i</button>`
+        : sel.utility ? ` &nbsp;·&nbsp; Your utility: <strong>${esc(sel.utility)}</strong>` : "")
     : isUS
     ? `The whole country at a glance. Type your ZIP code above — or click a state on the maps — to see <em>your</em> grid.`
     : `Statewide numbers. Type a ZIP above for your exact grid region.`;
+  const utilSelect = $("util-select");
+  if (utilSelect) {
+    utilSelect.addEventListener("change", () => {
+      if (utilSelect.value === "choice") {
+        sel.choice = true; sel.utility = null; sel.rate = null;
+      } else {
+        const o = sel.options[+utilSelect.value];
+        sel.choice = false; sel.utility = o.utility; sel.rate = o.rate;
+      }
+      renderRegion(sel, data);
+    });
+  }
 
   // ---------- mix waffle ----------
   const mix = sub ? sub.mix : state.mix;
@@ -149,7 +173,10 @@ export function renderRegion(sel, data) {
         `Home electricity in ${state.name} costs about ${latest.toFixed(1)}¢ per kilowatt-hour — ` +
         (latest > usLatest * 1.07 ? `above the US average of ${usLatest.toFixed(1)}¢.`
           : latest < usLatest * 0.93 ? `below the US average of ${usLatest.toFixed(1)}¢.`
-          : `right around the US average of ${usLatest.toFixed(1)}¢.`);
+          : `right around the US average of ${usLatest.toFixed(1)}¢.`) +
+        (sel.zip && sel.state === "TX" && sel.choice
+          ? ` With retail choice, your exact rate depends on the plan you picked.`
+          : ``);
     }
   }
 

@@ -64,6 +64,13 @@ Python 3.9 — no modern-syntax features (no `match`, no `X | Y` type unions).
   to the zip's mean `res_rate` if no eiaid match; null if neither file lists
   the zip. EIA price history (`build_states.py`) stays state-level — these
   utility averages are the per-ZIP overlay shown in `region.js`.
+- **Texas utility picker** (5th element, TX ZIPs only): EPA's land-area
+  "predominant utility" routinely names a rural coop for deregulated suburbs
+  (39% of TX ZIPs name a coop vs ~23% of customers actually on coops), so TX
+  entries carry every Bundled-rate utility OpenEI knows for the ZIP and the UI
+  renders a picker plus an "I pick my own plan (retail choice)" option. REP
+  plan prices exist in no public per-ZIP dataset — retail choice falls back to
+  the state-average sentence and the txchoice popover links Power to Choose.
 
 ## Refreshing next year
 

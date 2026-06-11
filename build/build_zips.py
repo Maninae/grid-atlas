@@ -11,7 +11,13 @@ NREL/OpenEI iou_zipcodes_2024.csv + non_iou_zipcodes_2024.csv (CC-BY 4.0).
 Match policy: join on (zip, eiaid); if no eiaid match, fall back to the mean
 res_rate across all rows for that zip; else null.
 
-Only the predominant utility/subregion per ZIP is kept (same as EPA's tool).
+Only the predominant utility/subregion per ZIP is kept (same as EPA's tool) —
+EXCEPT Texas, which gets a 5th element: every Bundled-rate utility OpenEI lists
+for the ZIP (predominant first), so the UI can offer a picker. Texas needs this
+because geographic predominance routinely names a rural coop for suburban ZIPs
+where most customers are on deregulated retail-choice plans (whose REP plan
+prices exist in no public per-ZIP dataset — the UI adds an explicit
+"retail choice" fallback option for them).
 """
 import csv
 import json
@@ -21,7 +27,8 @@ from common import DATA, RAW
 
 
 def load_openei_rates():
-    """Return ({(zip, eiaid): res_rate $/kWh}, {zip: mean_res_rate $/kWh}).
+    """Return ({(zip, eiaid): res_rate $/kWh}, {zip: mean_res_rate $/kWh},
+    {tx_zip: {eiaid: (utility_name, res_rate $/kWh)}} for Bundled TX rows).
 
     Both OpenEI files share the same schema. Some zip+eiaid combos appear in
     multiple rows (e.g. Bundled + Delivery service for IOUs in retail-choice
@@ -31,6 +38,7 @@ def load_openei_rates():
     # Group rows by key to handle service_type duplicates intelligently.
     key_rows = defaultdict(list)   # (zip, eiaid) -> list of (service_type, rate)
     zip_rows = defaultdict(list)   # zip -> list of rate  (for fallback mean)
+    tx_opts = defaultdict(dict)    # zip -> {eiaid: (utility_name, bundled rate)}
     for fname in ("iou_zipcodes_2024.csv", "non_iou_zipcodes_2024.csv"):
         with open(RAW / fname, encoding="utf-8-sig") as f:
             for row in csv.DictReader(f):
@@ -45,6 +53,8 @@ def load_openei_rates():
                 stype = row.get("service_type", "").strip()
                 key_rows[(z, eiaid)].append((stype, rate))
                 zip_rows[z].append(rate)
+                if row.get("state", "").strip() == "TX" and stype == "Bundled":
+                    tx_opts[z][eiaid] = (row["utility_name"].strip(), rate)
 
     by_key = {}
     for key, rows in key_rows.items():
@@ -53,11 +63,11 @@ def load_openei_rates():
         by_key[key] = chosen
 
     by_zip_mean = {z: sum(rs) / len(rs) for z, rs in zip_rows.items()}
-    return by_key, by_zip_mean
+    return by_key, by_zip_mean, tx_opts
 
 
 def main():
-    rates_by_key, rates_by_zip = load_openei_rates()
+    rates_by_key, rates_by_zip, tx_opts = load_openei_rates()
 
     subs, utils = [], []
     sub_idx, util_idx = {}, {}
@@ -87,7 +97,21 @@ def main():
                 else:
                     n_null += 1
             rate_c = round(rate_d * 100, 1) if rate_d is not None else None
-            zips[z] = [sub_idx[sub], util_idx[util], row["state"].strip(), rate_c]
+            entry = [sub_idx[sub], util_idx[util], row["state"].strip(), rate_c]
+            if row["state"].strip() == "TX":
+                # Utility picker options: predominant first, then every other
+                # Bundled-rate utility OpenEI lists for this ZIP.
+                options = [[util_idx[util], rate_c]]
+                for oid, (oname, orate) in sorted(tx_opts.get(z, {}).items(),
+                                                  key=lambda kv: kv[1][0]):
+                    if oid == eiaid:
+                        continue
+                    if oname not in util_idx:
+                        util_idx[oname] = len(utils)
+                        utils.append(oname)
+                    options.append([util_idx[oname], round(orate * 100, 1)])
+                entry.append(options)
+            zips[z] = entry
 
     out = {"subs": subs, "utils": utils, "zips": zips}
     path = DATA / "zips.json"
@@ -104,7 +128,7 @@ def main():
         if not hit:
             print(f"  {z}: (not in crosswalk)")
             continue
-        s, u, st, rate = hit
+        s, u, st, rate = hit[:4]
         rate_str = f"{rate}c/kWh" if rate is not None else "no rate"
         print(f"  {z}: {subs[s]} {st} ({utils[u]}) -> {rate_str}")
 
