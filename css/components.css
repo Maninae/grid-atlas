@@ -133,11 +133,13 @@
 }
 
 /* ---------- cards ----------
-   Top grid: big mix tile (4 cols x 2 rows) with carbon + price stacked beside
-   it — no dead vertical space. Bottom grid: full-width trend/plants/story.
+   Top grid: big mix tile beside a stacked carbon + price column. The two
+   columns size to their own content (no row-span stretching the mix tile
+   into dead vertical space when the right column is tall).
+   Bottom grid: full-width trend/plants/story.
    The day-on-grid scrolly section sits between the two grids. */
 .cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
-.cards + .cards, .day-scrolly + .cards { margin-top: 18px; }
+.cards + .cards, .day-scrolly + .cards, .day-missing + .cards { margin-top: 18px; }
 
 .card {
   background: var(--card);
@@ -155,7 +157,17 @@
   margin-bottom: 5px;
 }
 
-.card-mix { grid-column: 1 / 5; grid-row: span 2; }
+/* Mix tile sits beside the stacked carbon + price cards. We let the grid
+   rows size to the right column's content and let the mix tile's inner flex
+   column distribute the extra height (waffle + legend area grows) so the
+   tile never leaves a slab of dead space below the caption. */
+.card-mix {
+  grid-column: 1 / 5;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+}
+.card-mix > #mix-waffle { flex: 1 1 auto; align-content: flex-start; }
 .card-co2, .card-price { grid-column: 5 / 7; }
 .card-trend, .card-plants, .card-story { grid-column: 1 / -1; }
 
@@ -517,8 +529,11 @@ p.day-missing { margin: 14px 0; }
 [data-theme="light"] .zip-error,
 [data-theme="light"] .zip-mini-error { color: #B3402A; }
 
-/* ---------- share / download-as-image button ---------- */
-.card, .map-cell, .day-sticky { position: relative; }
+/* ---------- share / download-as-image button ----------
+   .day-sticky is intentionally excluded here: it already uses `position: sticky`
+   (which establishes the containing block the .share-btn anchors to), and
+   overriding it to `relative` breaks the scroll-driven stick. */
+.card, .map-cell { position: relative; }
 .share-btn {
   position: absolute;
   top: 12px;
