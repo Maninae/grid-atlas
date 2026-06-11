@@ -75,9 +75,10 @@ async function boot() {
   const cue = $("scroll-cue");
   let cueTimer;
   const hideCue = () => { clearTimeout(cueTimer); cue.classList.remove("visible"); };
-  function showCue(stateName) {
-    // Skip if the region panel is already (partly) on screen
-    if ($("region-panel").getBoundingClientRect().top < window.innerHeight - 160) return;
+  function showCue(stateName, scrollDelta = 0) {
+    // Skip if the region panel will already be (partly) on screen once the
+    // in-flight partial scroll (scrollDelta px) settles
+    if ($("region-panel").getBoundingClientRect().top - scrollDelta < window.innerHeight - 160) return;
     cue.textContent = `See ${stateName} below ↓`;
     cue.classList.add("visible");
     clearTimeout(cueTimer);
@@ -87,9 +88,13 @@ async function boot() {
     $("region-panel").scrollIntoView({ behavior: "smooth", block: "start" });
     hideCue();
   });
-  // If the user scrolls the panel into view themselves, the cue has done its job
-  new IntersectionObserver(([e]) => { if (e.isIntersecting) hideCue(); })
-    .observe($("region-panel"));
+  // The moment the user takes over scrolling, the cue has done its job.
+  // (User-input events only — our own smooth scrollIntoView must not dismiss it.)
+  window.addEventListener("wheel", hideCue, { passive: true });
+  window.addEventListener("touchmove", hideCue, { passive: true });
+  window.addEventListener("keydown", (e) => {
+    if (["ArrowDown", "PageDown", " ", "End"].includes(e.key)) hideCue();
+  });
 
   // "Working" pulse on the page background (dark theme only — see base.css)
   document.body.addEventListener("animationend", (e) => {
@@ -112,7 +117,17 @@ async function boot() {
       $("region-panel").scrollIntoView({ behavior: "smooth", block: "start" });
     } else if (flash && sel.state !== "US") {
       pulseBackground();
-      showCue(states[sel.state].name);
+      if (window.matchMedia("(max-width: 760px)").matches) {
+        // Mobile: one map per screen anyway, so just go to the panel
+        $("region-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        // Desktop: partial scroll — pin the top of the 4 maps to the top of
+        // the window so they stay in view while the region panel peeks below
+        const grid = document.querySelector(".map-grid");
+        const delta = grid.getBoundingClientRect().top - 52; // 52 = scroll-margin-top
+        grid.scrollIntoView({ behavior: "smooth", block: "start" });
+        showCue(states[sel.state].name, delta);
+      }
     }
   }
 

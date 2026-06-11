@@ -162,6 +162,7 @@ body.loaded .hero .zip-form { opacity: 1; transform: none; transition-delay: 0.4
   gap: 14px 26px;
   margin-top: 18px;
   text-align: left;
+  scroll-margin-top: 52px; /* clear the fixed topbar on the map-click partial scroll */
 }
 
 .map-cell {
