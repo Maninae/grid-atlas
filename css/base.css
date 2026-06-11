@@ -55,7 +55,7 @@
   --price-us: #7C8891;
   --price-state: #2E7CB5;
   --topbar-bg: rgba(245, 247, 246, 0.9);
-  --pulse: #DCE2DF;
+  --pulse: #E9DECA; /* warm parchment — the light pulse dips warm, not gray */
   --num-glow: none;
 }
 
