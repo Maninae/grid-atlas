@@ -35,7 +35,9 @@ async function boot() {
 
   let selection = null;
 
-  const onStateClick = (ab) => select({ state: ab });
+  // Map clicks stay put (no jarring scroll); instead the page pulses, the
+  // state flashes in all four maps, and a "see it below" cue offers the jump.
+  const onStateClick = (ab) => select({ state: ab }, { scroll: false, flash: true });
   const maps = [
     ["map-dominant", "dominant"], ["map-clean", "clean"],
     ["map-coal", "coal"], ["map-co2", "co2"],
@@ -69,15 +71,48 @@ async function boot() {
   toggle.addEventListener("click", () =>
     applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
 
-  function select(sel, scroll = true) {
+  // Scroll cue: a dismissible pill instead of auto-scrolling on map clicks.
+  const cue = $("scroll-cue");
+  let cueTimer;
+  const hideCue = () => { clearTimeout(cueTimer); cue.classList.remove("visible"); };
+  function showCue(stateName) {
+    // Skip if the region panel is already (partly) on screen
+    if ($("region-panel").getBoundingClientRect().top < window.innerHeight - 160) return;
+    cue.textContent = `See ${stateName} below ↓`;
+    cue.classList.add("visible");
+    clearTimeout(cueTimer);
+    cueTimer = setTimeout(hideCue, 4500);
+  }
+  cue.addEventListener("click", () => {
+    $("region-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+    hideCue();
+  });
+  // If the user scrolls the panel into view themselves, the cue has done its job
+  new IntersectionObserver(([e]) => { if (e.isIntersecting) hideCue(); })
+    .observe($("region-panel"));
+
+  // "Working" pulse on the page background (dark theme only — see base.css)
+  document.body.addEventListener("animationend", (e) => {
+    if (e.animationName === "bg-pulse") document.body.classList.remove("bg-pulse");
+  });
+  function pulseBackground() {
+    document.body.classList.remove("bg-pulse");
+    void document.body.offsetWidth; // restart the animation if mid-flight
+    document.body.classList.add("bg-pulse");
+  }
+
+  function select(sel, { scroll = true, flash = false } = {}) {
     selection = sel;
-    maps.forEach((m) => m.setSelected(sel.state));
+    maps.forEach((m) => m.setSelected(sel.state, flash));
     renderRegion(sel, data);
     if (sel.state !== "US") {
       history.replaceState(null, "", sel.zip ? `#${sel.zip}` : `#${sel.state}`);
     }
     if (scroll) {
       $("region-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (flash && sel.state !== "US") {
+      pulseBackground();
+      showCue(states[sel.state].name);
     }
   }
 
@@ -86,12 +121,12 @@ async function boot() {
   if (/^\d{5}$/.test(h)) {
     const { lookupZip } = await import("./lookup.js");
     const res = await lookupZip(h);
-    if (res) select({ zip: h, ...res }, false);
-    else select({ state: "US" }, false);
+    if (res) select({ zip: h, ...res }, { scroll: false });
+    else select({ state: "US" }, { scroll: false });
   } else if (states[h]) {
-    select({ state: h }, false);
+    select({ state: h }, { scroll: false });
   } else {
-    select({ state: "US" }, false);
+    select({ state: "US" }, { scroll: false });
   }
 
   // Back/forward + pasted-hash navigation without a reload

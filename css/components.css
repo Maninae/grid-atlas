@@ -59,6 +59,31 @@
   color: #E07856;
 }
 
+/* ---------- scroll cue (appears after a map click instead of auto-scroll) ---------- */
+.scroll-cue {
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  z-index: 50;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--topbar-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 10px 20px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.scroll-cue.visible { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+.scroll-cue:hover { border-color: var(--accent); color: var(--accent); }
+
 /* ---------- zip form ---------- */
 .zip-form {
   display: flex;

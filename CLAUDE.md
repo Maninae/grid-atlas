@@ -12,7 +12,8 @@ index.html          all markup + copy (no templating)
 css/                base.css (tokens/layout) · components.css · charts.css
 js/
 ├── main.js         boot, data loading, selection state, deep links (#94110/#CA),
-│                   sticky-topbar reveal
+│                   sticky-topbar reveal, map-click feedback (no auto-scroll;
+│                   bg pulse + state flash + dismissible "see it below" cue)
 ├── meta.js         fuel colors/labels, subregion friendly names, CO2 ramp
 ├── format.js       plain-language sentence builders + number formats
 ├── usmap.js        US choropleth class — 4 instances in a 2x2 grid, one per

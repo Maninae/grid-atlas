@@ -87,8 +87,16 @@ export class USMap {
     }
   }
 
-  setSelected(ab) {
+  setSelected(ab, flash = false) {
     this.paths.classed("selected", (d) => STATE_ABBREV[d.properties.name] === ab);
+    this.paths.classed("flash", false);
+    if (!flash || !ab) return;
+    // Off-white glow on the newly selected state, fading back to its color.
+    // Class is dropped and reflow forced so re-clicking restarts the animation.
+    const target = this.paths.filter((d) => STATE_ABBREV[d.properties.name] === ab);
+    target.each(function () { void this.getBoundingClientRect(); });
+    target.classed("flash", true)
+      .on("animationend.flash", function () { d3.select(this).classed("flash", false); });
   }
 
   showTip(ev, d) {

@@ -27,6 +27,7 @@
   --price-us: #8C99A3;
   --price-state: #5BA8DC;
   --topbar-bg: rgba(13, 18, 23, 0.88);
+  --pulse: #243039;
   --num-glow: 0 0 26px rgba(65, 201, 142, 0.18);
   --font-display: "Barlow Condensed", "Avenir Next Condensed", sans-serif;
   --font-body: "Manrope", -apple-system, sans-serif;
@@ -54,6 +55,7 @@
   --price-us: #7C8891;
   --price-state: #2E7CB5;
   --topbar-bg: rgba(245, 247, 246, 0.9);
+  --pulse: #DCE2DF;
   --num-glow: none;
 }
 
@@ -79,6 +81,15 @@ body {
     radial-gradient(1100px 600px at 85% -5%, rgba(46, 124, 181, 0.06), transparent 60%),
     radial-gradient(950px 550px at -5% 30%, rgba(23, 143, 95, 0.04), transparent 55%),
     var(--paper);
+}
+
+/* Split-second "working" pulse when a state is clicked: the page background
+   nudges toward --pulse (lighter in dark mode, darker in light) and resolves */
+body.bg-pulse { animation: bg-pulse 0.55s ease-out; }
+@keyframes bg-pulse {
+  0% { background-color: var(--paper); }
+  30% { background-color: var(--pulse); }
+  100% { background-color: var(--paper); }
 }
 
 ::selection { background: var(--accent); color: var(--on-accent); }

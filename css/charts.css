@@ -10,6 +10,18 @@
 .us-map svg .state:hover { opacity: 0.82; }
 .us-map svg .state.selected { stroke: var(--ink); stroke-width: 2.5; }
 
+/* Click feedback: the picked state glows off-white in all four maps, then
+   fades back to its choropleth color (the omitted fill at 100% animates to
+   the underlying inline style; CSS animations outrank inline styles). */
+.us-map svg .state.flash { animation: state-flash 1s ease-out; }
+@keyframes state-flash {
+  0%, 25% {
+    fill: #F8F6F0;
+    filter: drop-shadow(0 0 9px rgba(248, 246, 240, 0.6));
+  }
+  100% { filter: drop-shadow(0 0 0 rgba(248, 246, 240, 0)); }
+}
+
 .us-map svg .state-borders {
   fill: none;
   stroke: var(--paper);
