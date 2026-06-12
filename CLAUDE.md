@@ -19,8 +19,11 @@ js/
 ├── format.js       plain-language sentence builders + number formats
 ├── usmap.js        US choropleth class — 4 instances in a 2x2 grid, one per
 │                   metric (dominant fuel / clean / coal / CO2), click→select
-├── lookup.js       lazy ZIP→subregion resolution (zips.json)
-├── region.js       composes the "your grid" panel from chart modules
+├── lookup.js       lazy ZIP→subregion/utility/rate resolution (zips.json);
+│                   TX entries also carry utility `options` for the picker
+├── region.js       composes the "your grid" panel from chart modules; owns the
+│                   TX utility picker (mutates sel, re-calls renderRegion —
+│                   keep renderRegion idempotent, resize re-render relies on it)
 ├── infopopup.js    (i) popover content + behavior
 ├── share.js        html2canvas PNG export buttons (watermark strip) on every
 │                   card/map — self-initializing, loaded directly by index.html
@@ -35,9 +38,10 @@ build/              Python pipeline that regenerates data/ (not deployed)
 
 Layout principle: dense for secondary info, generous for hero visualizations.
 The four national maps share one screen (2x2 grid). Region panel: big mix tile
-(4 cols x 2 rows) with carbon+price stacked beside it, then the day-on-grid
-sticky scrolly showcase, then full-width trend/plants/story. A slim topbar
-with a ZIP input slides in whenever the hero form is off-screen.
+(4 cols x 2 rows, a flex column so its waffle absorbs the span height — don't
+let it stretch into dead space) with carbon+price stacked beside it, then the
+day-on-grid sticky scrolly showcase, then full-width trend/plants/story. A slim
+topbar with a ZIP input slides in whenever the hero form is off-screen.
 
 - No framework, no bundler. ES modules + D3 v7 / topojson-client from jsDelivr.
 - All data ships as static JSON in `data/` — the live site makes zero API calls.
@@ -51,6 +55,12 @@ with a ZIP input slides in whenever the hero form is off-screen.
   current `--ramp-base`/`--clean-hi`/`--coal-hi`). A bootstrap script in `<head>`
   reads `localStorage["ga-theme"]` (falling back to `prefers-color-scheme`) and
   sets `data-theme` before stylesheets load, preventing FOUC.
+- `.day-sticky` must stay `position: sticky` — do NOT add it to the share-button
+  `position: relative` rule in components.css (that override shipped once and
+  silently killed the scrolly; sticky already anchors the absolute .share-btn).
+- The scroll cue dismisses on user input events (wheel/touchmove/keydown), not
+  an IntersectionObserver — IO delivers stale intersection records right after
+  showCue and races it. Don't "simplify" it back.
 
 ## Conventions
 
@@ -60,6 +70,10 @@ with a ZIP input slides in whenever the hero form is off-screen.
   a point made elsewhere (see user's educational principles).
 - Geographic granularity is honest: mix/CO₂ = eGRID subregion (zip level),
   trends/prices/plants = state, typical-day = grid operator.
+- Texas gets special honesty: the ZIP's "predominant utility" is a land-area
+  guess, so TX shows a utility picker + "I pick my own plan (retail choice)"
+  fallback (no public dataset has per-ZIP retail plan prices — see
+  build/CLAUDE.md before "fixing" that).
 
 ## Local dev
 
