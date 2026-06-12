@@ -20,9 +20,6 @@
   --gold: #F2B23E;
   --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 14px 36px rgba(0, 0, 0, 0.35);
   --map-nodata: #232C33;
-  --ramp-base: #232C33;
-  --clean-hi: #3ECF8E;
-  --coal-hi: #CFC5B7;
   --plant-fill: #1E262D;
   --price-us: #8C99A3;
   --price-state: #5BA8DC;
@@ -48,9 +45,6 @@
   --gold: #B97E1F;
   --shadow: 0 1px 2px rgba(20, 30, 40, 0.06), 0 10px 28px rgba(20, 30, 40, 0.10);
   --map-nodata: #DCE2DF;
-  --ramp-base: #E3E8E5;
-  --clean-hi: #1E9E6A;
-  --coal-hi: #51483F;
   --plant-fill: #E8EDEA;
   --price-us: #7C8891;
   --price-state: #2E7CB5;

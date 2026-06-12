@@ -51,8 +51,9 @@ topbar with a ZIP input slides in whenever the hero form is off-screen.
 - Theming: dark default via `:root` CSS vars, light overrides via
   `[data-theme="light"]`. Theme-dependent SVG colors are set with `.style("fill"/"stroke", "var(--x)")`
   so they live-switch (bare SVG attrs don't resolve CSS vars). `usmap.refresh()`
-  re-rasterizes the two computed clean/coal ramps (d3.interpolateRgb reads the
-  current `--ramp-base`/`--clean-hi`/`--coal-hi`). A bootstrap script in `<head>`
+  re-applies map fills + legends on theme change (only `--map-nodata` is
+  theme-dependent; the clean/coal ramps are fixed constants in usmap.js,
+  aligned so darker = dirtier in BOTH themes). A bootstrap script in `<head>`
   reads `localStorage["ga-theme"]` (falling back to `prefers-color-scheme`) and
   sets `data-theme` before stylesheets load, preventing FOUC.
 - `.day-sticky` must stay `position: sticky` — do NOT add it to the share-button

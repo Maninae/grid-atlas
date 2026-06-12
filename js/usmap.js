@@ -2,6 +2,11 @@
    tooltips and state clicks; all instances share one tooltip element. */
 import { FUELS, STATE_ABBREV, co2Color, cleanShare, dominantFuel } from "./meta.js";
 
+// Fixed ramps, identical in both themes, aligned so darker = dirtier energy
+// (a theme-dependent clean ramp once flipped that meaning in dark mode).
+const CLEAN_LO = "#232C33", CLEAN_HI = "#3ECF8E";
+const COAL_LO = "#F2F0EB", COAL_HI = "#403326";
+
 const d3 = window.d3;
 const topojson = window.topojson;
 
@@ -49,11 +54,7 @@ export class USMap {
 
   themeVals() {
     const cs = getComputedStyle(document.documentElement);
-    return {
-      rampBase: cs.getPropertyValue("--ramp-base").trim(),
-      cleanHi: cs.getPropertyValue("--clean-hi").trim(),
-      noData: cs.getPropertyValue("--map-nodata").trim(),
-    };
+    return { noData: cs.getPropertyValue("--map-nodata").trim() };
   }
 
   refresh() {
@@ -80,8 +81,8 @@ export class USMap {
     if (v == null) return t.noData;
     switch (this.metric) {
       case "dominant": return FUELS[v].color;
-      case "clean": return d3.interpolateRgb(t.rampBase, t.cleanHi)(Math.min(v / 100, 1));
-      case "coal": return d3.interpolateRgb("#F2F0EB", "#403326")(Math.min(v / 100, 1));
+      case "clean": return d3.interpolateRgb(CLEAN_LO, CLEAN_HI)(Math.min(v / 100, 1));
+      case "coal": return d3.interpolateRgb(COAL_LO, COAL_HI)(Math.min(v / 100, 1));
       case "co2": return co2Color(v);
       default: return t.noData;
     }
@@ -128,10 +129,10 @@ export class USMap {
         `<span class="legend-item"><span class="legend-swatch" style="background:${FUELS[f].color}"></span>${FUELS[f].label}</span>`
       ).join("");
     } else if (this.metric === "clean") {
-      const mid = d3.interpolateRgb(t.rampBase, t.cleanHi)(0.5);
-      L.innerHTML = ramp([t.rampBase, mid, t.cleanHi], "0%", "100% clean");
+      const mid = d3.interpolateRgb(CLEAN_LO, CLEAN_HI)(0.5);
+      L.innerHTML = ramp([CLEAN_LO, mid, CLEAN_HI], "0%", "100% clean");
     } else if (this.metric === "coal") {
-      L.innerHTML = ramp(["#F2F0EB", "#9A8B79", "#403326"], "0% coal", "100%");
+      L.innerHTML = ramp([COAL_LO, "#9A8B79", COAL_HI], "0% coal", "100%");
     } else if (this.metric === "co2") {
       L.innerHTML = ramp(["#3ECF8E", "#E3C03F", "#D2603A", "#8E2F2A"], "low CO₂", "high");
     }
