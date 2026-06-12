@@ -1,58 +1,79 @@
-# ⚡ Grid Atlas
+<p align="center">
+  <img src="assets/og.png" alt="Grid Atlas — where does your electricity come from?" width="720">
+</p>
 
-**Where does your electricity come from?**
+# Grid Atlas
 
-Type your ZIP code and meet your grid: what makes your electricity (solar?
-coal? atoms?), how much CO₂ rides along with every kilowatt-hour, what it
-costs, the actual power plants doing the work — and the 25-year story of how
-it all changed.
+**Type your ZIP code. Meet your grid.**
 
-**Live site:** https://maninae.github.io/grid-atlas/
+<p align="center">
+  <a href="https://maninae.github.io/grid-atlas/"><strong>maninae.github.io/grid-atlas →</strong></a>
+</p>
 
-## What's inside
+Flip a switch and power just… appears. But every kilowatt-hour has a story —
+a dam, a wind ridge, a coal seam, an atom. Grid Atlas pulls back the curtain
+on the US electric grid using free public EPA and EIA data, with no signup
+and no API calls — your ZIP never leaves your browser.
 
-- **ZIP-level lookup** using the EPA's own ZIP → grid-region crosswalk (the
-  same data behind their Power Profiler, minus the clunky UI)
-- **2025 fuel mix** for every state (EIA), with trends back to 2001
-- **CO₂ per kWh** for all 27 US grid regions (EPA eGRID 2023 — the newest
-  official release)
-- **A typical day on your grid**: hourly fuel mix averaged over all of 2025
-  (EIA-930) — watch solar swell at noon and batteries take the evening
-- **All 13,400+ US power plants** mapped by size and fuel
-- **Researched grid histories for all 50 states + D.C.** — the dams, deals,
-  and disasters that shaped each grid, every claim source-linked and
-  fact-checked
-- **ZIP-level utility rates** (NREL/OpenEI 2024) — see what *your* utility's
-  average price is vs. your state's
-- **Dark & light themes**, and every chart exports as a shareable PNG
+---
+
+## What you can see
+
+- **Your fuel mix** — the actual share of solar, wind, hydro, nuclear, gas, coal,
+  and the rest that makes your local electricity, down to your EPA eGRID subregion
+- **Your carbon cost** — grams of CO₂ per kilowatt-hour, ranked against all 27 US
+  grid regions (Vermont vs. West Virginia is a 45× spread)
+- **A typical day on your grid** — hour-by-hour fuel mix averaged over all of 2025,
+  with a scroll-driven walk through nuclear's overnight hum, solar's noon bulge,
+  and the evening battery handoff
+- **25 years of change** — your state's full fuel-mix trend from 2001 to today,
+  next to residential electricity prices over the same window
+- **Every US power plant** — all 13,400+ operable utility-scale plants mapped by
+  size and fuel, with your state's biggest ones called out
+- **A researched grid history for every state + D.C.** — the dams, deals, and
+  disasters that shaped each grid, every claim source-linked
+- **A Texas-only utility picker** — TX is deregulated, so the EPA's "predominant
+  utility" pick misattributes about a third of ZIPs; pick yours from the list or
+  choose "I pick my own plan (retail choice)"
+- **Dark/light themes**, and every chart exports as a shareable PNG
+
+---
+
+## Where the numbers come from
 
 Everything is free, public US government data, baked into static JSON at
-build time. The site calls no data APIs and collects nothing — your ZIP never
-leaves your browser. (Third-party CDNs serve only the JS libraries and fonts.)
+build time. The live site makes zero data API calls.
 
-## Run locally
-
-```bash
-python3 -m http.server 8000
-# open http://localhost:8000
-```
-
-## Rebuild the data
-
-See [`build/CLAUDE.md`](build/CLAUDE.md). One `download.sh` plus five small
-Python scripts regenerate everything in `data/` from EPA/EIA sources.
-
-## Sources
-
-| Data | Source | Vintage |
+| What | Source | Vintage |
 |---|---|---|
-| Fuel mix & trends | [EIA state generation data](https://www.eia.gov/electricity/data/state/) + [EIA API v2](https://www.eia.gov/opendata/) | 2001–2025 |
-| CO₂ rates, ZIP crosswalk, region boundaries | [EPA eGRID / Power Profiler](https://www.epa.gov/egrid) | 2023 |
-| Hourly grid data | [EIA-930 Hourly Grid Monitor](https://www.eia.gov/electricity/gridmonitor/) | 2025 |
-| Power plants | [EIA US Energy Atlas](https://atlas.eia.gov/datasets/eia::power-plants/about) | 2026 |
-| Prices | [EIA retail sales](https://www.eia.gov/electricity/data.php) | 2001–2025 |
+| Fuel mix & 25-year trends | [EIA state generation data](https://www.eia.gov/electricity/data/state/) + [EIA API v2](https://www.eia.gov/opendata/) | 2001–2025 |
+| CO₂ per kWh, ZIP → grid region, subregion boundaries | [EPA eGRID](https://www.epa.gov/egrid) | 2023 (newest official release) |
+| Hour-by-hour grid mix | [EIA-930 Hourly Grid Monitor](https://www.eia.gov/electricity/gridmonitor/) | 2025 |
+| Power plant locations & sizes | [EIA US Energy Atlas](https://atlas.eia.gov/datasets/eia::power-plants/about) | 2026 |
+| Residential electricity prices | [EIA retail sales](https://www.eia.gov/electricity/data.php) | 2001–2025 |
 | Utility rates by ZIP | [NREL / OpenEI](https://data.openei.org/submissions/8563) (CC-BY 4.0) | 2024 |
 
-Not affiliated with the EPA or EIA. Data is presented as published; see the
-site's methodology section for honest footnotes (utility-scale only, ZIP
-boundary approximations, etc.).
+Numbers count utility-scale generation only — rooftop solar is tracked
+separately and not included. ZIPs that straddle two grid regions get their
+main one, same as the EPA's own lookup. Not affiliated with the EPA or EIA.
+
+---
+
+## How it's built
+
+No framework, no bundler, no backend. Static HTML + ES modules + D3 v7 +
+topojson-client, hosted on GitHub Pages. A small Python pipeline in
+[`build/`](build/CLAUDE.md) turns the raw EPA/EIA files into the compact JSON
+in `data/` — six scripts, one `download.sh`, runs in a few minutes when new
+data drops.
+
+```bash
+python3 -m http.server 8000   # then open http://localhost:8000
+```
+
+---
+
+## License
+
+[MIT](LICENSE). Data is owned by its respective US government / NREL sources
+under their original terms.
