@@ -47,7 +47,7 @@ export function renderStackedArea(el, { xs, series, xLabel, xTickFormat, order, 
       const h = pt[1] - pt[0];
       if (h > best) { best = h; bestI = i; }
     });
-    if (best > 0.075) {
+    if (best > 0.055) {
       const pt = layer[bestI];
       svg.append("text")
         .attr("class", "band-label")
