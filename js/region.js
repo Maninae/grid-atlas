@@ -42,6 +42,7 @@ export function renderRegion(sel, data) {
   const stateName = isUS ? "the United States" : state.name;
 
   $("region-panel").hidden = false;
+  $("region-deep").hidden = false; // the full-width deep-dive section below the glance
 
   // ---------- header ----------
   const place = sub ? SUBREGION_NAMES[sel.sub] || sub.fullName : stateName;
@@ -112,17 +113,21 @@ export function renderRegion(sel, data) {
     : "Each dot is a state.";
 
   // ---------- typical day (sticky scrolly showcase) ----------
-  const opCode = sub ? typicalday.sub2op[sel.sub] : isUS ? "US" : null;
+  // ZIP -> subregion -> operator is exact; a plain state click falls back to
+  // its dominant operator (state2op). US shows the national curve.
+  const opCode = sub ? typicalday.sub2op[sel.sub]
+    : isUS ? "US"
+    : typicalday.state2op[sel.state] || null;
   const dayWrap = $("day-scrolly");
   if (opCode && typicalday.operators[opCode]) {
     dayWrap.hidden = false;
     renderDayChart(typicalday.operators[opCode]);
   } else {
-    dayWrap.hidden = true; // no hourly data (AK/HI/PR) or state-only view
+    dayWrap.hidden = true; // no hourly data (AK/HI/PR island grids)
   }
-  $("day-missing").hidden = !(
-    (sub && !opCode) || sel.state === "AK" || sel.state === "HI"
-  );
+  // Show the "island grids aren't tracked" note whenever we expected a curve
+  // for a real place but have none (AK/HI state or ZIP).
+  $("day-missing").hidden = !(!opCode && !isUS);
 
   // ---------- trend ----------
   renderStackedArea($("trend-chart"), {

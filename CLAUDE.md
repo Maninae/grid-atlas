@@ -12,9 +12,11 @@ index.html          all markup + copy (no templating)
 css/                base.css (tokens/layout) · components.css · charts.css
 js/
 ├── main.js         boot, data loading, selection state, deep links (#94110/#CA),
-│                   sticky-topbar reveal, map-click feedback (desktop: partial
-│                   scroll pinning the map-grid top + bg pulse + state flash +
-│                   "see it below" cue; mobile ≤760px: full scroll to panel)
+│                   sticky-topbar reveal, map-click feedback. ≥1200px (SIDE_BY_SIDE):
+│                   maps + at-a-glance render side by side, so a click just
+│                   pulses+flashes — NO scroll/cue (detail is already beside).
+│                   1000–1200px desktop: partial scroll pinning the map-grid top +
+│                   "see it below" cue; mobile ≤760px: full scroll to panel
 ├── meta.js         fuel colors/labels, subregion friendly names, CO2 ramp
 ├── format.js       plain-language sentence builders + number formats
 ├── usmap.js        US choropleth class — 4 instances in a 2x2 grid, one per
@@ -42,6 +44,15 @@ The four national maps share one screen (2x2 grid). Region panel: big mix tile
 let it stretch into dead space) with carbon+price stacked beside it, then the
 day-on-grid sticky scrolly showcase, then full-width trend/plants/story. A slim
 topbar with a ZIP input slides in whenever the hero form is off-screen.
+
+Side-by-side (≥1200px): `index.html` wraps `.map-grid-section` + `#region-panel`
+in `<div class="explore">` (a 2-col grid, maps left / at-a-glance right). The
+at-a-glance cards (`.cards cards-glance` = mix + carbon + cost) are the ONLY
+thing in `#region-panel` now; the deep dives (day-on-grid, trend, plants, story)
+were split into a sibling `<section id="region-deep">` that stays full-width
+below. region.js un-hides BOTH on render. <1200px `.explore` is plain block flow
+so everything stacks exactly as before (mobile unchanged). All the chart `id`s
+are unchanged — region.js targets by id, so the DOM move is transparent to it.
 
 - No framework, no bundler. ES modules + D3 v7 / topojson-client from jsDelivr.
 - All data ships as static JSON in `data/` — the live site makes zero API calls.
@@ -71,6 +82,12 @@ topbar with a ZIP input slides in whenever the hero form is off-screen.
   a point made elsewhere (see user's educational principles).
 - Geographic granularity is honest: mix/CO₂ = eGRID subregion (zip level),
   trends/prices/plants = state, typical-day = grid operator.
+- The "a day on your grid" chart resolves an operator via, in order: ZIP →
+  `sub2op[subregion]`, US → "US", plain state → `state2op[state]` (the state's
+  dominant operator, baked from the ZIP crosswalk in build_typical_day.py). It's
+  labeled by the operator's own name, so naming the dominant operator stays
+  honest even for split states. AK/HI have no EIA-930 data → chart hidden, note
+  shown.
 - Texas gets special honesty: the ZIP's "predominant utility" is a land-area
   guess, so TX shows a utility picker + "I pick my own plan (retail choice)"
   fallback (no public dataset has per-ZIP retail plan prices — see

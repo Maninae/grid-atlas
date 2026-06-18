@@ -67,6 +67,9 @@
   <p id="zip-error" class="zip-error" role="alert"></p>
 </header>
 
+<!-- ===== EXPLORE: maps + at-a-glance, side by side on wide screens (≥1200px) ===== -->
+<div class="explore">
+
 <!-- ======================= FOUR MAPS ======================= -->
 <section class="map-grid-section" aria-label="The national picture">
   <h2>America's power, in four maps</h2>
@@ -118,7 +121,7 @@
     <p class="region-sub" id="region-sub"></p>
   </header>
 
-  <div class="cards">
+  <div class="cards cards-glance">
     <section class="card card-mix">
       <h3>What makes your electricity
         <button class="info-btn" data-info="rooftop" aria-label="Where is rooftop solar?">i</button>
@@ -149,6 +152,11 @@
       <p class="card-sentence" id="price-sentence"></p>
     </section>
   </div>
+</main>
+</div><!-- /.explore -->
+
+<!-- ============ YOUR GRID — DEEP DIVE (full width, below the fold) ============ -->
+<section id="region-deep" class="region-deep" hidden>
 
   <!-- showcase vis: sticky chart, scroll-driven hour highlights -->
   <section class="day-scrolly" id="day-scrolly" hidden>
@@ -209,7 +217,7 @@
       <p class="sig-plant" id="story-plant"></p>
     </section>
   </div>
-</main>
+</section><!-- /#region-deep -->
 
 <!-- ======================= SHOWCASE ======================= -->
 <section class="showcase">

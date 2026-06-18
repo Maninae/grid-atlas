@@ -54,6 +54,12 @@ Python 3.9 — no modern-syntax features (no `match`, no `X | Y` type unions).
   exist per balancing authority, not per eGRID subregion. Each subregion maps to
   its dominant grid operator (CAMX→CAISO, RFCE/RFCW→PJM, …). Approximate by
   design; AK/HI/PR have no EIA-930 hourly data and the UI hides that chart.
+- **State → operator** (`state2op` in typicalday.json): so a plain *state* click
+  (not just a ZIP) gets a day curve. `build_typical_day.build_state2op()` reads
+  `raw/zip.csv` and picks each state's dominant operator by ZIP count (subregion
+  → operator). 41/49 states are ≥75% one operator; the few split ones (MS/NV/WY)
+  still get their plurality operator — honest because the chart is labeled by the
+  operator's name, not "the whole state". AK/HI excluded (no hourly data).
 - **ZIP quirks**: ~10–15% of ZIPs straddle subregions; we keep EPA's
   "predominant" pick (rows with `Predominant Utility == 1`), same as EPA's tool.
 - **EPA/EIA static files have no CORS** — that's why everything is baked at

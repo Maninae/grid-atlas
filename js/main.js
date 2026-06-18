@@ -35,6 +35,11 @@ async function boot() {
 
   let selection = null;
 
+  // ≥1200px the maps + at-a-glance render side by side, so a map click needs no
+  // scroll — the detail is already beside the maps. Below that, keep the
+  // partial-scroll + "see below" cue (desktop) / full scroll (mobile).
+  const SIDE_BY_SIDE = window.matchMedia("(min-width: 1200px)");
+
   // Map clicks stay put (no jarring scroll); instead the page pulses, the
   // state flashes in all four maps, and a "see it below" cue offers the jump.
   const onStateClick = (ab) => select({ state: ab }, { scroll: false, flash: true });
@@ -117,7 +122,9 @@ async function boot() {
       $("region-panel").scrollIntoView({ behavior: "smooth", block: "start" });
     } else if (flash && sel.state !== "US") {
       pulseBackground();
-      if (window.matchMedia("(max-width: 760px)").matches) {
+      if (SIDE_BY_SIDE.matches) {
+        // Wide: the detail is already beside the maps — nothing to scroll to.
+      } else if (window.matchMedia("(max-width: 760px)").matches) {
         // Mobile: one map per screen anyway, so just go to the panel
         $("region-panel").scrollIntoView({ behavior: "smooth", block: "start" });
       } else {

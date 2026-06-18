@@ -6,12 +6,13 @@ Negative values (storage charging, metering noise) are clamped to zero.
 
 Output: { "operators": { "CISO": {"name": ..., "fuels": [...],
                                    "hours": [[h0 shares...], ...24 rows] } },
-          "sub2op": { "CAMX": "CISO", ... } }
+          "sub2op": { "CAMX": "CISO", ... },
+          "state2op": { "CA": "CISO", ... } }
 Shares are percentages rounded to 0.1.
 """
 import csv
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 from common import DATA, OPERATORS, RAW, SUBREGION_TO_OPERATOR
 
@@ -49,6 +50,25 @@ def parse_mw(v):
         return float(v.replace(",", ""))
     except ValueError:
         return 0.0
+
+
+def build_state2op():
+    """State -> dominant grid operator, by ZIP count in the EPA crosswalk.
+
+    A state can span several operators; we pick the one covering the most ZIPs
+    so a plain state click still gets a representative typical-day curve. The
+    chart is labeled by the operator's own name (e.g. "MISO, the Midwest grid"),
+    so naming the dominant operator stays honest even where a state is split.
+    States with no EIA-930 operator (AK, HI, territories) are omitted, and the
+    UI shows its "island grids aren't tracked" note instead.
+    """
+    counts = defaultdict(Counter)
+    with open(RAW / "zip.csv", newline="", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            op = SUBREGION_TO_OPERATOR.get(row["SUBRGN"])
+            if op:
+                counts[row["state"]][op] += 1
+    return {st: c.most_common(1)[0][0] for st, c in counts.items() if c}
 
 
 def main():
@@ -113,6 +133,7 @@ def main():
 
     out = {"operators": operators,
            "sub2op": {k: v for k, v in SUBREGION_TO_OPERATOR.items() if v},
+           "state2op": build_state2op(),
            "year": 2025}
     path = DATA / "typicalday.json"
     path.write_text(json.dumps(out, separators=(",", ":")))
