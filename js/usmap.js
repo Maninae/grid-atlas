@@ -116,8 +116,12 @@ export class USMap {
     this.tooltip
       .style("opacity", 1)
       .style("left", `${ev.pageX + 14}px`)
-      .style("top", `${ev.pageY - 10}px`)
       .html(`<strong>${name}</strong><br>${line}<br><span class="tip-cta">click to explore</span>`);
+    // keep the tooltip in the viewport when hovering a state near the bottom edge
+    const tipH = this.tooltip.node().offsetHeight || 90;
+    const maxTop = window.scrollY + window.innerHeight - tipH - 12;
+    const top = Math.max(window.scrollY + 8, Math.min(ev.pageY - 10, maxTop));
+    this.tooltip.style("top", `${top}px`);
   }
 
   renderLegend() {

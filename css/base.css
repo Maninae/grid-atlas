@@ -39,7 +39,7 @@
   --ink: #1C2630;
   --ink-soft: #58656F;
   --rule: #D9DEDC;
-  --accent: #178F5F;
+  --accent: #0F764E; /* darkened for WCAG AA on light card/paper (was #178F5F, 3.7:1) */
   --accent2: #2E7CB5;
   --on-accent: #FFFFFF;
   --gold: #B97E1F;

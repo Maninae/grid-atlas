@@ -28,7 +28,8 @@ export function initZipForm(formEl, inputEl, errEl, onResolve) {
   inputEl.addEventListener("focus", preloadZips, { once: true });
   formEl.addEventListener("submit", async (ev) => {
     ev.preventDefault();
-    const zip = inputEl.value.trim().padStart(5, "0");
+    let zip = inputEl.value.trim();
+    if (/^\d{4}$/.test(zip)) zip = "0" + zip; // tolerate a dropped leading zero (2139 → 02139)
     if (!/^\d{5}$/.test(zip)) {
       errEl.textContent = "Please type a 5-digit ZIP code.";
       return;

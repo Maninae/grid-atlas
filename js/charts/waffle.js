@@ -57,7 +57,7 @@ export function renderWaffle(el, mix) {
     item.innerHTML =
       `<span class="legend-swatch" style="background:${r.color}"></span>` +
       `<span class="legend-label">${r.label}</span>` +
-      `<span class="legend-value">${Math.round(r.value)}%</span>` +
+      `<span class="legend-value">${r.squares}%</span>` +
       (r.sub ? `<span class="legend-sub">${r.sub}</span>` : "");
     item.title = r.title;
     legend.appendChild(item);

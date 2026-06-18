@@ -124,6 +124,7 @@ export function renderRegion(sel, data) {
     renderDayChart(typicalday.operators[opCode]);
   } else {
     dayWrap.hidden = true; // no hourly data (AK/HI/PR island grids)
+    $("day-operator").textContent = ""; // don't leave a stale operator name for screen readers
   }
   // Show the "island grids aren't tracked" note whenever we expected a curve
   // for a real place but have none (AK/HI state or ZIP).

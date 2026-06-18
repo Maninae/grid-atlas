@@ -53,7 +53,10 @@ export function renderStackedArea(el, { xs, series, xLabel, xTickFormat, order, 
         .attr("class", "band-label")
         .attr("x", xScale(pt.data.x))
         .attr("y", yScale((pt[0] + pt[1]) / 2))
-        .attr("text-anchor", bestI === 0 ? "start" : bestI === xs.length - 1 ? "end" : "middle")
+        // anchor by position so a band label never spills past the plot edge (e.g. "Batteries")
+        .attr("text-anchor",
+          xScale(pt.data.x) > W - m.right - 38 ? "end"
+          : xScale(pt.data.x) < m.left + 38 ? "start" : "middle")
         .attr("dy", "0.35em")
         .attr("fill", pickText(FUELS[layer.key].color))
         .text(FUELS[layer.key].label);
